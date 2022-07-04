@@ -70,7 +70,11 @@ const details = [
                         <ul>
                             <li>Rust | C | Arduino</li>
                         </ul>
-                        <h4>Git</h4>
+                        <h4>Amazon Web Services</h4>
+                        <ul>
+                            <li>(This website)</li>
+                        </ul>
+                        <h4>Version Control</h4>
                     </>,
         picture: bash_logo()
     },
