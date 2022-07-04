@@ -1,31 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import "./Nav.scss"
 import { HashLink as Link } from 'react-router-hash-link';
 import { useLocation } from 'react-router-dom';
 
 interface NavPropTypes {
-
+    hidden: boolean;
 }
 
 const Nav = (props: NavPropTypes) => {
-    let [active, setActive] = useState(useLocation().hash);
+    const [active, setActive] = useState(useLocation().hash);
 
     const location = useLocation().hash;
 
     useEffect(() => {
-        console.log(location);
         setActive(location);
     }, [location]);
 
 
 
+
     const pages = ["home", "experience", "about"];
+    console.log(props.hidden);
 
     return (
-        <div className="nav-section">
-        <ul className="nav nav-pills flex-column">
+        <div className={"nav-section " + (props.hidden? "visually-hidden" : "")}>
+        <ul className="nav nav-pills">
             { pages.map((page, index) => {
-                  let hash = "#" + page;
+                let hash = "#" + page;
                 return (
                     <li className="nav-item" key={index}>
                         <Link to={`#${page}`}
@@ -37,7 +38,6 @@ const Nav = (props: NavPropTypes) => {
             }
             )}
         </ul>
-
         </div>
     );
 };

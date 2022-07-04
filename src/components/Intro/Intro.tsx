@@ -54,7 +54,7 @@ const Intro = (props: IntroPropTypes) => {
             <p className="lead">Well, is it?</p>
             <form name="is-code-good" onSubmit={handleSubmit}>
                 <input type="text" value={input} placeholder="[y]es/[n]o"
-                       onChange={(e) => {
+                        onChange={(e) => {
                     setInput(e.target.value);
                 }}/>
         <input type="submit" style={{display: "none"}}/>

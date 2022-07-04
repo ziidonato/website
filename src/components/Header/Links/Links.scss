@@ -1,8 +1,7 @@
 .links {
     display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    width: 15%;
+    width: 30%;
+    justify-content: end;
 
     a{
         display: flex;
@@ -11,8 +10,7 @@
         text-decoration: none;
         font-size: 1.2rem;
         font-weight: bold;
-        margin-bottom: 1rem;
-        margin-left: auto;
+        margin: 5%;
 
         i {
             padding: 1%;

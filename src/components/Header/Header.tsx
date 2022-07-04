@@ -1,15 +1,27 @@
-import { FC } from 'react';
 import './Header.scss';
+import { useEffect,useState } from 'react';
 import { Nav } from "./Nav/Nav";
 import { Links } from "./Links/Links";
 
-const Header:FC = () => {
+interface HeaderProps {
+}
+
+const Header = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setIsMobile(window.innerWidth < 768);
+        });
+    });
+
+    console.log(isMobile);
+
     return(
     <header>
-        <Nav />
-        <div className="header container">
+        <Nav hidden={isMobile}/>
+        <div className="header">
             <h1 className="Display-1">Zii Donato</h1>
-            <h3>'Cause it ain't no dev unless it's web dev</h3>
         </div>
         <Links />
     </header>

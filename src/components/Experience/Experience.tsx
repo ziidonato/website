@@ -1,13 +1,13 @@
 import ThreeTile from '../Templates/ThreeTile/ThreeTile';
-import javascript_logo from "../../assets/js";
-import bash_logo from "../../assets/bash";
-import python_logo from "../../assets/python";
+import javascript_logo from "../../assets/svgs/js";
+import bash_logo from "../../assets/svgs/bash";
+import python_logo from "../../assets/svgs/python";
 
 const details = [
     {
         title: "Python",
         description: <><p className="lead">My first language, and preferred logic language</p>
-                        <div>
+                        <div className="container">
                             <h4>
                                 <a href="https://github.com/gatlace/Chess" target="_blank" rel="noreferrer">
                                     Chess<span className="badge text-bg-primary">WIP</span>
@@ -27,8 +27,8 @@ const details = [
     {
         title: "JavaScript",
         description: <>
-                        <p className="lead">Wait, TypeScript didn't exist at one point?</p>
-                        <div>
+                        <p className="lead">For everything web dev</p>
+                        <div className="container">
                             <h4>
                                 <a href="http://poker-js.vercel.app/" target="_blank" rel="noreferrer">
                                     Poker</a> | 
@@ -37,7 +37,7 @@ const details = [
                                     </a>
                                     <span className="badge text-bg-success">Finished</span>
                             </h4>
-                                <p>3 Player Poker, can be expanded for more players.</p>
+                                <div>3 Player Poker, can be expanded for more players.</div>
                             <ul>
                                 <li>My first web app</li>
                                 <li>Built with React</li>
@@ -50,9 +50,10 @@ const details = [
                                     </a>
                                     <span className="badge text-bg-success">Finished</span>
                             </h4>
-                            <p>A frontend that lets you view recent commits to github projects.</p>
+                            <div>A frontend that lets you view recent commits to github projects.</div>
                             <ul>
-                                Features:
+                                <li>Built with Vue</li>
+                                <li>Features:</li>
                                 <ul>
                                     <li>View all public repos for a user</li>
                                     <li>Search users</li>
@@ -63,12 +64,11 @@ const details = [
         picture: javascript_logo()
     },
     {
-        title: "Other Skills",
+        title: "Others",
         description: <>
-                        <p className="lead">
-                            Are you SURE you've tried restarting?
-                        </p>
-                        <h4>Linux<span className="badge text-bg-info">ARCH BTW</span></h4>
+                        <p className="lead">Other skills I've picked up over the years</p>
+                        <div className="container">
+                        <h4>Linux</h4>
                         <ul>
                             <li>
                                 <p>Bash scripting</p>
@@ -86,6 +86,7 @@ const details = [
                         <ul>
                             <li>Continuous Integration/Deployment</li>
                         </ul>
+                        </div>
                     </>,
         picture: bash_logo()
     },
