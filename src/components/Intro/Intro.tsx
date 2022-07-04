@@ -35,9 +35,9 @@ const Intro = (props: IntroPropTypes) => {
             return;
         }
 
-        if (input.toLowerCase() === "yes") {
+        if (input.toLowerCase() === "yes" || input.toLowerCase() === "y") {
             setIsGood(true);
-        } else if (input.toLowerCase() === "no") {
+        } else if (input.toLowerCase() === "no" || input.toLowerCase() === "n") {
             setIsGood(false);
         } else {
             setReturnString("Huh?")
@@ -53,7 +53,7 @@ const Intro = (props: IntroPropTypes) => {
         return (<div className="well-is-it">
             <p className="lead">Well, is it?</p>
             <form name="is-code-good" onSubmit={handleSubmit}>
-                <input type="text" value={input} placeholder="yes/no"
+                <input type="text" value={input} placeholder="[y]es/[n]o"
                        onChange={(e) => {
                     setInput(e.target.value);
                 }}/>
