@@ -15,8 +15,6 @@ const Header = () => {
         });
     });
 
-    console.log(isMobile);
-
     return(
     <header>
         <Nav hidden={isMobile}/>

@@ -9,18 +9,33 @@ interface NavPropTypes {
 
 const Nav = (props: NavPropTypes) => {
     const [active, setActive] = useState(useLocation().hash);
+    const [location, setLocation] = useState(useLocation().hash);
+    const [pagesScrolled, setPagesScrolled] = useState(Math.floor(window.scrollY / window.innerHeight + 0.2));
+    const pages = ["home", "experience", "about"];
 
-    const location = useLocation().hash;
 
     useEffect(() => {
         setActive(location);
     }, [location]);
 
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+        setPagesScrolled(Math.floor(window.scrollY / window.innerHeight + 0.1));
+        })
+    });
+    
 
+    useEffect(() => {
 
+            if (pagesScrolled < 1 ) {
+                setLocation("#home");
+            } else if (pagesScrolled < 2) {
+                setLocation("#experience");
+            } else {
+                setLocation("#about");
+            }
+    }, [pagesScrolled]);
 
-    const pages = ["home", "experience", "about"];
-    console.log(props.hidden);
 
     return (
         <div className={"nav-section " + (props.hidden? "visually-hidden" : "")}>

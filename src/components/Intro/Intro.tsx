@@ -29,7 +29,6 @@ const Intro = (props: IntroPropTypes) => {
 
         e.preventDefault();
 
-        console.log(input);
 
         if (input.length === 0) {
             return;
