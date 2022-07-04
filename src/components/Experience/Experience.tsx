@@ -15,7 +15,7 @@ const details = [
                             </h4>
                             <p>A simple chess game written in Python.</p>
                             <h4>Credit Game Backend<span className="badge text-bg-warning">Archived</span></h4>
-                            A simple Chess game written in Python
+                            <p>A finance game that simulates credit score, interest rate, and more</p>
                             <ul>
                                 <li>Built with Django</li>
                                 <li>Hackathon Project for Capital One</li>
@@ -30,25 +30,33 @@ const details = [
                         <p className="lead">Wait, TypeScript didn't exist at one point?</p>
                         <div>
                             <h4>
-                                <a href="https://github.com/gatlace/poker-js" target="_blank" rel="noreferrer">
-                                    Poker<span className="badge text-bg-success">Finished</span>
-                                </a>
+                                <a href="http://poker-js.vercel.app/" target="_blank" rel="noreferrer">
+                                    Poker</a> | 
+                                    <a href="http://github.com/gatlace/poker-js" target="_blank" rel="noreferrer">
+                                    <i className="fa-solid fa-code"/>
+                                    </a>
+                                    <span className="badge text-bg-success">Finished</span>
                             </h4>
-                                <p> - My first web app, built with React</p>
-                            <h4>
-                                <a href="https://github.com/gatlace/commits-frontend" target="_blank" rel="noreferrer">
-                                    Commits Frontend<span className="badge text-bg-success">Finished</span>
-                                </a>
-                            </h4>
-                            <p> - A frontend that lets you view recent commits to github projects</p>
-                            Features:
+                                <p>3 Player Poker, can be expanded for more players.</p>
                             <ul>
-                                <li>
-                                    <p> View all public repos for a user</p>
-                                </li>
-                                <li>
-                                    <p> Search users</p>
-                                </li>
+                                <li>My first web app</li>
+                                <li>Built with React</li>
+                            </ul>
+                            <h4>
+                                <a href="http://github-commits-frontend.vercel.app" target="_blank" rel="noreferrer">
+                                    Commits Frontend</a> | 
+                                    <a href="http://github.com/gatlace/commits-frontend" target="_blank" rel="noreferrer">
+                                    <i className="fa-solid fa-code"/>
+                                    </a>
+                                    <span className="badge text-bg-success">Finished</span>
+                            </h4>
+                            <p>A frontend that lets you view recent commits to github projects.</p>
+                            <ul>
+                                Features:
+                                <ul>
+                                    <li>View all public repos for a user</li>
+                                    <li>Search users</li>
+                                </ul>
                             </ul>
                         </div>
                     </>,
@@ -75,6 +83,9 @@ const details = [
                             <li>(This website)</li>
                         </ul>
                         <h4>Version Control</h4>
+                        <ul>
+                            <li>Continuous Integration/Deployment</li>
+                        </ul>
                     </>,
         picture: bash_logo()
     },
