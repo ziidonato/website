@@ -10,7 +10,7 @@ interface LinksPropTypes {
 
 const Links = (props: LinksPropTypes) => (
     <div className="links">
-        <a href="https://docs.google.com/document/d/e/2PACX-1vTX8bQOaDyokDKjB5A9Nx-k8U5CbvDqUjK5_UIYY0Uuhfi3WFB4drlk-pPHHC9V1PZ1EdsFlAkcupTe/pub"
+        <a href="https://drive.google.com/file/d/1g7Bq3dz_CShzgYLh8_THr2MZWPCa2RFv/view?usp=sharing"
            target="_blank" rel="noreferrer">
             <i className="fa-solid fa-file"></i>
         </a>
