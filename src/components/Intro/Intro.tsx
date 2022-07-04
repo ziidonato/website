@@ -10,7 +10,16 @@ const Intro = (props: IntroPropTypes) => {
     const [isClicked, setIsClicked] = useState(false);
     const [input, setInput] = useState("");
     const [submitted, setSubmitted] = useState(false);
+    const [returnString, setReturnString] = useState("");
     const [isGood, setIsGood] = useState(false);
+
+    useEffect(() => {
+        if (isGood) {
+            setReturnString("Yay! :)");
+        } else {
+            setReturnString("Aww :(");
+        }
+    }, [isGood]);
 
     const handleClick = () => {
         setIsClicked(true);
@@ -28,9 +37,12 @@ const Intro = (props: IntroPropTypes) => {
 
         if (input.toLowerCase() === "yes") {
             setIsGood(true);
-        } else {
+        } else if (input.toLowerCase() === "no") {
             setIsGood(false);
+        } else {
+            setReturnString("Huh?")
         }
+        
 
         setInput("");
         setSubmitted(true);
@@ -68,7 +80,7 @@ const Intro = (props: IntroPropTypes) => {
                     </span>
                 </p>
             }
-            { submitted? isGood? <p className="lead">Yay! :)</p> : <p className="lead">Aww :(</p> : null }
+            { submitted? <p className="lead">{ returnString }</p> : null }
         </>
     );
 }
