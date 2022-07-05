@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import "../global.scss"
 import "./Intro.scss"
 import About from '../About/About';
@@ -11,20 +11,15 @@ const Intro = (props: IntroPropTypes) => {
     const [isClicked, setIsClicked] = useState(false);
     const [input, setInput] = useState("");
     const [submitted, setSubmitted] = useState(false);
-    const [returnString, setReturnString] = useState("");
-    const [isGood, setIsGood] = useState(false);
+    const [isGood, setIsGood] = useState<boolean | null>(null);
+    const stringOutput = isGood === null
+        ? "Huh?"
+        : isGood
+            ? "Yay! :)"
+            : "Aww :("
 
-    useEffect(() => {
-        if (isGood) {
-            setReturnString("Yay! :)");
-        } else {
-            setReturnString("Aww :(");
-        }
-    }, [isGood]);
-
-    const handleClick = () => {
-        setIsClicked(true);
-    }
+    const handleClick = () => setIsClicked(true)
+    
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
@@ -39,8 +34,6 @@ const Intro = (props: IntroPropTypes) => {
             setIsGood(true);
         } else if (input.toLowerCase() === "no" || input.toLowerCase() === "n") {
             setIsGood(false);
-        } else {
-            setReturnString("Huh?")
         }
 
 
@@ -50,27 +43,26 @@ const Intro = (props: IntroPropTypes) => {
     }
 
     const wellIsIt = () => {
-        return (<div className="well-is-it">
-            <p className="lead">Well, is it?</p>
-            <form name="is-code-good" onSubmit={handleSubmit}>
-                <input type="text" value={input} placeholder="[y]es/[n]o"
-                    onChange={(e) => {
-                        setInput(e.target.value);
-                    }} />
-                <input type="submit" style={{ display: "none" }} />
-            </form>
-        </div>)
+        return (
+            <div className="well-is-it">
+                <p className="lead">Well, is it?</p>
+                <form name="is-code-good" onSubmit={handleSubmit}>
+                    <input type="text" value={input} placeholder="[y]es/[n]o"
+                        onChange={(e) => setInput(e.target.value)} />
+                    <input type="submit" style={{ display: "none" }} />
+                </form>
+            </div>
+        )
     }
 
-    return (            
+    return (
         <div className="component" id='home'>
             <h1 className="display-1">Hi!</h1>
             <h2 className="display-4"> I write code. </h2>
             {isClicked ? wellIsIt() :
                 <p className="lead">{"Is it good? "}
                     <span>
-                        <a
-                            href="https://github.com/gatlace"
+                        <a href="https://github.com/gatlace"
                             target="_blank"
                             rel="noreferrer"
                             onClick={handleClick}
@@ -80,7 +72,7 @@ const Intro = (props: IntroPropTypes) => {
                     </span>
                 </p>
             }
-            {submitted ? <p className="lead">{returnString}</p> : null}
+            {submitted && <p className="lead">{stringOutput}</p>}
         </div>
     );
 }
