@@ -30,8 +30,7 @@ const details = [
                         <p className="lead">For everything web dev</p>
                         <div className="container">
                             <h4>
-                                <a href="http://poker-js.vercel.app/" target="_blank" rel="noreferrer">
-                                    Poker</a> | 
+                                    {"Poker | "}
                                     <a href="http://github.com/gatlace/poker-js" target="_blank" rel="noreferrer">
                                     <i className="fa-solid fa-code"/>
                                     </a>
@@ -44,7 +43,7 @@ const details = [
                             </ul>
                             <h4>
                                 <a href="http://github-commits-frontend.vercel.app" target="_blank" rel="noreferrer">
-                                    Commits Frontend</a> | 
+                                    Commits Frontend</a>{" | "}
                                     <a href="http://github.com/gatlace/commits-frontend" target="_blank" rel="noreferrer">
                                     <i className="fa-solid fa-code"/>
                                     </a>
