@@ -63,7 +63,7 @@ const Intro = (props: IntroPropTypes) => {
     }
 
     return (            
-        <div className="component">
+        <div className="component" id='home'>
             <h1 className="display-1">Hi!</h1>
             <h2 className="display-4"> I write code. </h2>
             {isClicked ? wellIsIt() :

@@ -58,7 +58,7 @@ interface AboutPropTypes {
 const About = (props: AboutPropTypes) => {
     
     return (
-        <div className="component">
+        <div className="component" id='about'>
             <h3 className="text-center display-3">About Me</h3>
             <ThreeTile details={details} />
         </div>

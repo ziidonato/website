@@ -99,7 +99,7 @@ interface ExperiencePropTypes {
 
 const Experience = (props: ExperiencePropTypes) => {
     return (            
-        <div className="component">
+        <div className="component" id='experience'>
             <h2 className="text-center display-3">Experience</h2>
             <ThreeTile details={details} />
         </div>
