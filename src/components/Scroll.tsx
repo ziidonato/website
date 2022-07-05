@@ -13,13 +13,13 @@ const Scroll = (props: ScrollPropTypes) => {
 
     return(
     <div className={"scroll"}>
-        <div className="component" id="home">
+        <div className="component">
             <Intro />
         </div>
-        <div className="component" id="experience">
+        <div className="component">
             <Experience />
         </div>
-        <div className="component" id="about">
+        <div className="component">
             <About />
         </div>
     </div>
