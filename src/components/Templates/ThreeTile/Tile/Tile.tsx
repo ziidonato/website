@@ -22,7 +22,7 @@ const Tile = (props: TilePropTypes) => {
         window.addEventListener("resize", () => {
             setIsMobile(window.innerWidth < 768);
         });
-    });
+    }, []);
 
     const desktopVersion = (
         <div
