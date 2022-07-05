@@ -57,19 +57,21 @@ const Tile = (props: TilePropTypes) => {
     ...props.style,
   };
 
-  const DesktopVersion = () => (
-    <div className={"tile"} style={tileStyle}>
-      <div className="content">
-        <h3 className="display-5">{props.title}</h3>
-        {typeof props.description === "string" ? (
-          <p>{props.description}</p>
-        ) : (
-          props.description
-        )}
+  const DesktopVersion = () => {
+    return (
+      <div className={"tile"} style={tileStyle}>
+        <div className="content">
+          <h3 className="display-5">{props.title}</h3>
+          {typeof props.description === "string" ? (
+            <p>{props.description}</p>
+          ) : (
+            props.description
+          )}
+        </div>
+        {props.picture && <div className="picture">{props.picture}</div>}
       </div>
-      {props.picture && <div className="picture">{props.picture}</div>}
-    </div>
-  );
+    );
+  };
 
   const MobileVersion = () => {
     Modal.setAppElement("#root");
@@ -118,7 +120,7 @@ const Tile = (props: TilePropTypes) => {
     );
   };
 
-  return isMobile ? <MobileVersion /> : <DesktopVersion />;
+  return isMobile ? <MobileVersion /> : DesktopVersion();
 };
 
 export default Tile;
