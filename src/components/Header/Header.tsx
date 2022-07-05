@@ -1,28 +1,22 @@
 import './Header.scss';
-import { useEffect,useState } from 'react';
 import { Nav } from "./Nav/Nav";
 import { Links } from "./Links/Links";
+import { DeviceType, useDeviceType } from '../../hooks/useDeviceType';
 
 interface HeaderProps {
 }
 
 const Header = () => {
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-    
-    useEffect(() => {
-        window.addEventListener('resize', () => {
-            setIsMobile(window.innerWidth < 768);
-        });
-    });
+    const isMobile = DeviceType.MOBILE === useDeviceType()
 
-    return(
-    <header>
-        <Nav hidden={isMobile}/>
-        <div className="header">
-            <h1 className="Display-1">Zii Donato</h1>
-        </div>
-        <Links />
-    </header>
+    return (
+        <header>
+            <Nav hidden={isMobile} />
+            <div className="header">
+                <h1 className="Display-1">Zii Donato</h1>
+            </div>
+            <Links />
+        </header>
     );
 };
 

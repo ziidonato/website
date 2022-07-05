@@ -1,6 +1,7 @@
 import { FunctionComponent, useEffect, useState } from "react";
+import { DeviceType, useDeviceType } from "../../../hooks/useDeviceType";
 import "./ThreeTile.scss";
-import Tile from "./Tile/Tile";
+import Tile from "../Tile/Tile";
 
 interface TilesPropTypes {
   details: DetailsPropTypes[];
@@ -17,18 +18,15 @@ const ThreeTile = (props: TilesPropTypes) => {
   const [tileWidth, setTileWidth] = useState(
     window.innerWidth / 3 - (window.innerWidth / 3) * 0.1,
   );
+
+  const deviceType = useDeviceType()
+
   useEffect(function handleResize() {
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 768) {
-        setTileWidth(window.innerWidth / 3 - (window.innerWidth / 3) * 0.1);
-      } else {
-        setTileWidth(
-          window.innerWidth / props.details.length -
-            (props.details.length - 1) * 10,
-        );
-      }
-    });
-  });
+    const newWidth = deviceType === DeviceType.DESKTOP
+      ? window.innerWidth / 3 - (window.innerWidth / 3) * 0.1
+      : window.innerWidth / props.details.length - (props.details.length - 1) * 10
+    setTileWidth(newWidth)
+  }, [deviceType]);
 
   return (
     <div className="three-tile">
@@ -36,11 +34,9 @@ const ThreeTile = (props: TilesPropTypes) => {
         return (
           <Tile
             key={index}
-            title={detail.title}
-            description={detail.description}
-            picture={detail.picture}
             style={detail.style ? detail.style : {}}
             width={tileWidth}
+            {...detail}
           />
         );
       })}

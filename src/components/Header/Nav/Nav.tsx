@@ -20,39 +20,38 @@ const Nav = (props: NavPropTypes) => {
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
-        setPagesScrolled(Math.floor(window.scrollY / window.innerHeight + 0.1));
+            setPagesScrolled(Math.floor(window.scrollY / window.innerHeight + 0.1));
         })
-    });
-    
+    }, []);
+
 
     useEffect(() => {
-
-            if (pagesScrolled < 1 ) {
-                setLocation("#home");
-            } else if (pagesScrolled < 2) {
-                setLocation("#experience");
-            } else {
-                setLocation("#about");
-            }
+        if (pagesScrolled < 1) {
+            setLocation("#home");
+        } else if (pagesScrolled < 2) {
+            setLocation("#experience");
+        } else {
+            setLocation("#about");
+        }
     }, [pagesScrolled]);
 
 
     return (
-        <div className={"nav-section " + (props.hidden? "visually-hidden" : "")}>
-        <ul className="nav nav-pills">
-            { pages.map((page, index) => {
-                let hash = "#" + page;
-                return (
-                    <li className="nav-item" key={index}>
-                        <Link to={`#${page}`}
-                            className={`nav-link ${active === hash ? "active" : ""}`}>
-                            {page}
+        <div className={"nav-section " + (props.hidden ? "visually-hidden" : "")}>
+            <ul className="nav nav-pills">
+                {pages.map((page, index) => {
+                    let hash = "#" + page;
+                    return (
+                        <li className="nav-item" key={index}>
+                            <Link to={`#${page}`}
+                                className={`nav-link ${active === hash ? "active" : ""}`}>
+                                {page}
                             </Link>
-                    </li>
-                )
-            }
-            )}
-        </ul>
+                        </li>
+                    )
+                }
+                )}
+            </ul>
         </div>
     );
 };
