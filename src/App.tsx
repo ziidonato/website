@@ -2,7 +2,7 @@ import React, { useEffect, useState, ReactNode } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import './App.scss';
-import Scroll from './components/Scroll';
+import Body from './components/Body';
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Scroll />
+        <Body />
       </div>
     </Router>
   );

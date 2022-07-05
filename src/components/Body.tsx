@@ -4,11 +4,11 @@ import About from './About/About';
 import Experience from './Experience/Experience';
 
 
-interface ScrollPropTypes {
+interface BodyProps {
 
 }
 
-const Scroll = (props: ScrollPropTypes) => {
+const Body = (props: BodyProps) => {
 
     return (
         <div>
@@ -20,4 +20,4 @@ const Scroll = (props: ScrollPropTypes) => {
 
 };
 
-export default Scroll;
+export default Body;
