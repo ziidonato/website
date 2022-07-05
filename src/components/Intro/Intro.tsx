@@ -41,7 +41,7 @@ const Intro = (props: IntroPropTypes) => {
         } else {
             setReturnString("Huh?")
         }
-        
+
 
         setInput("");
         setSubmitted(true);
@@ -53,10 +53,10 @@ const Intro = (props: IntroPropTypes) => {
             <p className="lead">Well, is it?</p>
             <form name="is-code-good" onSubmit={handleSubmit}>
                 <input type="text" value={input} placeholder="[y]es/[n]o"
-                        onChange={(e) => {
-                    setInput(e.target.value);
-                }}/>
-        <input type="submit" style={{display: "none"}}/>
+                    onChange={(e) => {
+                        setInput(e.target.value);
+                    }} />
+                <input type="submit" style={{ display: "none" }} />
             </form>
         </div>)
     }
@@ -65,8 +65,8 @@ const Intro = (props: IntroPropTypes) => {
         <>
             <h1 className="display-1">Hi!</h1>
             <h2 className="display-4"> I write code. </h2>
-            { isClicked? wellIsIt() :
-                <p className="lead">{ "Is it good? " }
+            {isClicked ? wellIsIt() :
+                <p className="lead">{"Is it good? "}
                     <span>
                         <a
                             href="https://github.com/gatlace"
@@ -79,7 +79,7 @@ const Intro = (props: IntroPropTypes) => {
                     </span>
                 </p>
             }
-            { submitted? <p className="lead">{ returnString }</p> : null }
+            {submitted ? <p className="lead">{returnString}</p> : null}
         </>
     );
 }

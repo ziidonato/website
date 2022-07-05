@@ -1,5 +1,5 @@
 import React, { useEffect, useState, ReactNode } from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import './App.scss';
 import Scroll from './components/Scroll';

@@ -11,18 +11,18 @@ interface ScrollPropTypes {
 
 const Scroll = (props: ScrollPropTypes) => {
 
-    return(
-    <div className={"scroll"}>
-        <div className="component">
-            <Intro />
+    return (
+        <div className={"scroll"}>
+            <div className="component">
+                <Intro />
+            </div>
+            <div className="component">
+                <Experience />
+            </div>
+            <div className="component">
+                <About />
+            </div>
         </div>
-        <div className="component">
-            <Experience />
-        </div>
-        <div className="component">
-            <About />
-        </div>
-    </div>
     )
 
 };
