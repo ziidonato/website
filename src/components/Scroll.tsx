@@ -10,22 +10,16 @@ interface ScrollPropTypes {
 }
 
 const Scroll = (props: ScrollPropTypes) => {
-            
-    const components = [
-        <div className="component" id="home">
-            <Intro />
-        </div>,
-        <div className="component" id="experience">
-            <Experience />
-        </div>,
-        <div className="component" id="about">
-            <About />
-        </div>,
-    ];
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setIsMobile(window.innerWidth < 768);
+        });
+    });
 
     return(
     <div className={"scroll"}>
-        <div className="component" id="home">
+        <div className="component intro" id="home">
             <Intro />
         </div>
         <div className="component" id="experience">

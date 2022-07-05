@@ -10,17 +10,17 @@ interface NavPropTypes {
 const Nav = (props: NavPropTypes) => {
     const [active, setActive] = useState(useLocation().hash);
     const [location, setLocation] = useState(useLocation().hash);
-    const [pagesScrolled, setPagesScrolled] = useState(Math.floor(window.scrollY / window.innerHeight + 0.2));
+    const [pagesScrolled, setPagesScrolled] = useState(Math.floor(window.scrollY / window.innerHeight + 0.1));
     const pages = ["home", "experience", "about"];
-
-
+    
     useEffect(() => {
         setActive(location);
     }, [location]);
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
-        setPagesScrolled(Math.floor(window.scrollY / window.innerHeight + 0.1));
+        setPagesScrolled(Math.floor(window.scrollY / window.innerHeight * 1.4 + 0.1));
+        console.log(pagesScrolled);
         })
     });
     
@@ -28,11 +28,11 @@ const Nav = (props: NavPropTypes) => {
     useEffect(() => {
 
             if (pagesScrolled < 1 ) {
-                setLocation("#home");
+                setActive("#home");
             } else if (pagesScrolled < 2) {
-                setLocation("#experience");
+                setActive("#experience");
             } else {
-                setLocation("#about");
+                setActive("#about");
             }
     }, [pagesScrolled]);
 

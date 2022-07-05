@@ -1,10 +1,36 @@
 .scroll {
+
     .component{
-        padding-top: 10rem;
+        padding-top: 5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 100vh;
-        width: 100%
+        width: 100%;
     }
+
+    .intro {
+        padding-top: 10rem;
+        height: 88vh;
+    }
+
+    padding-bottom: 60%;
+}
+
+@media (min-width: 768px) {
+    .scroll {
+        overflow-y: scroll;
+        height: calc(100vh - 64px);
+    
+        .component {
+            height: 70vh;
+            
+        }
+
+        .intro {
+            height: 85vh;
+        }
+        
+        padding-bottom: 15%;
+    }
+
 }

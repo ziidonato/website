@@ -28,11 +28,12 @@
   .picture {
     width: 15%;
     height: width;
-    align-self: end;
+    align-self: flex-end;
     padding: 0 0.5rem 0.5rem 0;
   }
 
   li {
     list-style: " - ";
   }
+
 }

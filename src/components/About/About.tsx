@@ -11,7 +11,7 @@ const About = (props: AboutPropTypes) => {
             title: "Studious",
             description: <>
                             <p className="lead">The best practices must always be followed.</p>
-                            <p className="d-lg-none d-xl-block">Since I'm working in computer science, the best practices are always changing, and I'm right there with them. Constantly adapting. Constantly reiterating.</p>
+                            <p className="d-lg-none d-xl-block">Since I'm working in computer science, the best practices are always changing, and I'm right there with them. Constantly adapting. Constantly improving.</p>
                             <h4>Current Topics:</h4>
                             <ul>
                                 <li><h5>Design Patterns</h5>
@@ -24,18 +24,24 @@ const About = (props: AboutPropTypes) => {
                 color: "white",
                 borderColor: "white",
                 backgroundImage: `url(https://images.unsplash.com/photo-1614292264554-7dca1d6466d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80)`,
-                backgroundSize: "150%",
+                backgroundSize: "cover",
             },
         },
         {
             title: "Methodical",
             description: <>
-                            <p className="lead">Everything needs a plan</p>
-                            <div className="d-lg-none d-xl-block">Since I've incorporated a consistent design plan in my projects, I have enjoyed the benefits that come with it.
-                                <p className="fst-italic">(My studying of design patterns has played a massive part in this)</p>
+                            <div>
+                                <p className="lead">Everything needs a plan</p>
+                                <div className="d-lg-none d-xl-block">Since I've incorporated a consistent design plan in my projects, I have enjoyed the benefits that come with it.  Consistent results, straightforward implementation, following a standard process.</div>
                             </div>
-                            <h4>Benefits:</h4>
                             <ul>
+                                <li>Design</li>
+                                <li>Implement</li>
+                                <li>Critique</li>
+                                <li>Reiterate</li>
+                            </ul>
+                            <ul>
+                            <h4>Benefits:</h4>
                                 <li><h5>Consistent Design</h5>
                                     <p className="ms-5 me-5">UI isn't a melting pot of decisions and experimentation</p>
                                 </li>

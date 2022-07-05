@@ -1,5 +1,7 @@
 import "./Tile.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, MouseEventHandler } from "react";
+import * as ReactDOM from "react-dom";
+import Modal from "react-modal";
 
 interface TilePropTypes {
   title: string;
@@ -18,20 +20,45 @@ const Tile = (props: TilePropTypes) => {
   };
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [test, setTest] = useState(0);
+
   useEffect(() => {
     window.addEventListener("resize", () => {
       setIsMobile(window.innerWidth < 768);
     });
   });
 
-  const desktopVersion = () => (
-    <div
-      className="tile"
-      style={{
-        ...defaultProps,
-        ...props.style,
-      }}
-    >
+  // this is the most jank solution possible, but it works.
+  // the X button wouldn't directly set isModalOpen
+  const openModal = () => {
+    setTest(test + 1);
+  };
+
+  const closeModal = () => {
+    setTest(test + 1);
+  };
+
+  useEffect(() => {
+    if (test % 2 === 0) {
+      setIsModalOpen(false);
+    } else {
+      setIsModalOpen(true);
+    }
+  }, [test]);
+  //end jank solution
+
+  const tileStyle = {
+    ...defaultProps,
+    ...props.style,
+  };
+
+  const propStyle = {
+    ...props.style,
+  };
+
+  const DesktopVersion = () => (
+    <div className={"tile"} style={tileStyle}>
       <div className="content">
         <h3 className="display-5">{props.title}</h3>
         {typeof props.description === "string" ? (
@@ -44,7 +71,9 @@ const Tile = (props: TilePropTypes) => {
     </div>
   );
 
-  const mobileVersion = () => {
+  const MobileVersion = () => {
+    Modal.setAppElement("#root");
+
     return (
       <div
         className="tile"
@@ -56,14 +85,36 @@ const Tile = (props: TilePropTypes) => {
           alignItems: "center",
           justifyContent: "center",
         }}
+        onClick={openModal}
       >
+        <Modal
+          isOpen={isModalOpen}
+          contentLabel="details"
+          style={{ content: { padding: "0" } }}
+        >
+          <div
+            className="popup-content"
+            style={{ ...propStyle, height: "100%", padding: "5%" }}
+          >
+            <h3 className="display-5 popup-header">
+              <span>{props.title}</span>
+              <i className="fas fa-xmark" onClick={closeModal} />
+            </h3>
+            {typeof props.description === "string" ? (
+              <p>{props.description}</p>
+            ) : (
+              props.description
+            )}
+            {props.picture && <div className="picture">{props.picture}</div>}
+          </div>
+        </Modal>
         <h5>{props.title}</h5>
         {props.picture && <div className="w-50 h-50">{props.picture}</div>}
       </div>
     );
   };
 
-  return isMobile ? mobileVersion() : desktopVersion();
+  return isMobile ? <MobileVersion /> : <DesktopVersion />;
 };
 
 export default Tile;
