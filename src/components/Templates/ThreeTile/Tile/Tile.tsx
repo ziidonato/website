@@ -93,6 +93,7 @@ const Tile = (props: TilePropTypes) => {
           isOpen={isModalOpen}
           contentLabel="details"
           style={{ content: { padding: "0" } }}
+          shouldCloseOnOverlayClick={false}
         >
           <div
             className="popup-content"
@@ -100,7 +101,6 @@ const Tile = (props: TilePropTypes) => {
           >
             <h3 className="display-5 popup-header">
               <span>{props.title}</span>
-              <i className="fas fa-xmark" onClick={closeModal} />
             </h3>
             {typeof props.description === "string" ? (
               <p>{props.description}</p>
