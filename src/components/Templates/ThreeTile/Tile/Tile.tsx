@@ -105,7 +105,11 @@ const Tile = (props: TilePropTypes) => {
             ) : (
               props.description
             )}
-            {props.picture && <div className="picture">{props.picture}</div>}
+            <div className="picture">
+              {props.picture && (
+                <div className="w-50 h-50">{props.picture}</div>
+              )}
+            </div>
           </div>
         </Modal>
         <h5>{props.title}</h5>
