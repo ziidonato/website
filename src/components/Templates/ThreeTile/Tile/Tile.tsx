@@ -1,5 +1,6 @@
 import "./Tile.scss";
 import { useState, useEffect } from "react";
+import { DeviceType, useDeviceType } from "../../../../hooks/useDeviceType";
 
 interface TilePropTypes {
     title: string;
@@ -17,12 +18,8 @@ const Tile = (props: TilePropTypes) => {
         height: props.width,
     };
 
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-    useEffect(() => {
-        window.addEventListener("resize", () => {
-            setIsMobile(window.innerWidth < 768);
-        });
-    }, []);
+    
+    const isMobile = DeviceType.MOBILE === useDeviceType()
 
     const desktopVersion = (
         <div
