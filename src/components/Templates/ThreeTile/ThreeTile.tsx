@@ -28,7 +28,7 @@ const ThreeTile = (props: TilesPropTypes) => {
         );
       }
     });
-  });
+  }, []);
 
   return (
     <div className="three-tile">

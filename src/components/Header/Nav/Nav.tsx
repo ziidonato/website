@@ -22,7 +22,7 @@ const Nav = (props: NavPropTypes) => {
         window.addEventListener('scroll', () => {
             setPagesScrolled(Math.floor(window.scrollY / window.innerHeight + 0.1));
         })
-    });
+    }, []);
 
 
     useEffect(() => {

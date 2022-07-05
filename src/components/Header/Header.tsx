@@ -13,7 +13,7 @@ const Header = () => {
         window.addEventListener('resize', () => {
             setIsMobile(window.innerWidth < 768);
         });
-    });
+    }, []);
 
     return (
         <header>
