@@ -36,11 +36,9 @@ const ThreeTile = (props: TilesPropTypes) => {
         return (
           <Tile
             key={index}
-            title={detail.title}
-            description={detail.description}
-            picture={detail.picture}
             style={detail.style ? detail.style : {}}
             width={tileWidth}
+            {...detail}
           />
         );
       })}
