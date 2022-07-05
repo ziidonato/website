@@ -54,7 +54,7 @@ const details = [
                                 <li>Built with Vue</li>
                                 <li>Features:</li>
                                 <ul>
-                                    <li>View all public repos for a user</li>
+                                    <li>View all public user repos</li>
                                     <li>Search users</li>
                                 </ul>
                             </ul>
