@@ -2,6 +2,7 @@ import ThreeTile from '../Templates/ThreeTile/ThreeTile';
 import javascript_logo from "../../assets/svgs/js";
 import bash_logo from "../../assets/svgs/bash";
 import python_logo from "../../assets/svgs/python";
+import "../global.scss"
 
 const details = [
     {
@@ -97,11 +98,11 @@ interface ExperiencePropTypes {
 }
 
 const Experience = (props: ExperiencePropTypes) => {
-    return (
-        <>
+    return (            
+        <div className="component">
             <h2 className="text-center display-3">Experience</h2>
             <ThreeTile details={details} />
-        </>
+        </div>
     );
 };
 

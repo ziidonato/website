@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import "../global.scss"
 import "./Intro.scss"
 import About from '../About/About';
 
@@ -61,8 +62,8 @@ const Intro = (props: IntroPropTypes) => {
         </div>)
     }
 
-    return (
-        <>
+    return (            
+        <div className="component">
             <h1 className="display-1">Hi!</h1>
             <h2 className="display-4"> I write code. </h2>
             {isClicked ? wellIsIt() :
@@ -80,7 +81,7 @@ const Intro = (props: IntroPropTypes) => {
                 </p>
             }
             {submitted ? <p className="lead">{returnString}</p> : null}
-        </>
+        </div>
     );
 }
 
