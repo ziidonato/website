@@ -21,7 +21,6 @@ const Nav = (props: NavPropTypes) => {
     useEffect(() => {
         window.addEventListener('scroll', () => {
             setScrollY(Math.floor((window.scrollY / window.innerHeight) * 100))
-            console.log(scrollY);
         })
     });
     
