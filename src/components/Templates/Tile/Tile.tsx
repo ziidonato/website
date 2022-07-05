@@ -1,6 +1,6 @@
 import "./Tile.scss";
 import { useState, useEffect } from "react";
-import { DeviceType, useDeviceType } from "../../../../hooks/useDeviceType";
+import { DeviceType, useDeviceType } from "../../../hooks/useDeviceType";
 
 interface TilePropTypes {
     title: string;

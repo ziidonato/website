@@ -1,7 +1,7 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { DeviceType, useDeviceType } from "../../../hooks/useDeviceType";
 import "./ThreeTile.scss";
-import Tile from "./Tile/Tile";
+import Tile from "../Tile/Tile";
 
 interface TilesPropTypes {
   details: DetailsPropTypes[];
