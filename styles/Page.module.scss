@@ -1,0 +1,55 @@
+@import "_base.scss";
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0 1rem;
+    position: relative;
+    inset: 0;
+    overflow: hidden;
+    background-color: $light-background;
+    color: $light-text;
+    @media (prefers-color-scheme: dark) {
+        background-color: $dark-background;
+        color: $dark-text;
+    }
+    @media (prefers-color-scheme: light) {
+        background-color: $light-background;
+        color: $light-text;
+    }
+}
+
+.link {
+    transition: color 0.1s ease-in-out;
+    
+}
+
+.h1 {
+    font-size: 4rem;
+    text-align: center;
+    padding-top: 5rem;
+    font-weight: bold;
+}
+
+@media (prefers-color-scheme: dark) {
+    .link {
+        color: $dark-text;
+
+        &:hover {
+            color: $dark-accent;
+        }
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .link {
+        color: $light-text;
+
+        &:hover {
+            color: $light-accent;
+        }
+    }
+}
