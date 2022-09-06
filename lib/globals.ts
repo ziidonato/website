@@ -1,0 +1,1 @@
+export const animationTransition = { duration: 0.1 };

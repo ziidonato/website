@@ -1,18 +1,19 @@
-import '../styles/globals.scss'
-import type { AppProps } from 'next/app'
-import Header from '../components/Header/Header'
-import Page from 'components/Page'
+import "styles/globals.scss";
+import type { AppProps } from "next/app";
+import Header from "components/header/Header";
+import PageOverlay from "components/base/PageOverlay";
+import {useEffect} from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Page>
-        <Header />
+      <Header />
+        <PageOverlay>
         <Component {...pageProps} />
-      </Page>
+        </PageOverlay>
       <div id="portals" />
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

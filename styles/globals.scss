@@ -3,13 +3,6 @@
 @tailwind utilities;
 
 @import "_base.scss";
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
 
 a {
   color: inherit;
@@ -23,16 +16,34 @@ a {
 div {
   flex-grow: 1;
 }
+
 @media (prefers-color-scheme: dark) {
   html {
-    background-color: $dark-background;
-    color: $dark-text;
+    --background: var(--dark-background);
+    --text: var(--dark-text);
+    --primary: var(--dark-primary);
+    --secondary: var(--dark-secondary);
+    --accent: var(--dark-accent);
   }
 }
 
 @media (prefers-color-scheme: light) {
   html {
-    background-color: $light-background;
-    color: $light-text;
+    --background: var(--light-background);
+    --text: var(--light-text);
+    --primary: var(--light-primary);
+    --secondary: var(--light-secondary);
+    --accent: var(--light-accent);
   }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  background: var(--background);
+  color: var(--text);
 }

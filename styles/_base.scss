@@ -1,10 +1,16 @@
-$light-background: #fafafa;
-$dark-background: #1a1a1a;
-$dark-text: #fff;
-$light-text: #000;
+:root {
+  --light-background: #efefef;
+  --dark-background: #1e1e1e;
 
-$light-accent: #7328ff;
-$dark-accent: #8a0000;
+  --dark-text: #fff;
+  --light-text: #000;
 
+  --dark-primary: #3d0000;
+  --light-primary: #3e065f;
 
+  --dark-secondary: #950101;
+  --light-secondary: #700b97;
 
+  --dark-accent: #ff0000;
+  --light-accent: #ff00ff;
+}
