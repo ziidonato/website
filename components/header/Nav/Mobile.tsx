@@ -30,10 +30,9 @@ const NavButton = () => {
 const MobileNav = () => {
   const navContext = useNavContext();
   const navLinks = navContext.links.map((link, index) => {
-      const new_link = link === "home" ? "" : link;
     return (
       <CustomLink
-        href={`${new_link}`}
+        href={link}
         key={index}
         sameSite={true}
         classname={styles.navItem}

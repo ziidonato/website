@@ -5,30 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="799f0bf8-2750-42b9-89bb-05780320d194" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Views.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/base/CustomLink.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/base/DisplayCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/base/DropdownList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/views/About.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/views/Home.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/secretkeys.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/components/DisplayCard.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/components/Page.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/base/PageOverlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/PageOverlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/Links.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Links.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/Nav/Desktop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Nav/Desktop.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/base/CustomLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/CustomLink.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/base/DisplayCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/DisplayCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/base/DropdownList.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/components/header/Nav/Mobile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Nav/Mobile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/Nav/Nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Nav/Nav.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Header.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/_base.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/Nav.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Nav.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/globals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/globals.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/components/DisplayCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/DisplayCard.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/components/Portal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Portal.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +96,7 @@
       <workItem from="1662368725108" duration="2340000" />
       <workItem from="1662371645600" duration="12860000" />
       <workItem from="1662432396861" duration="2997000" />
-      <workItem from="1662465956817" duration="19047000" />
+      <workItem from="1662465956817" duration="20982000" />
     </task>
     <servers />
   </component>
