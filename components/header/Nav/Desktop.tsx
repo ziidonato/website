@@ -1,23 +1,31 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from "react";
 import styles from "styles/components/Nav.module.scss";
-import Link from "next/link";
+import CustomLink from "components/base/CustomLink";
+import { useNavContext } from "./Nav";
 
 const Desktop = () => {
-
+  const navContext = useNavContext();
+  const navLinks = navContext.links.map((link, index) => {
     return (
-        <div className={styles.nav}>
-            <Link href="/">
-                <a className={styles.navItem} key={"home"}>
-                    Home
-                </a>
-            </Link>
-            <Link href="/about">
-                <a className={styles.navItem} key={"home"}>
-                    About
-                </a>
-            </Link>
-        </div>
+      <CustomLink
+        href={link}
+        key={index}
+        sameSite={true}
+        classname={
+          styles.navItem +
+          " " +
+          (navContext.currentPath === `/${link}` ? styles.active : "")
+        }
+        scroll={true}
+      >
+        {link}
+      </CustomLink>
     );
+  });
+
+  return (
+      <div className={styles.nav + " mr-2"}>{navLinks}</div>
+  );
 };
 
 export default Desktop;

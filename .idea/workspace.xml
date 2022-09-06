@@ -5,48 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="799f0bf8-2750-42b9-89bb-05780320d194" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/website.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/base/Button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/base/PageOverlay.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/base/Portal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/header/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/header/Links.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/header/Nav/Desktop.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/header/Nav/Mobile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/header/Nav/Nav.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useIsMobile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/globals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/about.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/components/Nav.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/components/Portal.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header/Header.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header/Links.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header/Nav/Nav.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header/Title.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/basic/Portal.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/views/AboutMe.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/views/Intro.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_document.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/hello.ts" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Views.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/base/CustomLink.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/base/DisplayCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/base/DropdownList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/views/About.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/views/Home.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/secretkeys.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/components/DisplayCard.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/components/Page.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/base/PageOverlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/PageOverlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header/Links.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Links.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header/Nav/Desktop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Nav/Desktop.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header/Nav/Mobile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Nav/Mobile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header/Nav/Nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Nav/Nav.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/projects.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Components.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Header.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Nav.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Page.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Header.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/_base.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/components/Nav.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Nav.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/components/Portal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Portal.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/globals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,25 +61,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/zii/hdd/js/website&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/zii/hdd/js/website/node_modules/prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/zii/hdd/js/website/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/zii/hdd/js/website",
+    "list.type.of.created.stylesheet": "SCSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/home/zii/hdd/js/website/node_modules/prettier",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "ts.external.directory.path": "/home/zii/hdd/js/website/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/styles/components" />
@@ -127,7 +110,9 @@
       <workItem from="1662291585150" duration="4718000" />
       <workItem from="1662364701716" duration="1032000" />
       <workItem from="1662368725108" duration="2340000" />
-      <workItem from="1662371645600" duration="11492000" />
+      <workItem from="1662371645600" duration="12860000" />
+      <workItem from="1662432396861" duration="2997000" />
+      <workItem from="1662465956817" duration="19047000" />
     </task>
     <servers />
   </component>

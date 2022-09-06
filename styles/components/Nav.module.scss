@@ -1,9 +1,11 @@
 .nav {
+  background: var(--primary);
   display: flex;
-  background: var(--secondary);
   gap: 0.25rem;
-  width: max-content;
-  height: 100%;
+  height: max-content;
+  flex-grow: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
 
   align-items: center;
   justify-content: center;
@@ -12,15 +14,19 @@
 }
 
 .navItem {
+  width: 100%;
+  text-transform: capitalize;
   background: var(--background);
   padding: 0.25rem 1rem;
   display: inline-block;
-  border-radius: 0.5rem;
 
   &:hover {
     background: var(--primary);
   }
+}
 
+.active {
+  background: var(--primary);
 }
 
 @media (max-width: 768px) {
@@ -29,6 +35,6 @@
   }
 
   .navItem {
-    border-radius: 0;
+    padding: 0.5rem 1rem;
   }
 }

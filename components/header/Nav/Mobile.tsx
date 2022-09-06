@@ -1,46 +1,50 @@
 import Button from "components/base/Button";
 import Portal from "../../base/Portal";
-import {useState} from "react";
-import {AnimatePresence} from "framer-motion";
-import styles from "styles/components/Nav.module.scss"
-import Link from "next/link";
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import styles from "styles/components/Nav.module.scss";
+import CustomLink from "../../base/CustomLink";
+import { useNavContext } from "./Nav";
 
 const NavButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <div className="flex justify-end mr-4">
+      <div className="flex w-full justify-end mr-4">
         <Button onClick={() => setIsOpen(true)}>
           <i className={`fa-solid fa-bars fa-lg`} />
         </Button>
       </div>
-        <AnimatePresence>
-            {isOpen && (
-                <Portal onClose={() => setIsOpen(false)} className={"top-20 right-4"}>
-                  <MobileNav />
-                </Portal>
-            )}
-        </AnimatePresence>
+      <AnimatePresence>
+        {isOpen && (
+          <Portal onClose={() => setIsOpen(false)} className={"top-20 right-4"}>
+            <MobileNav />
+          </Portal>
+        )}
+      </AnimatePresence>
     </>
   );
 };
 
 const MobileNav = () => {
+  const navContext = useNavContext();
+  const navLinks = navContext.links.map((link, index) => {
+      const new_link = link === "home" ? "" : link;
     return (
-        <div className={styles.nav}>
-            <Link href="/">
-                <a className={styles.navItem}>
-                    Home
-                </a>
-            </Link>
-            <Link href="/about">
-                <a className={styles.navItem}>
-                    About
-                </a>
-            </Link>
-        </div>
+      <CustomLink
+        href={`${new_link}`}
+        key={index}
+        sameSite={true}
+        classname={styles.navItem}
+        scroll={true}
+      >
+        {link}
+      </CustomLink>
     );
-}
+  });
+
+  return <div className={styles.nav}>{navLinks}</div>;
+};
 
 export default NavButton;

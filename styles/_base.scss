@@ -1,16 +1,24 @@
 :root {
-  --light-background: #efefef;
+  --light-background: #dedede;
   --dark-background: #1e1e1e;
+
+  --dark-content-background: #3e3e3e;
+    --light-content-background: #aeaeae;
 
   --dark-text: #fff;
   --light-text: #000;
 
-  --dark-primary: #3d0000;
-  --light-primary: #3e065f;
 
-  --dark-secondary: #950101;
-  --light-secondary: #700b97;
+  --dark-primary: #950101;
+  --light-primary: #700b97;
+
+  --dark-secondary: #3d0000;
+  --light-secondary: #3e065f;
 
   --dark-accent: #ff0000;
   --light-accent: #ff00ff;
+
+
+
+  --default-transition: all 0.1s ease-in-out;
 }

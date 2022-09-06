@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "styles/Header.module.scss";
+import styles from "styles/components/Header.module.scss";
 import Button from "components/base/Button";
 
 const Links = () => {
