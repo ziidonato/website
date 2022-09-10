@@ -36,7 +36,6 @@ const MobileNav = () => {
         key={index}
         sameSite={true}
         classname={styles.navItem}
-        scroll={true}
       >
         {link}
       </CustomLink>

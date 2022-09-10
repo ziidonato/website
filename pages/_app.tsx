@@ -5,12 +5,13 @@ import PageOverlay from "components/base/PageOverlay";
 import {useEffect} from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
+
   return (
     <>
       <Header />
-        <PageOverlay>
+      <PageOverlay>
         <Component {...pageProps} />
-        </PageOverlay>
+      </PageOverlay>
       <div id="portals" />
     </>
   );

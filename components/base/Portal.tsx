@@ -15,7 +15,7 @@ const Portal = (props: PortalProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
-    if (ref.current && e.target !== ref.current) {
+    if (ref.current && !ref.current.contains(e.target as Node)) {
       onClose();
     }
   };

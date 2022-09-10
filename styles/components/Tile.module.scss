@@ -1,0 +1,20 @@
+.tile {
+  flex-grow: 1;
+  aspect-ratio: 1 / 1;
+}
+
+.svg {
+  position: sticky;
+  height: 100%;
+  width: 100%;
+  max-width: 50px;
+  max-height: 50px;
+  fill: var(--text);
+}
+
+@media (min-width: 768px) {
+  .tile {
+    flex-grow: 0;
+    width: 30%;
+  }
+}

@@ -16,7 +16,6 @@ const Desktop = () => {
           " " +
           (navContext.currentPath === `/${link}` ? styles.active : "")
         }
-        scroll={true}
       >
         {link}
       </CustomLink>
@@ -24,7 +23,11 @@ const Desktop = () => {
   });
 
   return (
-      <div className={styles.nav + " mr-2"}>{navLinks}</div>
+    <div className={"w-full h-full flex justify-end items-center"}>
+      <div className={styles.nav + " mr-2"}>
+        {navLinks}
+      </div>
+    </div>
   );
 };
 

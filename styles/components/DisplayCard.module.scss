@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 
   gap: 1rem;
   padding: 0.5rem;
@@ -11,8 +12,7 @@
   background: var(--content-background);
 
   min-height: 10rem;
-    min-width: 10rem;
-  height: max-content;
+  max-width: 50vw;
 }
 
 .content {
@@ -23,9 +23,35 @@
 }
 
 .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  gap: 0.5rem;
   font-size: 1.5rem;
   font-weight: 600;
   width: 100%;
   border-bottom: 2px solid var(--primary);
+}
+
+.titleWithoutSize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 600;
+  width: 100%;
+  min-width: 10rem;
+  border-bottom: 2px solid var(--primary);
+}
+
+.portal {
+  width: 65vw !important; // moz webkit overrides this for some reason
+  height: 65vh !important;
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-width: 25vw;
+  }
 }

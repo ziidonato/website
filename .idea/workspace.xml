@@ -5,14 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="799f0bf8-2750-42b9-89bb-05780320d194" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/svgs/BashLogo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/CapitalOneLogo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/CashLogo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/GithubLogo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/JSLogo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/MagnifyingGlassLogo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/PythonLogo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/WeatherLogo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/code_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/base/List.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/views/Experience.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/views/Projects.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/FontStyles.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/components/Tile.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Nav.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Views.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Views.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/base/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/Button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/base/CustomLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/CustomLink.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/base/DisplayCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/DisplayCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/base/DropdownList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/base/PageOverlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/PageOverlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/base/Portal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/Portal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header/Nav/Desktop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Nav/Desktop.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/header/Nav/Mobile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Nav/Mobile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header/Nav/Nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Nav/Nav.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/views/About.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/About.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/views/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useIsMobile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useIsMobile.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/globals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/globals.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/secretkeys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/secretkeys.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/_base.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/components/DisplayCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/DisplayCard.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/components/Nav.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Nav.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/components/Page.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Page.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/components/Portal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Portal.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +57,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="SCSS File" />
+        <option value="TypeScript File" />
+        <option value="JavaScript File" />
         <option value="TypeScript JSX File" />
       </list>
     </option>
@@ -35,7 +71,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2EIQfKQ6xscwqL6er9Bkb0kuCRV" />
   <component name="ProjectLevelVcsManager">
@@ -52,25 +88,54 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/zii/hdd/js/website",
+    "full.screen.before.presentation.mode": "false",
+    "last_opened_file_path": "/home/zii/hdd/js/website/assets/svgs",
     "list.type.of.created.stylesheet": "SCSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "/home/zii/hdd/js/website/node_modules/jest",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/home/zii/hdd/js/website/node_modules/prettier",
     "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editor.preferences.gutterIcons",
     "ts.external.directory.path": "/home/zii/hdd/js/website/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JavaScript"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/svgs" />
+      <recent name="$PROJECT_DIR$/assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/svgs" />
+      <recent name="$PROJECT_DIR$/styles" />
+      <recent name="$PROJECT_DIR$/assets" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/styles/components" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="renders Nav" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/tests/Nav.test.tsx" />
+      <test-names>
+        <test-name value="renders Nav" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -81,6 +146,33 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="reformat" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="reformat" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.reformat" />
+        <item itemvalue="npm.lint" />
+        <item itemvalue="Jest.renders Nav" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -96,7 +188,22 @@
       <workItem from="1662368725108" duration="2340000" />
       <workItem from="1662371645600" duration="12860000" />
       <workItem from="1662432396861" duration="2997000" />
-      <workItem from="1662465956817" duration="20982000" />
+      <workItem from="1662465956817" duration="24968000" />
+      <workItem from="1662526603829" duration="8588000" />
+      <workItem from="1662580382715" duration="748000" />
+      <workItem from="1662581140957" duration="854000" />
+      <workItem from="1662582202678" duration="15461000" />
+      <workItem from="1662748890255" duration="114000" />
+      <workItem from="1662749014373" duration="330000" />
+      <workItem from="1662752488914" duration="111000" />
+      <workItem from="1662752608153" duration="210000" />
+      <workItem from="1662752825765" duration="7044000" />
+      <workItem from="1662802373416" duration="3603000" />
+      <workItem from="1662806409722" duration="849000" />
+      <workItem from="1662807445655" duration="26000" />
+      <workItem from="1662807476658" duration="684000" />
+      <workItem from="1662825352007" duration="4620000" />
+      <workItem from="1662833094743" duration="17313000" />
     </task>
     <servers />
   </component>
@@ -116,5 +223,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

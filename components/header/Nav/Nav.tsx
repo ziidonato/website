@@ -14,13 +14,8 @@ const NavContext = React.createContext({} as NavContextType);
 
 const Nav = () => {
   const isMobile = useIsMobile();
-  const currentPath = useRouter().pathname;
-  const links = [
-      "home",
-    "skills",
-    "projects",
-    "contact",
-  ];
+  const currentPath = useRouter()?.pathname;
+  const links = ["home", "experience", "about"];
 
   return (
     <NavContext.Provider value={{ currentPath: currentPath, links: links }}>

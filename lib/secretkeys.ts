@@ -1,1 +1,1 @@
-export const alphaVantageApiKey = "G31EESYCMDKZI576"
+export const alphaVantageApiKey = "G31EESYCMDKZI576";
