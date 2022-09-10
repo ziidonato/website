@@ -5,49 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="799f0bf8-2750-42b9-89bb-05780320d194" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/svgs/BashLogo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/svgs/CapitalOneLogo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/svgs/CashLogo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/svgs/GithubLogo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/svgs/JSLogo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/svgs/MagnifyingGlassLogo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/svgs/PythonLogo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/svgs/WeatherLogo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/svgs/code_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/base/List.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/views/Experience.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/views/Projects.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/FontStyles.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/components/Tile.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Nav.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Views.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Views.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/base/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/Button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/base/CustomLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/CustomLink.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/base/DisplayCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/DisplayCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/base/PageOverlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/PageOverlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/base/Portal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/Portal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/Nav/Desktop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Nav/Desktop.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/Nav/Mobile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Nav/Mobile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/Nav/Nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/Nav/Nav.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/views/About.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/About.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/views/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useIsMobile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useIsMobile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/globals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/globals.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/secretkeys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/secretkeys.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/_base.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/DisplayCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/DisplayCard.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/Nav.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Nav.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/Page.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Page.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/Portal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Portal.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/views/Projects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/Projects.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +163,7 @@
       <workItem from="1662807445655" duration="26000" />
       <workItem from="1662807476658" duration="684000" />
       <workItem from="1662825352007" duration="4620000" />
-      <workItem from="1662833094743" duration="17313000" />
+      <workItem from="1662833094743" duration="17945000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,7 @@ import WeatherLogo from "assets/svgs/WeatherLogo";
 import GithubLogo from "../../assets/svgs/GithubLogo";
 import CapitalOneLogo from "../../assets/svgs/CapitalOneLogo";
 import useIsMobile from "../../hooks/useIsMobile";
+import CustomLink from "../base/CustomLink";
 
 const Projects = () => {
   const isMobile = useIsMobile();
@@ -102,7 +103,23 @@ const MobileProjects = () => (
 const DesktopProjects = () => (
   <>
     <DisplayCard
-      title={"BudgetWise - A budgeting app"}
+      title={
+        <>
+          <CustomLink
+            sameSite={false}
+            href={"https://gatlace-budget-app.vercel.app"}
+          >
+            BudgetWise - A budgeting app
+          </CustomLink>
+          |
+          <CustomLink
+            sameSite={false}
+            href={"https://github.com/gatlace/budget_app"}
+          >
+            {"</>"}
+          </CustomLink>
+        </>
+      }
       classname={tileStyles.tile}
       icon={<CashLogo />}
     >
@@ -138,7 +155,23 @@ const DesktopProjects = () => (
       </div>
     </DisplayCard>
     <DisplayCard
-      title={"Weather App"}
+      title={
+        <>
+          <CustomLink
+            sameSite={false}
+            href={"https://gatlace-weather-app.vercel.app"}
+          >
+            Weather App
+          </CustomLink>
+          |
+          <CustomLink
+            sameSite={false}
+            href={"https://github.com/gatlace/weather_app"}
+          >
+            {"</>"}
+          </CustomLink>
+        </>
+      }
       classname={tileStyles.tile}
       icon={<WeatherLogo />}
     >
@@ -168,7 +201,23 @@ const DesktopProjects = () => (
       </div>
     </DisplayCard>
     <DisplayCard
-      title={"Github Commits Frontend"}
+      title={
+        <>
+          <CustomLink
+            sameSite={false}
+            href={"https://github-commits-frontend.vercel.app/"}
+          >
+            Github Commits Frontend
+          </CustomLink>
+          |
+          <CustomLink
+            sameSite={false}
+            href={"https://github.com/gatlace/commits-frontend/"}
+          >
+            {"</>"}
+          </CustomLink>
+        </>
+      }
       classname={tileStyles.tile}
       icon={<GithubLogo />}
     >

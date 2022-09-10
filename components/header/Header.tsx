@@ -8,7 +8,7 @@ const Header = () => {
     <div className={styles.header} id={"header"}>
       <Links />
       <div className={styles.headerItem}>
-        <h1 className={styles.title}>My name lol</h1>
+        <h1 className={styles.title}>Zii Donato</h1>
       </div>
       <Nav />
     </div>
