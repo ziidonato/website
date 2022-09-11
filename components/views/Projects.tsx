@@ -45,7 +45,7 @@ const DisplayCards = () => {
               sameSite={false}
               href={"https://gatlace-budget-app.vercel.app"}
             >
-              BudgetWise - A budgeting app
+              BudgetWise
             </CustomLink>
             {!isMobile && (
               <>
@@ -63,7 +63,7 @@ const DisplayCards = () => {
         classname={tileStyles.tile}
         icon={<CashLogo />}
       >
-        <div className={"w-full h-full overflow-scroll"}>
+        <div className={"w-full h-full overflow-y-auto"}>
           <List
             title={"Technologies used:"}
             listItems={[
@@ -119,7 +119,7 @@ const DisplayCards = () => {
         classname={tileStyles.tile}
         icon={<WeatherLogo />}
       >
-        <div className={"w-full h-full overflow-scroll"}>
+        <div className={"w-full h-full overflow-y-auto"}>
           <List
             title={"Technologies used:"}
             listItems={["React", "Typescript", "TailwindCSS"]}
@@ -169,7 +169,7 @@ const DisplayCards = () => {
         classname={tileStyles.tile}
         icon={<GithubLogo />}
       >
-        <div className={"w-full h-full overflow-auto"}>
+        <div className={"w-full h-full overflow-y-auto"}>
           <List
             title={"Technologies used:"}
             listItems={["Vue", "Typescript"]}
@@ -190,7 +190,7 @@ const DisplayCards = () => {
         classname={tileStyles.tile}
         icon={<CapitalOneLogo />}
       >
-        <div className={"w-full h-full"}>
+        <div className={"w-full h-full overflow-y-auto"}>
           <List title={"Technologies used:"} listItems={["Django"]} />
           <List
             title={"Features:"}

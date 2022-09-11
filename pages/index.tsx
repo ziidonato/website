@@ -3,7 +3,7 @@ import { HomeView, ExperienceView, ProjectsView, AboutView } from "components/Vi
 
 const Home: NextPage = () => {
   return (
-    <div className={"w-full h-full items-center overflow-scroll"}>
+    <div className={"w-full h-full items-center overflow-y-scroll"}>
       <HomeView />
         <ExperienceView />
         <ProjectsView />

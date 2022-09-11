@@ -26,6 +26,10 @@ const itemVariants = {
     x: -20,
   },
   show: {
+    transition: {
+      duration: 0.75,
+      ease: "easeOut",
+    },
     opacity: 1,
     x: 0,
   },

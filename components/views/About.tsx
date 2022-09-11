@@ -60,7 +60,7 @@ const About = () => {
 };
 
 const DesktopAbout = () => (
-  <div className={"flex gap-2 w-1/2"}>
+  <div className={"flex gap-2 w-auto max-w-4xl"}>
     <DisplayCard
       title={"What makes my code good?"}
       classname={"w-1/2"}
@@ -130,7 +130,7 @@ const MobileAbout = () => (
           />
         </div>
       </div>
-      <div className={"w-full"}>
+      <div className={"w-full h-full"}>
         {`
         When I'm not coding, I'm usually playing chess, speed cubing, or 3D
         printing. I also enjoy playing poker and exploring the world of
