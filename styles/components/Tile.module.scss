@@ -1,6 +1,7 @@
 .tile {
   flex-grow: 1;
   aspect-ratio: 1 / 1;
+  width: max-content;
   max-width: 48vw !important;
 }
 

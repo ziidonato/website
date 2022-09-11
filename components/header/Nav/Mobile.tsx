@@ -19,7 +19,7 @@ const NavButton = () => {
       <AnimatePresence>
         {isOpen && (
           <Portal onClose={() => setIsOpen(false)} className={"top-20 right-4"}>
-            <MobileNav />
+            <MobileNav onClose={() => setIsOpen(false)}/>
           </Portal>
         )}
       </AnimatePresence>
@@ -27,18 +27,15 @@ const NavButton = () => {
   );
 };
 
-const MobileNav = () => {
+const MobileNav = (props: { onClose: () => void }) => {
   const navContext = useNavContext();
   const navLinks = navContext.links.map((link, index) => {
     return (
-      <CustomLink
-        href={link}
-        key={index}
-        sameSite={true}
-        classname={styles.navItem}
-      >
-        {link}
-      </CustomLink>
+      <Button onClick={props.onClose} key={index} className={styles.navItem}>
+        <CustomLink href={link} sameSite={true}>
+          {link}
+        </CustomLink>
+      </Button>
     );
   });
 
