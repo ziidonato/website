@@ -15,92 +15,26 @@ const Projects = () => {
   return (
     <div className={"w-full"} id={"projects"}>
       <h1 className={pageStyles.heading}>Projects</h1>
-      <div className={pageStyles.pageContent}>
-        {isMobile ? <MobileProjects /> : <DesktopProjects />}
-      </div>
+      {isMobile ? <MobileProjects /> : <DesktopProjects />}
     </div>
   );
 };
 
 const MobileProjects = () => (
-  <div className={pageStyles.grid}>
-    <DisplayCard
-      title={"BudgetWise - A budgeting app"}
-      classname={tileStyles.tile}
-      icon={<CashLogo />}
-    >
-      <div className={"w-full h-full overflow-scroll"}>
-        <List
-          title={"Technologies used:"}
-          listItems={[
-            "Django",
-            "Next.js",
-            "React",
-            "Typescript",
-            "Node.js",
-            "TailwindCSS",
-          ]}
-          dropdown={true}
-        />
-        <List
-          title={"Features:"}
-          listItems={[
-            "Budgeting",
-            "Expense tracking",
-            "Token Authentication",
-            "Animations",
-          ]}
-          dropdown={true}
-        />
-        <div className={"pt-4"}>
-          {`My first fullstack application, BudgetWise is a budgeting app that
-              allows users to create budgets and track their expenses. It was
-              built using Django for the backend, and Next.js for the frontend.
-              It uses a PostgreSQL database, and is hosted on Heroku. `}
-        </div>
-      </div>
-    </DisplayCard>
-    <DisplayCard
-      title={"Weather App"}
-      classname={tileStyles.tile}
-      icon={<WeatherLogo />}
-    >
-      <div className={"w-full h-full overflow-scroll"}>
-        <List
-          title={"Technologies used:"}
-          listItems={["React", "Typescript", "TailwindCSS"]}
-          dropdown={true}
-        />
-        <List
-          title={"Features:"}
-          listItems={[
-            "Time-based display",
-            "Conversion between multiple units",
-            "Saved locations",
-            "Indexed locations",
-          ]}
-          dropdown={true}
-        />
-      </div>
-    </DisplayCard>
-    <DisplayCard
-      title={"Github Commits Frontend"}
-      classname={tileStyles.tile}
-      icon={<GithubLogo />}
-    >
-      <div className={"w-full h-full overflow-auto"}>github commits</div>
-    </DisplayCard>
-    <DisplayCard
-      title={"Simulation Game Backend (ARCHIVED)"}
-      classname={tileStyles.tile}
-      icon={<CapitalOneLogo />}
-    >
-      <div className={"w-full h-full"}>simulation game</div>
-    </DisplayCard>
+  <div className={"w-full flex justify-center"}>
+    <div className={pageStyles.grid}>
+      <DisplayCards />
+    </div>
   </div>
 );
 
 const DesktopProjects = () => (
+  <div className={pageStyles.pageContent}>
+    <DisplayCards />
+  </div>
+);
+
+const DisplayCards = () => (
   <>
     <DisplayCard
       title={
@@ -255,4 +189,5 @@ const DesktopProjects = () => (
     </DisplayCard>
   </>
 );
+
 export default Projects;

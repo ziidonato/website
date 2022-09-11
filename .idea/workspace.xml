@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="799f0bf8-2750-42b9-89bb-05780320d194" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-    </list>
+    <list default="true" id="799f0bf8-2750-42b9-89bb-05780320d194" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +45,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/zii/hdd/js/website/assets/svgs&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/zii/hdd/js/website&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -162,7 +160,9 @@
       <workItem from="1662807476658" duration="684000" />
       <workItem from="1662825352007" duration="4620000" />
       <workItem from="1662833094743" duration="18956000" />
-      <workItem from="1662856423528" duration="999000" />
+      <workItem from="1662856423528" duration="2773000" />
+      <workItem from="1662882073303" duration="680000" />
+      <workItem from="1662882760996" duration="242000" />
     </task>
     <servers />
   </component>
