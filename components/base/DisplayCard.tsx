@@ -36,7 +36,7 @@ const MobileDisplayCard = (props: Props) => {
               "flex flex-col w-full h-full justify-center items-center"
             }
           >
-            <span className={"flex justify-center w-24 items-center"}>
+            <span style={{width: "75%"}} className={tileStyles.svg + " flex justify-center items-center"}>
               {icon}
             </span>
           </div>
@@ -55,7 +55,7 @@ const MobileDisplayCard = (props: Props) => {
               <div className={"flex flex-col grow"}>
                 {children}
               </div>
-              <div style={{height: "75%"}} className={"flex justify-center"}>
+              <div style={{height: "75%"}} className={tileStyles.svg + " flex justify-center"}>
                 {icon}
               </div>
             </div>

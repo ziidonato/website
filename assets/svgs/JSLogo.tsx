@@ -1,12 +1,11 @@
 import * as React from "react";
 
-const SvgComponent = (props: any) => (
+const SvgComponent = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox={"0 0 699 699"}
     width={"inherit"}
     height={"inherit"}
-    {...props}
   >
     <path
       style={{

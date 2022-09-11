@@ -12,7 +12,6 @@
   background: var(--content-background);
 
   min-height: 10rem;
-  max-width: 50vw;
 }
 
 .content {
@@ -53,5 +52,11 @@
 @media (max-width: 768px) {
   .card {
     min-width: 25vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    max-width: 49vw;
   }
 }
