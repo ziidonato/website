@@ -63,7 +63,7 @@ const DisplayCards = () => {
         classname={tileStyles.tile}
         icon={<CashLogo />}
       >
-        <div className={"w-full h-full overflow-y-auto"}>
+        <div className={"w-min h-full overflow-y-auto"}>
           <List
             title={"Technologies used:"}
             listItems={[
