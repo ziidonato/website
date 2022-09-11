@@ -1,0 +1,20 @@
+.links {
+    display: flex;
+    width: 30%;
+    justify-content: end;
+
+    a{
+        display: flex;
+        justify-content: end;
+        color: inherit;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 5%;
+
+        i {
+            padding: 1%;
+            font-size: 1.5rem;
+        }
+    }
+}
