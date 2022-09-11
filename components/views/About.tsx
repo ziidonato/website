@@ -7,7 +7,7 @@ import useIsMobile from "../../hooks/useIsMobile";
 import MagnifyingGlassLogo from "assets/svgs/MagnifyingGlassLogo";
 import StarLogo from "../../assets/svgs/StarLogo";
 import BooksLogo from "../../assets/svgs/BooksLogo";
-import GearLogo from "../base/GearLogo";
+import GearLogo from "../../assets/svgs/GearLogo";
 
 const About = () => {
   const isMobile = useIsMobile();

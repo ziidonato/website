@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My Personal Website
+Made in NextJS ( This could've been a React app )
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Components
+- base
+  - Button
+    - creates a button that can be animated
+    - calls an optional function on click
+  - CustomLink
+    - creates either an anchor or next Link, depending on the value of `sameSite`
+    - Can be animated ( wraps a Button )
+  - DisplayCard
+    - Container to hold bulk information
+    - Mobile - Title with card, on Click = Portal with content
+    - Desktop - Card with content
+  - List
+    - Creates a list that animates the children
+    - Can be a dropdown or regular list, depending on `dropdown`
+  - PageOverlay
+  - Portal
+    - Creates a blurred, darkened portal that children can go onto
+      - If the user clicks outside the children, the portal exits
+- header
+  - Nav
+    - Desktop - Navbar in header
+    - Mobile - Button to open Portal with Nav
+    - Nav - decides which one to render, and has a context hook for links
+  - Header - Contains the Nav, title, and links
+  - Links - Contains the links for the header
+- views - where the "pages" are
+  - Home
+  - Experience
+  - Projects
+  - About
