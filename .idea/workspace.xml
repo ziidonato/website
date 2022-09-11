@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="799f0bf8-2750-42b9-89bb-05780320d194" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/base/List.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/base/List.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/views/About.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/About.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/views/Experience.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/Experience.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/views/Projects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/Projects.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/DisplayCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/DisplayCard.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/svgs/BooksLogo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/svgs/BooksLogo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/svgs/GearLogo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/svgs/GearLogo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/svgs/MagnifyingGlassLogo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/svgs/MagnifyingGlassLogo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/svgs/StarLogo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/svgs/StarLogo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/svgs/WeatherLogo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/svgs/WeatherLogo.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +172,7 @@
       <workItem from="1662882073303" duration="680000" />
       <workItem from="1662882760996" duration="242000" />
       <workItem from="1662883008693" duration="7630000" />
-      <workItem from="1662893798774" duration="4055000" />
+      <workItem from="1662893798774" duration="5698000" />
     </task>
     <servers />
   </component>

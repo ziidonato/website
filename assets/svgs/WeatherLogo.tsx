@@ -4,8 +4,8 @@ const SvgComponent = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 100 100"
-    height={"inherit"}
-    width={"inherit"}
+    height={"min-content"}
+    width={"min-content"}
     xmlSpace="preserve"
   >
     <path fill="#F29D00" d="m58.482 31.412 3.537-6.509 3.538 6.509z" />

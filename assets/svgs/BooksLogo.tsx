@@ -4,6 +4,8 @@ const SvgComponent = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 440 460"
+    height="inherit"
+    width="inherit"
     xmlSpace="preserve"
     style={{scale: "0.8"}}
   >
