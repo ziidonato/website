@@ -8,7 +8,7 @@ const Links = () => {
       <div className="flex justify-start ml-2">
         <Button>
           <a
-            href="https://1drv.ms/b/s!AtHSlb9sXG2S51KL9YDHcjwuOP8_"
+            href="https://1drv.ms/b/s!AtHSlb9sXG2S9xebcFPFiMai2MIJ?e=KMgc6a"
             target="_blank"
             rel="noreferrer"
             className={styles.link}
