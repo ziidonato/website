@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "_base.scss";
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --background: var(--dark-background);
+    --text: var(--dark-text);
+    --primary: var(--dark-primary);
+    --secondary: var(--dark-secondary);
+    --accent: var(--dark-accent);
+    --content-background: var(--dark-content-background);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    --background: var(--light-background);
+    --text: var(--light-text);
+    --primary: var(--light-primary);
+    --secondary: var(--light-secondary);
+    --accent: var(--light-accent);
+    --content-background: var(--light-content-background);
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  background: var(--background);
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+  transition: var(--default-transition);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
