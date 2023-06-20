@@ -99,7 +99,7 @@ const DisplayCards = () => {
           <>
             <CustomLink
               sameSite={false}
-              href={"https://gatlace-weather-app.vercel.app"}
+              href={"https://weather-app.ziidonato.com"}
             >
               Weather App
             </CustomLink>
