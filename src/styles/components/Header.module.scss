@@ -1,0 +1,40 @@
+.header {
+  background: var(--primary);
+  color: var(--text);
+  height: 4.5vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerItem {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  width: 0;
+  white-space: nowrap;
+}
+
+.link {
+  margin: 1rem 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 6vh;
+  }
+
+  .link {
+    margin: 1rem 0.5rem;
+  }
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 4vh;
+  display: inline-block;
+}
