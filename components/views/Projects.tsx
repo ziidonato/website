@@ -43,7 +43,7 @@ const DisplayCards = () => {
           <>
             <CustomLink
               sameSite={false}
-              href={"https://gatlace-budget-app.vercel.app"}
+              href={"https://budget-app.ziidonato.com"}
             >
               BudgetWise
             </CustomLink>
