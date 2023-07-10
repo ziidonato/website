@@ -51,7 +51,7 @@ const DisplayCards = () => {
                 {" | "}
                 <CustomLink
                   sameSite={false}
-                  href={"https://github.com/gatlace/budget_app"}
+                  href={"https://github.com/ziidonato/budget_app"}
                 >
                   {"</>"}
                 </CustomLink>
@@ -107,7 +107,7 @@ const DisplayCards = () => {
                 {" | "}
                 <CustomLink
                   sameSite={false}
-                  href={"https://github.com/gatlace/weather_app"}
+                  href={"https://github.com/ziidonato/weather_app"}
                 >
                   {"</>"}
                 </CustomLink>
@@ -157,7 +157,7 @@ const DisplayCards = () => {
                 {" | "}
                 <CustomLink
                   sameSite={false}
-                  href={"https://github.com/gatlace/commits-frontend/"}
+                  href={"https://github.com/ziidonato/commits-frontend/"}
                 >
                   {"</>"}
                 </CustomLink>
