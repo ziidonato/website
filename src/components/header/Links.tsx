@@ -17,7 +17,7 @@ const Links = () => {
         </Button>
         <Button>
           <a
-            href="https://github.com/gatlace"
+            href="https://github.com/ziidonato"
             target="_blank"
             rel="noreferrer"
             className={styles.link}
