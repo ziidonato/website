@@ -1,0 +1,49 @@
+---
+import { dateToString, randomBoolean, randomNumber } from "../lib/helpers";
+import BoxWithShadow from "./base/BoxWithShadow.astro";
+export interface Props {
+  quote: string;
+  author: string;
+  cite?: string;
+  date?: Date;
+}
+
+const { props } = Astro;
+---
+
+<BoxWithShadow>
+  <blockquote cite={props.cite}>
+    <p>{props.quote}</p>
+    <footer>
+      - {props.author}
+      {
+        props.date && (
+          <span>
+            {", "}
+            <time datetime={dateToString(props.date)}>
+              {dateToString(props.date)}
+            </time>
+          </span>
+        )
+      }
+    </footer>
+  </blockquote>
+</BoxWithShadow>
+
+<style lang="scss">
+  blockquote {
+    padding: 0.5rem;
+    width: max-content;
+    box-shadow: calc(1px * var(--randomNumber1))
+      calc(1px * var(--randomNumber2)) 5px rgba(0, 0, 0, 0.5);
+    footer {
+      text-align: right;
+      padding-right: 1rem;
+    }
+  }
+
+  span {
+    margin: 0;
+    padding: 0;
+  }
+</style>

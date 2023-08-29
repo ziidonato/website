@@ -1,0 +1,15 @@
+<section>
+  <slot />
+</section>
+<style lang="scss">
+  section {
+    height: 100vh;
+    width: $default-page-width;
+  }
+
+  @media (max-width: 768px) {
+    section {
+      width: 100vw;
+    }
+  }
+</style>
