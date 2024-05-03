@@ -36,7 +36,10 @@ const MobileDisplayCard = (props: Props) => {
               "flex flex-col w-full h-full justify-center items-center"
             }
           >
-            <span style={{ width: "75%" }} className={tileStyles.svg + " flex justify-center items-center"}>
+            <span
+              style={{ width: "75%" }}
+              className={tileStyles.svg + " flex justify-center items-center"}
+            >
               {icon}
             </span>
           </div>
@@ -52,10 +55,11 @@ const MobileDisplayCard = (props: Props) => {
               <h1 className={styles.title}>{props.title}</h1>
             </div>
             <div className={"flex flex-col grow overflow-auto"}>
-              <div className={"flex flex-col grow"}>
-                {children}
-              </div>
-              <div style={{ height: "75%" }} className={tileStyles.svg + " flex justify-center"}>
+              <div className={"flex flex-col grow"}>{children}</div>
+              <div
+                style={{ height: "75%" }}
+                className={tileStyles.svg + " flex justify-center"}
+              >
                 {icon}
               </div>
             </div>

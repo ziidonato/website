@@ -37,7 +37,7 @@ const Portal = (props: PortalProps) => {
 
   return createPortal(
     portal,
-    document.getElementById("portals") as HTMLElement
+    document.getElementById("portals") as HTMLElement,
   );
 };
 

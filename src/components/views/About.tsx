@@ -43,8 +43,8 @@ const About = () => {
             <br />
             <br />
             {`
-            Ever since I got ( and promptly broke, and had to
-            troubleshoot before my parents found out ) my first computer at 9
+            Ever since I got (and promptly broke, and had to
+            troubleshoot before my parents found out) my first computer at 9
             years old, I've had an interest for computers that has never
             wavered. The more rabbit holes I go down, the more I discover. This
             curiosity is the fuel that has driven me this far, and I believe it
@@ -72,7 +72,11 @@ const DesktopAbout = () => (
             Computer Programs" to improve my understanding of programming
             languages and paradigms. `}
     </DisplayCard>
-    <DisplayCard title={"What else do I do?"} classname={"w-1/2"} icon={<GearLogo />}>
+    <DisplayCard
+      title={"What else do I do?"}
+      classname={"w-1/2"}
+      icon={<GearLogo />}
+    >
       <div className={"w-full flex justify-evenly"}>
         <div className={"text-center"}>
           <List
@@ -93,7 +97,7 @@ const DesktopAbout = () => (
         {`
         When I'm not coding, I'm usually playing chess, speed cubing, or 3D
         printing. I also enjoy playing poker and exploring the world of
-        electricity, or working on my car ( while wishing it was faster ).
+        electricity, or working on my car (while wishing it was faster).
           `}
       </div>
     </DisplayCard>
@@ -114,7 +118,11 @@ const MobileAbout = () => (
             Computer Programs" to improve my understanding of programming
             languages and paradigms. `}
     </DisplayCard>
-    <DisplayCard title={"What else do I do?"} classname={tileStyles.tile} icon={<GearLogo />}>
+    <DisplayCard
+      title={"What else do I do?"}
+      classname={tileStyles.tile}
+      icon={<GearLogo />}
+    >
       <div className={"w-full flex flex-col justify-evenly"}>
         <div className={"text-center"}>
           <List
@@ -125,7 +133,7 @@ const MobileAbout = () => (
         <div className="text-center">
           <List
             title="Interests:"
-            listItems={["Cars", "Electricity", "Poker", "Stand-Up Comedy"]}
+            listItems={["Cars", "Electricity", "Poker"]}
           />
         </div>
       </div>
@@ -133,7 +141,7 @@ const MobileAbout = () => (
         {`
         When I'm not coding, I'm usually playing chess, speed cubing, or 3D
         printing. I also enjoy playing poker and exploring the world of
-        electricity, or working on my car ( while wishing it was faster ).
+        electricity, or working on my car (while wishing it was faster).
           `}
       </div>
     </DisplayCard>

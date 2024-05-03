@@ -66,7 +66,7 @@ const List = (props: Props) => {
 };
 
 const DropdownList = (props: Props) => {
-  const { title, listItems, icon, } = props;
+  const { title, listItems, icon } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   return (

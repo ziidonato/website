@@ -22,7 +22,7 @@ const Experience = () => {
             classname={tileStyles.tile}
           >
             <h2 className={fontStyles.h2}>For everything web dev</h2>
-            <div className={"w-full h-full overflow-y-scroll"}>
+            <div className={"w-full h-full"}>
               <List
                 title={"Technologies:"}
                 listItems={["React", "Node", "Next", "TypeScript"]}
@@ -42,7 +42,7 @@ const Experience = () => {
             classname={tileStyles.tile}
           >
             <h2 className={fontStyles.h2}>For everything else</h2>
-            <div className={"w-full h-full overflow-y-scroll"}>
+            <div className={"w-full h-full"}>
               <List
                 title={"Technologies:"}
                 listItems={["Django", "Pandas", "NumPy", "Poetry"]}
@@ -65,7 +65,7 @@ const Experience = () => {
             <h2 className={fontStyles.h2 + ` text-center`}>
               {`Other skills I've picked up along the way`}
             </h2>
-            <div className={"w-full h-full overflow-y-scroll"}>
+            <div className={"w-full h-full"}>
               <List
                 listItems={[
                   "Git",

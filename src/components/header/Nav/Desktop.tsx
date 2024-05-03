@@ -23,9 +23,7 @@ const Desktop = () => {
 
   return (
     <div className={"w-full h-full flex justify-end items-center"}>
-      <div className={styles.nav + " mr-2"}>
-        {navLinks}
-      </div>
+      <div className={styles.nav + " mr-2"}>{navLinks}</div>
     </div>
   );
 };

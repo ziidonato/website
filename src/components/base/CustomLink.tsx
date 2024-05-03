@@ -42,7 +42,12 @@ const LinkComponent = (props: Props) => {
     }
   } else {
     return (
-      <a href={href} className={classname ? classname : pageStyles.link} target={"_blank"} rel={"noreferrer"}>
+      <a
+        href={href}
+        className={classname ? classname : pageStyles.link}
+        target={"_blank"}
+        rel={"noreferrer"}
+      >
         {children}
       </a>
     );

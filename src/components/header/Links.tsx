@@ -6,19 +6,13 @@ const Links = () => {
     <div className={styles.headerItem}>
       <div className="flex justify-start ml-2">
         <Button>
-          <a
-            href="https://1drv.ms/b/s!AjwZ3AlfrPivgTA3PPmS7YRn5AWf?e=Yy5xhz"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.link}
-          >
+          <a href="/resume.pdf" rel="noreferrer" className={styles.link}>
             <i className="fa-solid fa-file fa-lg" />
           </a>
         </Button>
         <Button>
           <a
             href="https://github.com/ziidonato"
-            target="_blank"
             rel="noreferrer"
             className={styles.link}
           >
@@ -28,7 +22,6 @@ const Links = () => {
         <Button>
           <a
             href="https://www.linkedin.com/in/zii-donato/"
-            target="_blank"
             rel="noreferrer"
             className={styles.link}
           >
