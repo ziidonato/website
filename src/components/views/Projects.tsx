@@ -51,7 +51,7 @@ const DisplayCards = () => {
                 {" | "}
                 <CustomLink
                   sameSite={false}
-                  href={"https://github.com/ziidonato/commits-frontend/"}
+                  href={"https://github.com/ziidonato/tracing-systemd"}
                 >
                   {"</>"}
                 </CustomLink>
