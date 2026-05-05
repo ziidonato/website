@@ -1,41 +1,18 @@
 ---
-import Quote from "@/components/Quote.astro";
-import PageLayout from "@/layouts/PageLayout.astro";
-import Screen from "@/layouts/Screen.astro";
-import Nav from "@/components/nav/Nav.astro";
+import Layout from "@/layouts/main.astro"
+import Hero from "@/components/sections/Hero.astro"
+import Experience from "@/components/sections/Experience.astro"
+import Skills from "@/components/sections/Skills.astro"
+import Projects from "@/components/sections/Projects.astro"
+import About from "@/components/sections/About.astro"
+import Contact from "@/components/sections/Contact.astro"
 ---
 
-<PageLayout title="Zii Donato">
-  <main>
-    <Screen>
-      <h1>Zii Donato</h1>
-      <h2>Software Engineer</h2>
-      <div class="quote-container">
-        <Quote
-          quote="The best way to predict the future is to create it."
-          author="Peter Drucker"
-          date={new Date("8/1/1864")}
-        />
-      </div>
-      <div class="nav-container">
-        <Nav />
-      </div>
-    </Screen>
-  </main>
-</PageLayout>
-
-<style lang="scss">
-  h1 {
-    font-size: 2.5rem;
-    text-align: center;
-  }
-  h2 {
-    text-align: center;
-  }
-
-  .nav-container {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-  }
-</style>
+<Layout>
+  <Hero />
+  <Experience />
+  <Skills />
+  <Projects />
+  <About />
+  <Contact />
+</Layout>

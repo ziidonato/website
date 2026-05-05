@@ -1,0 +1,43 @@
+---
+import { ArrowDown, EnvelopeSimple } from "@phosphor-icons/react"
+import { buttonVariants } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+---
+
+<section id="top" class="mx-auto max-w-4xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-24">
+  <Badge
+    variant="outline"
+    className="mb-5 gap-1.5 border-[#bdb2ff]/60 bg-[#bdb2ff]/15 font-normal text-foreground"
+  >
+    <span
+      class="inline-block h-1.5 w-1.5 rounded-full bg-[#9bf6ff] ring-2 ring-[#9bf6ff]/30"
+    ></span>
+    Open to work · NYC
+  </Badge>
+
+  <h1
+    class="font-heading max-w-3xl text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl"
+  >
+    Software engineer by education, builder at heart.
+  </h1>
+  <p
+    class="mt-6 max-w-2xl text-lg leading-relaxed text-pretty text-muted-foreground"
+  >
+    Mostly that means taking the rigor and processes from other engineering
+    fields and applying them to software.
+  </p>
+
+  <div class="mt-8 flex flex-wrap items-center gap-3">
+    <a href="#projects" class={buttonVariants({ size: "lg" }) + " gap-2"}>
+      See my work
+      <ArrowDown size={16} weight="bold" aria-hidden="true" />
+    </a>
+    <a
+      href="#contact"
+      class={buttonVariants({ size: "lg", variant: "outline" }) + " gap-2"}
+    >
+      <EnvelopeSimple size={16} weight="regular" aria-hidden="true" />
+      Get in touch
+    </a>
+  </div>
+</section>

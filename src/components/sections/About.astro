@@ -1,0 +1,82 @@
+---
+import SectionHeading from "@/components/SectionHeading.astro"
+
+const currently = [
+  "Based in NYC, between roles.",
+  "Building a software design platform to help people design applications.",
+  "Planning to go back to school for EE, ME, ChemE, and MatSci.",
+]
+
+const hobbies = ["Drag racing", "Sim racing", "Speedcubing", "Chess"]
+---
+
+<section id="about" class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16">
+  <SectionHeading eyebrow="04 / About" accent="#a0c4ff">About</SectionHeading>
+  <div class="space-y-4 text-pretty text-foreground/90">
+    <p>
+      Software engineer based in New York. My dad handed me a programming book
+      and a gaming PC at roughly the same time, which set off a long stretch of
+      modding games, taking that PC apart, putting it back together, and
+      eventually building a few more. After high school I decided to stop
+      treating it as a hobby.
+    </p>
+    <p class="text-muted-foreground">
+      Lately I've been spending most of my off-hours on electronics, which is
+      where 3D printing and software meet for me. It started with a 3D-printed
+      speaker cabinet, which made me want a real amplifier behind it, so now
+      I'm building a receiver with room correction and EQ. A few other things
+      in flight: another receiver for car mods like active exhaust, lighting,
+      and blackout plates, an entertainment center cut open for homelab
+      airflow, and an Insta360 mounted on my Mustang to film drives to and
+      from meets.
+    </p>
+  </div>
+
+  <div class="mt-10 grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
+    <div>
+      <h3
+        class="mb-3 flex items-center gap-2 font-mono text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase"
+      >
+        <span
+          aria-hidden="true"
+          class="inline-block h-1.5 w-1.5 rounded-full bg-[#caffbf]"></span>
+        Currently
+      </h3>
+      <ul class="space-y-1.5 text-sm text-foreground/90">
+        {
+          currently.map((line) => (
+            <li class="flex gap-2">
+              <span class="text-muted-foreground" aria-hidden="true">
+                ›
+              </span>
+              <span>{line}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h3
+        class="mb-3 flex items-center gap-2 font-mono text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase"
+      >
+        <span
+          aria-hidden="true"
+          class="inline-block h-1.5 w-1.5 rounded-full bg-[#fdffb6]"></span>
+        Hobbies
+      </h3>
+      <ul class="space-y-1.5 text-sm text-foreground/90">
+        {
+          hobbies.map((line) => (
+            <li class="flex gap-2">
+              <span class="text-muted-foreground" aria-hidden="true">
+                ›
+              </span>
+              <span>{line}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

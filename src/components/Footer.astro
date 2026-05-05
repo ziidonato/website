@@ -1,0 +1,41 @@
+---
+import { GithubLogo, EnvelopeSimple } from "@phosphor-icons/react"
+
+const socials = [
+  {
+    href: "https://github.com/ziidonato",
+    label: "GitHub",
+    Icon: GithubLogo,
+  },
+  {
+    href: "mailto:zii.donato@outlook.com",
+    label: "Email",
+    Icon: EnvelopeSimple,
+  },
+]
+
+const year = new Date().getFullYear()
+---
+
+<footer class="mt-24 border-t border-border/60">
+  <div
+    class="mx-auto flex max-w-4xl flex-col items-start justify-between gap-4 px-6 py-10 text-sm text-muted-foreground sm:flex-row sm:items-center"
+  >
+    <p>© {year} Zii Donato</p>
+    <ul class="flex items-center gap-2">
+      {
+        socials.map(({ href, label, Icon }) => (
+          <li>
+            <a
+              href={href}
+              aria-label={label}
+              class="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            >
+              <Icon size={18} weight="regular" aria-hidden="true" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>

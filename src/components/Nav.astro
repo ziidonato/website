@@ -1,0 +1,97 @@
+---
+const links = [
+  { href: "/#experience", label: "Experience" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
+]
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-border/40 bg-background/70 backdrop-blur"
+>
+  <div aria-hidden="true" class="rainbow-bar h-[3px] w-full"></div>
+  <nav
+    class="mx-auto flex h-14 max-w-4xl items-center justify-between px-6"
+    aria-label="Primary"
+  >
+    <a
+      href="/#top"
+      class="group relative text-base font-semibold tracking-tight hover:text-foreground/80 sm:text-lg"
+      aria-label="Zii Donato (pronounced zai doh-NAH-toh)"
+    >
+      <span class="border-b border-dotted border-muted-foreground/40 group-hover:border-foreground/60">
+        Zii Donato
+      </span>
+      <span
+        role="tooltip"
+        class="pointer-events-none absolute top-full left-0 z-50 mt-2 rounded-md bg-foreground px-2.5 py-1 font-mono text-xs text-background opacity-0 shadow-md transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100"
+      >
+        zai doh-NAH-toh
+      </span>
+    </a>
+    <ul class="flex items-center gap-1 text-sm">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="rounded-md px-3 py-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .rainbow-bar {
+    background: linear-gradient(
+      to right,
+      #ffadad,
+      #ffd6a5,
+      #fdffb6,
+      #caffbf,
+      #9bf6ff,
+      #a0c4ff,
+      #bdb2ff,
+      #a0c4ff,
+      #9bf6ff,
+      #caffbf,
+      #fdffb6,
+      #ffd6a5,
+      #ffadad,
+      #ffd6a5,
+      #fdffb6,
+      #caffbf,
+      #9bf6ff,
+      #a0c4ff,
+      #bdb2ff,
+      #a0c4ff,
+      #9bf6ff,
+      #caffbf,
+      #fdffb6,
+      #ffd6a5,
+      #ffadad
+    );
+    background-size: 200% 100%;
+    animation: rainbow-flow 12s linear infinite;
+  }
+  @keyframes rainbow-flow {
+    from {
+      background-position: 0% 0%;
+    }
+    to {
+      background-position: -100% 0%;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rainbow-bar {
+      animation: none;
+    }
+  }
+</style>
