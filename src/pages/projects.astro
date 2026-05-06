@@ -1,0 +1,60 @@
+---
+import { ArrowLeft } from "@phosphor-icons/react"
+import { getCollection } from "astro:content"
+import Layout from "@/layouts/main.astro"
+import ProjectCard from "@/components/ProjectCard.astro"
+import SectionHeading from "@/components/SectionHeading.astro"
+
+const isProd = import.meta.env.PROD
+const all = await getCollection("projects", ({ data }) =>
+  isProd ? data.draft !== true : true
+)
+
+const monthIndex = (ym: string) => {
+  if (ym === "ongoing") return Number.POSITIVE_INFINITY
+  const [y, m] = ym.split("-").map(Number)
+  return y * 12 + (m - 1)
+}
+
+const projects = [...all].sort((a, b) => {
+  if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1
+  const aEnd = monthIndex(a.data.end)
+  const bEnd = monthIndex(b.data.end)
+  if (aEnd !== bEnd) return bEnd - aEnd
+  if (a.data.order !== b.data.order) return a.data.order - b.data.order
+  return 0
+})
+---
+
+<Layout
+  title="Projects · Zii Donato"
+  description="The full project list — open-source libraries, products, hardware, and side experiments."
+>
+  <section class="mx-auto max-w-6xl px-6 pt-12 pb-8">
+    <a
+      href="/#projects"
+      class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+    >
+      <ArrowLeft size={14} weight="bold" aria-hidden="true" />
+      Back to home
+    </a>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 pb-16">
+    <SectionHeading eyebrow="All projects" accent="var(--accent-green)">
+      Everything I've shipped
+    </SectionHeading>
+    <p class="mt-[-1.25rem] mb-10 max-w-xl text-muted-foreground">
+      The complete list — products, libraries, hardware, and side experiments.
+      Featured projects from the homepage appear first.
+    </p>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        projects.map((project, index) => (
+          <ProjectCard project={project} index={index} />
+        ))
+      }
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,81 @@
+---
+import SectionHeading from "@/components/SectionHeading.astro"
+import { Badge } from "@/components/ui/badge"
+
+const groups = [
+  {
+    label: "Frontend",
+    accent: "var(--accent-orange)",
+    items: ["TypeScript", "React", "Next.js", "Angular", "Playwright"],
+  },
+  {
+    label: "Backend",
+    accent: "var(--accent-green)",
+    items: ["Node.js", "Java / Spring", "Go", "Rust", "C", "C++"],
+  },
+  {
+    label: "Cloud & infra",
+    accent: "var(--accent-blue)",
+    items: ["AWS", "GCP / Firebase", "Docker / Compose", "NixOS"],
+  },
+  {
+    label: "AI",
+    accent: "var(--accent-purple)",
+    items: [
+      "LLM integration",
+      "Observability (Braintrust)",
+      "Evaluation",
+      "Experimentation",
+    ],
+  },
+  {
+    label: "Embedded",
+    accent: "var(--accent-red)",
+    items: ["Firmware (C/C++)", "PCB design", "ESP32", "STM32"],
+  },
+  {
+    label: "General",
+    accent: "var(--accent-yellow)",
+    items: ["TDD", "Performance optimization", "Linux", "Git"],
+  },
+]
+---
+
+<section id="skills" class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16">
+  <SectionHeading eyebrow="02 / Skills" accent="var(--accent-orange)">
+    What I work with
+  </SectionHeading>
+
+  <ul class="space-y-6">
+    {
+      groups.map((group) => (
+        <li>
+          <h3 class="mb-3 flex items-center gap-2 font-mono text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            <span
+              aria-hidden="true"
+              class="inline-block h-1.5 w-1.5 rounded-full"
+              style={{ backgroundColor: group.accent }}
+            />
+            {group.label}
+          </h3>
+          <ul class="flex flex-wrap gap-1.5">
+            {group.items.map((item) => (
+              <li>
+                <Badge
+                  variant="outline"
+                  className="font-normal"
+                  style={{
+                    backgroundColor: `color-mix(in oklab, ${group.accent} 15%, transparent)`,
+                    borderColor: `color-mix(in oklab, ${group.accent} 50%, transparent)`,
+                  }}
+                >
+                  {item}
+                </Badge>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
+</section>

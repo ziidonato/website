@@ -1,0 +1,84 @@
+---
+import {
+  ArrowUpRight,
+  EnvelopeSimple,
+  GithubLogo,
+  LinkedinLogo,
+} from "@phosphor-icons/react"
+import SectionHeading from "@/components/SectionHeading.astro"
+
+const channels = [
+  {
+    label: "Email",
+    value: "zii.donato@outlook.com",
+    href: "mailto:zii.donato@outlook.com",
+    Icon: EnvelopeSimple,
+    accent: "var(--accent-purple)",
+  },
+  {
+    label: "GitHub",
+    value: "@ziidonato",
+    href: "https://github.com/ziidonato",
+    Icon: GithubLogo,
+    accent: "var(--accent-blue)",
+  },
+  {
+    label: "LinkedIn",
+    value: "in/zii-donato",
+    href: "https://linkedin.com/in/zii-donato",
+    Icon: LinkedinLogo,
+    accent: "var(--accent-green)",
+  },
+]
+---
+
+<section id="contact" class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16">
+  <SectionHeading
+    eyebrow="05 / Contact"
+    accent="var(--accent-purple)"
+    class="mb-4"
+  >
+    Get in touch
+  </SectionHeading>
+  <p class="max-w-xl text-pretty text-muted-foreground">
+    The fastest way to reach me is email. I'm happy to chat about interesting
+    work, collaborations, or anything you're building.
+  </p>
+
+  <ul class="mt-10 grid gap-3 sm:grid-cols-3">
+    {
+      channels.map(({ label, value, href, Icon, accent }) => (
+        <li>
+          <a
+            href={href}
+            class="group flex h-full flex-col justify-between gap-6 rounded-lg border border-border bg-card/40 p-5 transition-colors duration-150 hover:bg-muted/40 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            rel={href.startsWith("http") ? "noopener" : undefined}
+            target={href.startsWith("http") ? "_blank" : undefined}
+          >
+            <div class="flex items-center justify-between">
+              <span
+                aria-hidden="true"
+                class="inline-flex h-9 w-9 items-center justify-center rounded-md"
+                style={`background-color: color-mix(in oklab, ${accent} 18%, transparent); color: ${accent}`}
+              >
+                <Icon size={18} weight="regular" />
+              </span>
+              <ArrowUpRight
+                size={16}
+                weight="bold"
+                aria-hidden="true"
+                className="text-muted-foreground transition-transform duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              />
+            </div>
+            <div>
+              <p class="font-mono text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+                {label}
+              </p>
+              <p class="mt-1 truncate font-mono text-sm">{value}</p>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

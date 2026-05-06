@@ -1,0 +1,32 @@
+---
+interface Props {
+  eyebrow?: string
+  accent: string
+  class?: string
+}
+
+const { eyebrow, accent, class: className = "" } = Astro.props
+---
+
+<div class:list={["mb-10", className]}>
+  {
+    eyebrow && (
+      <p
+        class="mb-2 font-mono text-xs font-medium tracking-[0.18em] uppercase"
+        style={`color: color-mix(in oklab, ${accent} 70%, var(--muted-foreground))`}
+      >
+        {eyebrow}
+      </p>
+    )
+  }
+  <div class="flex items-baseline gap-3">
+    <span
+      aria-hidden="true"
+      class="inline-block h-2.5 w-2.5 shrink-0 translate-y-[-0.2em] rounded-full"
+      style={`background-color: ${accent}; box-shadow: 0 0 0 4px color-mix(in oklab, ${accent} 25%, transparent)`}
+    ></span>
+    <h2 class="text-2xl font-semibold tracking-tight">
+      <slot />
+    </h2>
+  </div>
+</div>
