@@ -1,0 +1,66 @@
+---
+import { ArrowLeft } from "@phosphor-icons/react"
+import { getCollection, type CollectionEntry } from "astro:content"
+import Layout from "@/layouts/main.astro"
+
+export async function getStaticPaths() {
+  const isProd = import.meta.env.PROD
+  const posts = await getCollection("blog", ({ data }) =>
+    isProd ? data.draft !== true : true
+  )
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}
+
+interface Props {
+  post: CollectionEntry<"blog">
+}
+
+const { post } = Astro.props
+const { Content } = await post.render()
+
+const fmtDate = (d: Date) =>
+  d.toLocaleString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  })
+---
+
+<Layout
+  title={`${post.data.title} · Zii Donato`}
+  description={post.data.summary}
+>
+  <section class="mx-auto max-w-3xl px-6 pt-12 pb-8">
+    <a
+      href="/blog"
+      class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+    >
+      <ArrowLeft size={14} weight="bold" aria-hidden="true" />
+      All posts
+    </a>
+  </section>
+
+  <article class="mx-auto max-w-3xl px-6 pb-20">
+    <p
+      class="mb-2 font-mono text-xs tracking-wide text-muted-foreground uppercase tabular-nums"
+    >
+      {fmtDate(post.data.date)}
+    </p>
+    <h1
+      class="font-heading text-3xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl"
+    >
+      {post.data.title}
+    </h1>
+    <p class="mt-4 text-lg leading-relaxed text-pretty text-muted-foreground">
+      {post.data.summary}
+    </p>
+    <div
+      class="prose prose-neutral dark:prose-invert mt-10 max-w-none prose-headings:font-heading prose-headings:tracking-tight prose-a:text-foreground prose-a:underline-offset-4 prose-code:font-mono prose-code:text-[0.9em] prose-code:before:content-none prose-code:after:content-none"
+    >
+      <Content />
+    </div>
+  </article>
+</Layout>

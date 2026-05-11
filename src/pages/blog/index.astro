@@ -1,0 +1,110 @@
+---
+import { ArrowLeft, ArrowRight } from "@phosphor-icons/react"
+import { getCollection } from "astro:content"
+import Layout from "@/layouts/main.astro"
+import SectionHeading from "@/components/SectionHeading.astro"
+
+const isProd = import.meta.env.PROD
+const all = await getCollection("blog", ({ data }) =>
+  isProd ? data.draft !== true : true
+)
+
+const posts = [...all].sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+)
+
+const [latest, ...rest] = posts
+
+const fmtDate = (d: Date) =>
+  d.toLocaleString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  })
+---
+
+<Layout
+  title="Blog · Zii Donato"
+  description="Short notes on what I'm building, breaking, and learning."
+>
+  <section class="mx-auto max-w-3xl px-6 pt-12 pb-8">
+    <a
+      href="/"
+      class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+    >
+      <ArrowLeft size={14} weight="bold" aria-hidden="true" />
+      Back to home
+    </a>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-6 pb-16">
+    <SectionHeading eyebrow="Blog" accent="var(--accent-blue)">
+      Thoughts &amp; essays
+    </SectionHeading>
+    <p class="-mt-6 mb-10 text-muted-foreground">
+      Anything on my mind that I feel like writing about.
+    </p>
+
+    {
+      !latest ? (
+        <p class="text-muted-foreground">No posts yet — check back soon.</p>
+      ) : (
+        <a
+          href={`/blog/${latest.slug}`}
+          class="group mb-12 block rounded-lg border border-border/60 bg-card/40 p-6 transition-colors duration-150 hover:border-border hover:bg-card focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none sm:p-8"
+        >
+          <p class="mb-3 font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase tabular-nums">
+            Latest · {fmtDate(latest.data.date)}
+          </p>
+          <h3 class="font-heading text-2xl leading-tight font-semibold tracking-tight text-balance underline-offset-4 group-hover:underline sm:text-3xl">
+            {latest.data.title}
+          </h3>
+          <p class="mt-3 text-pretty text-muted-foreground">
+            {latest.data.summary}
+          </p>
+          <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-foreground">
+            Read post
+            <ArrowRight
+              size={14}
+              weight="bold"
+              aria-hidden="true"
+              class="transition-transform duration-150 group-hover:translate-x-0.5"
+            />
+          </span>
+        </a>
+      )
+    }
+
+    {
+      rest.length > 0 && (
+        <div>
+          <h4 class="mb-4 font-mono text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            Older posts
+          </h4>
+          <ul class="divide-y divide-border/60">
+            {rest.map((post) => (
+              <li>
+                <a
+                  href={`/blog/${post.slug}`}
+                  class="group block py-5 transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                >
+                  <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                    <span class="font-medium text-foreground underline-offset-4 group-hover:underline">
+                      {post.data.title}
+                    </span>
+                    <span class="font-mono text-xs tracking-wide text-muted-foreground uppercase tabular-nums">
+                      {fmtDate(post.data.date)}
+                    </span>
+                  </div>
+                  <p class="mt-1 text-sm text-muted-foreground">
+                    {post.data.summary}
+                  </p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </section>
+</Layout>
