@@ -1,5 +1,5 @@
 ---
-import { Sun, Moon } from "@phosphor-icons/react"
+import { Sun, Moon, List, X } from "@phosphor-icons/react"
 
 const links = [
   { href: "/#experience", label: "Experience" },
@@ -29,12 +29,13 @@ const links = [
       </span>
       <span
         role="tooltip"
-        class="pointer-events-none absolute top-full left-0 z-50 mt-2 whitespace-nowrap rounded-md bg-foreground px-2.5 py-1 font-mono text-xs text-background opacity-0 shadow-md transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100"
+        class="pointer-events-none absolute top-full left-0 z-50 mt-2 hidden whitespace-nowrap rounded-md bg-foreground px-2.5 py-1 font-mono text-xs text-background opacity-0 shadow-md transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 sm:block"
       >
         zai duh-NAH-toh
       </span>
     </a>
-    <ul class="flex items-center gap-1 text-sm">
+
+    <ul class="hidden items-center gap-1 text-sm md:flex">
       {
         links.map((link) => (
           <li>
@@ -49,10 +50,11 @@ const links = [
       }
       <li>
         <button
-          id="theme-toggle"
+          id="theme-toggle-desktop"
           type="button"
+          data-theme-toggle
           aria-label="Toggle theme"
-          class="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors duration-150 hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors duration-150 hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
         >
           <Sun
             size={18}
@@ -69,15 +71,144 @@ const links = [
         </button>
       </li>
     </ul>
+
+    <div class="flex items-center gap-1 md:hidden">
+      <button
+        id="theme-toggle-mobile"
+        type="button"
+        data-theme-toggle
+        aria-label="Toggle theme"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors duration-150 hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+      >
+        <Sun
+          size={18}
+          weight="regular"
+          aria-hidden="true"
+          className="hidden dark:block"
+        />
+        <Moon
+          size={18}
+          weight="regular"
+          aria-hidden="true"
+          className="block dark:hidden"
+        />
+      </button>
+      <button
+        id="mobile-menu-button"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors duration-150 hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+      >
+        <List
+          size={20}
+          weight="regular"
+          aria-hidden="true"
+          data-menu-icon="closed"
+        />
+        <X
+          size={20}
+          weight="regular"
+          aria-hidden="true"
+          data-menu-icon="open"
+          className="hidden"
+        />
+      </button>
+    </div>
   </nav>
+
+  <div
+    id="mobile-menu"
+    hidden
+    class="border-t border-border/40 bg-background/95 backdrop-blur md:hidden"
+  >
+    <ul class="mx-auto flex max-w-4xl flex-col gap-1 px-4 py-3 text-base">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              data-mobile-link
+              class="block rounded-md px-3 py-3 text-muted-foreground transition-colors duration-150 hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </header>
 
 <script is:inline>
-  const toggle = document.getElementById("theme-toggle")
-  toggle?.addEventListener("click", () => {
-    const root = document.documentElement
-    const next = root.classList.toggle("dark") ? "dark" : "light"
-    localStorage.setItem("theme", next)
+  // Theme toggle (both desktop + mobile buttons)
+  function updateThemeButtonLabels() {
+    const isDark = document.documentElement.classList.contains("dark")
+    const label = isDark ? "Switch to light mode" : "Switch to dark mode"
+    document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
+      btn.setAttribute("aria-label", label)
+    })
+  }
+  updateThemeButtonLabels()
+  document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const root = document.documentElement
+      const next = root.classList.toggle("dark") ? "dark" : "light"
+      localStorage.setItem("theme", next)
+      updateThemeButtonLabels()
+    })
+  })
+
+  // Mobile menu disclosure
+  const menuBtn = document.getElementById("mobile-menu-button")
+  const menu = document.getElementById("mobile-menu")
+  const iconClosed = menuBtn?.querySelector('[data-menu-icon="closed"]')
+  const iconOpen = menuBtn?.querySelector('[data-menu-icon="open"]')
+
+  function setMenu(open) {
+    if (!menuBtn || !menu) return
+    menuBtn.setAttribute("aria-expanded", String(open))
+    menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu")
+    if (open) {
+      menu.removeAttribute("hidden")
+      iconClosed?.classList.add("hidden")
+      iconOpen?.classList.remove("hidden")
+    } else {
+      menu.setAttribute("hidden", "")
+      iconClosed?.classList.remove("hidden")
+      iconOpen?.classList.add("hidden")
+    }
+  }
+
+  menuBtn?.addEventListener("click", () => {
+    const isOpen = menuBtn.getAttribute("aria-expanded") === "true"
+    setMenu(!isOpen)
+  })
+
+  // Close on link click
+  menu?.querySelectorAll("[data-mobile-link]").forEach((link) => {
+    link.addEventListener("click", () => setMenu(false))
+  })
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenu(false)
+  })
+
+  // Close on tap/click outside the nav header
+  document.addEventListener("pointerdown", (e) => {
+    if (menuBtn?.getAttribute("aria-expanded") !== "true") return
+    const target = e.target
+    if (!(target instanceof Node)) return
+    const header = menuBtn.closest("header")
+    if (header && !header.contains(target)) setMenu(false)
+  })
+
+  // Close when viewport crosses md breakpoint upward
+  const mql = window.matchMedia("(min-width: 768px)")
+  mql.addEventListener("change", (e) => {
+    if (e.matches) setMenu(false)
   })
 </script>
 
