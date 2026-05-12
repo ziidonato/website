@@ -54,7 +54,7 @@ And think about it: let's say you go through with it. Let's say you build the pr
 attract some users, and get a pretty good thing going. Guess what, if the company
 you're competing against (you know, the company with way more users than you, who
 you're probably stealing users from) sees that success, there is absolutely nothing
-stopping them from building the one (or two, or however many) feature your product
+stopping them from building the one (or two, or however many) feature(s) your product
 has as its entire selling point, and integrating it for free with their app, making
 your whole business irrelevant. If this is your business idea, it better not be
 long-term. Your best bet is to find a niche that has a market, hyper-optimize for
@@ -88,6 +88,8 @@ means your entire product is reliant on another product.
   for that.
 - AI photo/video generator websites - OpenAI and Google made quick work of those
   companies when they released their own photo/video generators.
+  - Anthropic and Google took a mean swing at figma with their design studios, but
+    they suck so nobody uses them
 
 That third example is something to seriously look out for. Google, Anthropic, or
 OpenAI can steal your entire business if they think there's real money in it and
@@ -95,11 +97,13 @@ they can do it better. Remember these companies aren't just gonna let you exist.
 They're not content with being the biggest fish in the pond, they want to be the
 only fish so they can eat all the food.
 
-These types of ideas, like the other ones, are basically early-exist ideas; if you're
-dead-set on building this out, aim for a quick exist, because you don't have a long-term
+These types of ideas, like the other ones, are basically early-exit ideas; if you're
+dead-set on building this out, aim for a quick exit, because you don't have a long-term
 product.
 
 ## So what's a good idea?
+
+_If I had one, I'd be running a business right now._
 
 You're gonna have to look. Most business ideas that actually have some potential
 are solving a problem that the founder encountered themselves, looked for a solution,
@@ -107,5 +111,5 @@ and found none. If you have encountered a problem and solved it yourself, and th
 found others with the same problem willing to pay for it, you might have a business.
 But there's a trap here too, and that's building a product for a customer base of
 one (yourself). You solve that with market research and validation, but people like
-to skip that crucial step and are confused when their product fails to even get off
-the ground.
+to skip that crucial step and are confused when their product fails to even get
+off the ground.
