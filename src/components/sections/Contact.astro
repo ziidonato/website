@@ -72,7 +72,11 @@ const channels = [
             </div>
             <div>
               <p class="type-label text-muted-foreground">{label}</p>
-              <p class="mt-1 truncate font-mono text-sm">{value}</p>
+              {/* Clarity masks text by default, but the address is the one
+                  thing on this page worth being explicit about. */}
+              <p class="mt-1 truncate font-mono text-sm" data-clarity-mask>
+                {value}
+              </p>
             </div>
           </a>
         </li>

@@ -1,0 +1,21 @@
+---
+/**
+ * Microsoft Clarity session replay + heatmaps.
+ *
+ * Renders nothing unless PUBLIC_CLARITY_ID is set at build time, so a local
+ * build and a preview deploy carry no third-party script at all.
+ *
+ * Create the project with cookies OFF (Settings -> Setup). Cookieless
+ * recording is what keeps a consent banner unnecessary here.
+ */
+const clarityId = import.meta.env.PUBLIC_CLARITY_ID
+---
+
+{
+  clarityId && (
+    <>
+      <div id="clarity-mount" data-id={clarityId} hidden />
+      <script>import "@/scripts/clarity"</script>
+    </>
+  )
+}
