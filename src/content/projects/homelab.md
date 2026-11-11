@@ -4,7 +4,9 @@ summary: "Personal server cluster managed with NixOS flakes, running self-hosted
 end: "ongoing"
 tech: ["NixOS", "Docker Compose", "Caddy", "Tailscale", "Linux"]
 links: []
+status: "live"
 featured: true
+highlight: "Reproducible from one flake"
 order: 4
 draft: false
 ---

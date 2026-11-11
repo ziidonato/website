@@ -5,7 +5,8 @@ start: "2024-03"
 end: "2024-08"
 tech: ["ESP32", "C++", "PCB Design", "Home Assistant", "MQTT"]
 links: []
-order: 4
+highlight: "Custom ESP32 PCB"
+order: 5
 draft: false
 ---
 

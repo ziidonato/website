@@ -5,7 +5,8 @@ start: "2023-04"
 end: "ongoing"
 tech: ["Rust", "Go", "C++", "ESP32", "Alpaca", "Tradier"]
 links: []
-order: 8
+highlight: "Four runtimes, one strategy"
+order: 6
 draft: false
 ---
 

@@ -10,7 +10,9 @@ links:
     href: "https://docs.rs/tracing-systemd"
   - label: "Source"
     href: "https://github.com/ziidonato/tracing-systemd"
+status: "live"
 featured: true
+highlight: "10,000+ crates.io downloads"
 order: 2
 draft: false
 ---

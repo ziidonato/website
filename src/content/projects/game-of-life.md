@@ -6,7 +6,8 @@ tech: ["C", "raylib", "CMake", "ubench"]
 links:
   - label: "Source"
     href: "https://github.com/ziidonato/game_of_life"
-order: 6
+highlight: "Optimized to the memory bandwidth ceiling"
+order: 7
 draft: false
 ---
 
