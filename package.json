@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "pnpm run build && wrangler dev",
     "astro": "astro",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
@@ -14,9 +14,12 @@
     "typecheck": "astro check",
     "smoke": "node scripts/smoke.mjs",
     "test": "playwright test",
-    "browsers:link": "./scripts/pw-browsers.sh"
+    "browsers:link": "./scripts/pw-browsers.sh",
+    "deploy": "pnpm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "@astrojs/react": "^4.4.2",
     "@fontsource-variable/inter": "^5.2.8",
     "@fontsource-variable/jetbrains-mono": "^5.3.0",
@@ -42,6 +45,6 @@
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "typescript": "~5.9.3",
-    "wrangler": "^4.88.0"
+    "wrangler": "^4.90.0"
   }
 }
