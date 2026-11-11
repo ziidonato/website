@@ -1,6 +1,5 @@
 ---
-import { ArrowUpRight, CaretDown } from "@phosphor-icons/react"
-import { groupTech } from "@/lib/tech"
+import { ArrowUpRight } from "@phosphor-icons/react"
 
 /**
  * One record shape shared by experience entries and projects.
@@ -53,7 +52,6 @@ const {
 } = Astro.props
 
 const hasBody = Astro.slots.has("default")
-const techGroups = groupTech(tech)
 ---
 
 <article
@@ -150,30 +148,17 @@ const techGroups = groupTech(tech)
   }
 
   {
-    techGroups.length > 0 && (
-      <details class="group/details mt-4">
-        <summary class="type-meta flex cursor-pointer list-none items-center gap-1.5 text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none [&::-webkit-details-marker]:hidden">
-          <CaretDown
-            size={11}
-            weight="bold"
-            aria-hidden="true"
-            class="transition-transform duration-150 group-open/details:rotate-180"
-          />
-          {tech.length} technologies
-        </summary>
-        <dl class="mt-2.5 space-y-1.5">
-          {techGroups.map(({ label, items }) => (
-            <div class="type-meta flex flex-wrap items-baseline gap-x-3">
-              <dt class="accent-hint type-label w-20 shrink-0">{label}</dt>
-              <dd class="flex flex-wrap items-baseline gap-x-1.5 gap-y-1">
-                {items.map((t) => (
-                  <span class="whitespace-nowrap text-foreground/80">{t}</span>
-                ))}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </details>
+    tech.length > 0 && (
+      <ul class="accent-text type-meta flex flex-wrap items-baseline gap-x-3 gap-y-1 pt-4 sm:gap-x-2">
+        {tech.map((t) => (
+          /* Pipe separators are CSS content so they stay out of the
+             accessibility tree, and appear only from `sm` up: on a narrow
+             screen every wrapped line would otherwise open with one. */
+          <li class="whitespace-nowrap sm:before:mr-2 sm:before:text-muted-foreground/50 sm:before:content-['|'] sm:first:before:content-none">
+            {t}
+          </li>
+        ))}
+      </ul>
     )
   }
 
