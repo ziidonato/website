@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content"
+import { CaretDown } from "@phosphor-icons/react"
 import EntryCard from "@/components/EntryCard.astro"
 
 interface Props {
@@ -9,6 +10,8 @@ interface Props {
 }
 
 const { project, accent } = Astro.props
+const { Content } = await project.render()
+const hasStory = (project.body ?? "").trim().length > 0
 const {
   title,
   summary,
@@ -61,6 +64,24 @@ const statusLabel =
         decoding="async"
         class="w-full rounded-md object-cover"
       />
+    )
+  }
+  {
+    hasStory && (
+      <details class="group/details mt-3">
+        <summary class="type-meta flex cursor-pointer list-none items-center gap-1.5 text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none [&::-webkit-details-marker]:hidden">
+          <CaretDown
+            size={11}
+            weight="bold"
+            aria-hidden="true"
+            class="transition-transform duration-150 group-open/details:rotate-180"
+          />
+          Read more
+        </summary>
+        <div class="type-body mt-2 text-muted-foreground">
+          <Content />
+        </div>
+      </details>
     )
   }
 </EntryCard>
