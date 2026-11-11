@@ -58,7 +58,11 @@ const projects = [...all].sort((a, b) => {
     >
       {
         projects.map((project, index) => (
-          <ProjectCard project={project} accent={rainbowAt(index, 0)} />
+          <ProjectCard
+            project={project}
+            accent={rainbowAt(index, 0)}
+            detailed
+          />
         ))
       }
     </div>

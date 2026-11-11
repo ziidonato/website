@@ -7,9 +7,16 @@ interface Props {
   project: CollectionEntry<"projects">
   /** This record's hue, from the section's walk of the palette. */
   accent: string
+  /**
+   * The homepage pitches a project and /projects documents it. Only the
+   * documentation page shows the stack and the written body; on the homepage
+   * they compete with the blurb and, for the stack, repeat the Skills section
+   * rendered immediately above it.
+   */
+  detailed?: boolean
 }
 
-const { project, accent } = Astro.props
+const { project, accent, detailed = false } = Astro.props
 const { Content } = await project.render()
 const hasStory = (project.body ?? "").trim().length > 0
 const {
@@ -46,7 +53,7 @@ const statusLabel =
   status={statusLabel}
   highlight={highlight}
   summary={summary}
-  tech={tech}
+  tech={detailed ? tech : []}
   links={links}
   accent={accent}
 >
@@ -67,7 +74,7 @@ const statusLabel =
     )
   }
   {
-    hasStory && (
+    detailed && hasStory && (
       <details class="group/details mt-3">
         <summary class="type-meta flex cursor-pointer list-none items-center gap-1.5 text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none [&::-webkit-details-marker]:hidden">
           <CaretDown
