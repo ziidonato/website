@@ -9,7 +9,7 @@ links:
     href: "https://electrocaddy.io"
   - label: "Source"
     href: "https://github.com/ziidonato/electronics-ai"
-highlight: "150+ page datasheet processing"
+highlight: "Structural representation of electrical components"
 status: "wip"
 featured: true
 order: 1

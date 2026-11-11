@@ -6,7 +6,7 @@ end: "2025-05"
 tech: ["STM32", "Firmware", "C", "PCB Design", "Mechanical"]
 links: []
 featured: true
-highlight: "Damper dyno built from scratch"
+highlight: "Engineered the electronics for a custom race kart"
 order: 3
 draft: false
 ---

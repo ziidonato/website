@@ -6,7 +6,7 @@ tech: ["NixOS", "Docker Compose", "Caddy", "Tailscale", "Linux"]
 links: []
 status: "live"
 featured: true
-highlight: "Reproducible from one flake"
+highlight: "Configured developer tooling without needing install scripts or steps"
 order: 4
 draft: false
 ---

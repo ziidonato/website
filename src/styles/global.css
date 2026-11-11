@@ -35,6 +35,7 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
+  --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
@@ -68,6 +69,13 @@
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
+  /* Reading copy. `--muted-foreground` is a UI token — the right weight for a
+   * date stamp or a placeholder, not for a paragraph. Prose that used it sat a
+   * full step below the titles it belongs to, so every card read as a
+   * headline over a caption. `--ink` is one stop quieter than
+   * `--foreground` and the same distance above `--muted-foreground`, which
+   * keeps three text levels instead of collapsing to two. */
+  --ink: oklch(0.31 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -103,6 +111,7 @@
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
+  --ink: oklch(0.84 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
