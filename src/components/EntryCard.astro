@@ -113,7 +113,7 @@ const hasBody = Astro.slots.has("default")
 
   {
     summary && (
-      <p class="type-body mt-3 text-ink">
+      <p class="type-body mt-3 text-foreground">
         {highlight && (
           <strong class="accent-text font-semibold">{`${highlight}. `}</strong>
         )}
@@ -124,7 +124,7 @@ const hasBody = Astro.slots.has("default")
 
   {
     bullets.length > 0 && (
-      <ul class="type-body mt-3 space-y-2 text-ink">
+      <ul class="type-body mt-3 space-y-2 text-foreground">
         {bullets.map((b) => (
           <li class="flex gap-2.5">
             <span
@@ -141,7 +141,7 @@ const hasBody = Astro.slots.has("default")
 
   {
     hasBody && (
-      <div class="type-body mt-3 text-ink">
+      <div class="type-body mt-3 text-foreground">
         <slot />
       </div>
     )

@@ -17,7 +17,7 @@ const hobbies = ["Drag racing", "Sim racing", "Speedcubing", "Chess"]
   style={{ "--accent": RAINBOW[3] }}
 >
   <SectionHeading accent={RAINBOW[3]}>About</SectionHeading>
-  <div class="space-y-4 text-pretty text-foreground/90">
+  <div class="space-y-4 text-pretty">
     <p>
       Software engineer based in New York. My dad handed me a programming book
       and a gaming PC at roughly the same time, which set off a long stretch of
@@ -25,7 +25,7 @@ const hobbies = ["Drag racing", "Sim racing", "Speedcubing", "Chess"]
       eventually building a few more. After high school I decided to stop
       treating it as a hobby.
     </p>
-    <p class="text-ink">
+    <p class="text-foreground">
       Lately I've been spending most of my off-hours on electronics, which is
       where 3D printing and software meet for me. It started with a 3D-printed
       speaker cabinet, which made me want a real amplifier behind it, so now I'm
@@ -47,7 +47,7 @@ const hobbies = ["Drag racing", "Sim racing", "Speedcubing", "Chess"]
           style={{ backgroundColor: rainbowAt(0, 3) }}></span>
         Currently
       </h3>
-      <ul class="space-y-1.5 text-sm text-foreground/90">
+      <ul class="space-y-1.5 text-sm">
         {
           currently.map((line) => (
             <li class="flex gap-2">
@@ -71,7 +71,7 @@ const hobbies = ["Drag racing", "Sim racing", "Speedcubing", "Chess"]
           style={{ backgroundColor: rainbowAt(1, 3) }}></span>
         Hobbies
       </h3>
-      <ul class="space-y-1.5 text-sm text-foreground/90">
+      <ul class="space-y-1.5 text-sm">
         {
           hobbies.map((line) => (
             <li class="flex gap-2">

@@ -56,7 +56,7 @@ const groups = [
           <dt
             class="type-label flex items-baseline gap-2"
             style={{
-              color: `color-mix(in oklab, ${rainbowAt(index, 1)} 65%, var(--muted-foreground))`,
+              color: `color-mix(in oklab, ${rainbowAt(index, 1)} 72%, var(--foreground))`,
             }}
           >
             <span
@@ -71,7 +71,7 @@ const groups = [
               a second separator. The pipe leads each item after the first, so
               a wrapped line opens with a continuation mark instead of
               trailing a dangling separator at the line end. */}
-          <dd class="text-sm leading-relaxed text-foreground/90">
+          <dd class="text-sm leading-relaxed">
             <ul class="flex flex-wrap items-baseline gap-x-3 gap-y-1 sm:gap-x-2.5">
               {group.items.map((item) => (
                 <li class="whitespace-nowrap sm:before:mr-2.5 sm:before:text-muted-foreground/50 sm:before:content-['|'] sm:first:before:content-none">
