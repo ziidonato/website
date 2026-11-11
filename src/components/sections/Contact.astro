@@ -6,38 +6,38 @@ import {
   LinkedinLogo,
 } from "@phosphor-icons/react"
 import SectionHeading from "@/components/SectionHeading.astro"
+import { RAINBOW, rainbowAt } from "@/lib/rainbow"
 
+/* Accents come from the channel's position in the list, not the store: the
+ * same rainbow walk every other section uses, starting at red. */
 const channels = [
   {
     label: "Email",
     value: "zii.donato@outlook.com",
     href: "mailto:zii.donato@outlook.com",
     Icon: EnvelopeSimple,
-    accent: "var(--accent-purple)",
   },
   {
     label: "GitHub",
     value: "@ziidonato",
     href: "https://github.com/ziidonato",
     Icon: GithubLogo,
-    accent: "var(--accent-blue)",
   },
   {
     label: "LinkedIn",
     value: "in/zii-donato",
     href: "https://linkedin.com/in/zii-donato",
     Icon: LinkedinLogo,
-    accent: "var(--accent-green)",
   },
 ]
 ---
 
-<section id="contact" class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16">
-  <SectionHeading
-    eyebrow="05 / Contact"
-    accent="var(--accent-purple)"
-    class="mb-4"
-  >
+<section
+  id="contact"
+  class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16"
+  style={{ "--accent": RAINBOW[4] }}
+>
+  <SectionHeading accent={RAINBOW[4]} class="mb-4">
     Get in touch
   </SectionHeading>
   <p class="max-w-xl text-pretty text-muted-foreground">
@@ -47,7 +47,7 @@ const channels = [
 
   <ul class="mt-10 grid gap-3 sm:grid-cols-3">
     {
-      channels.map(({ label, value, href, Icon, accent }) => (
+      channels.map(({ label, value, href, Icon }, index) => (
         <li>
           <a
             href={href}
@@ -59,7 +59,7 @@ const channels = [
               <span
                 aria-hidden="true"
                 class="inline-flex h-9 w-9 items-center justify-center rounded-md"
-                style={`background-color: color-mix(in oklab, ${accent} 18%, transparent); color: ${accent}`}
+                style={`background-color: color-mix(in oklab, ${rainbowAt(index, 4)} 18%, transparent); color: ${rainbowAt(index, 4)}`}
               >
                 <Icon size={18} weight="regular" />
               </span>
@@ -71,9 +71,7 @@ const channels = [
               />
             </div>
             <div>
-              <p class="font-mono text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                {label}
-              </p>
+              <p class="type-label text-muted-foreground">{label}</p>
               <p class="mt-1 truncate font-mono text-sm">{value}</p>
             </div>
           </a>

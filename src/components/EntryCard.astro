@@ -1,0 +1,184 @@
+---
+import { ArrowUpRight } from "@phosphor-icons/react"
+
+/**
+ * One record shape shared by experience entries and projects.
+ *
+ * Deliberately not a "card": there is no rounded box, no shadow, no ring and
+ * no hover lift. A hairline above each record is what separates it from the
+ * one before, which is the same device the section headings already use, so a
+ * list of records reads as one continuous document rather than a grid of
+ * tiles. `accent` is passed down from the section and never derived from a
+ * list index — colour that changes with array position carries no meaning.
+ */
+interface Props {
+  /** Anchor target; both collections build this from the entry id. */
+  anchorId: string
+  /** Primary line (role title, or project name). */
+  title: string
+  /** Organisation shown beside the title, optionally linked. */
+  entity?: { name: string; href?: string }
+  /** Pre-formatted date range, right-aligned in the header. */
+  meta: string
+  /** Small leading state word, e.g. "In progress". */
+  status?: string
+  /** One concrete outcome, rendered as the opening emphasis of the summary. */
+  highlight?: string
+  summary?: string
+  /** Muted second line (a location, or a project's one-line tagline). */
+  subtitle?: string
+  bullets?: string[]
+  tech?: string[]
+  links?: { label: string; href: string }[]
+  accent: string
+  /** Section colour for the header rule and the meta label. */
+  titleHref?: string
+}
+
+const {
+  anchorId,
+  title,
+  entity,
+  meta,
+  status,
+  highlight,
+  summary,
+  subtitle,
+  bullets = [],
+  tech = [],
+  links = [],
+  accent,
+  titleHref,
+} = Astro.props
+
+const hasBody = Astro.slots.has("default")
+---
+
+<article
+  aria-labelledby={anchorId}
+  class="group flex flex-col"
+  style={`--accent: ${accent}`}
+>
+  <div
+    class="accent-rule flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b pb-2.5"
+  >
+    <div class="flex flex-wrap items-baseline gap-x-2">
+      <h3 id={anchorId} class="type-title">
+        {
+          titleHref ? (
+            <a
+              href={titleHref}
+              class="underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            >
+              {title}
+            </a>
+          ) : (
+            title
+          )
+        }
+      </h3>
+      {
+        entity && (
+          <>
+            <span class="text-muted-foreground" aria-hidden="true">
+              ·
+            </span>
+            {entity.href ? (
+              <a
+                href={entity.href}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-1 text-base font-normal text-foreground/70 underline-offset-4 transition-colors hover:text-foreground hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+              >
+                {entity.name}
+                <ArrowUpRight size={12} weight="bold" aria-hidden="true" />
+              </a>
+            ) : (
+              <span class="text-base text-foreground/70">{entity.name}</span>
+            )}
+          </>
+        )
+      }
+    </div>
+    <p
+      class="accent-text type-meta flex shrink-0 items-baseline gap-2 tabular-nums"
+    >
+      {status && <span>{status}</span>}
+      {status && <span aria-hidden="true">·</span>}
+      <span>{meta}</span>
+    </p>
+  </div>
+
+  {subtitle && <p class="type-meta mt-2.5 text-muted-foreground">{subtitle}</p>}
+
+  {
+    summary && (
+      <p class="type-body mt-3 text-muted-foreground">
+        {highlight && (
+          <strong class="accent-text font-semibold">{`${highlight}. `}</strong>
+        )}
+        {summary}
+      </p>
+    )
+  }
+
+  {
+    bullets.length > 0 && (
+      <ul class="type-body mt-3 space-y-2 text-foreground/90">
+        {bullets.map((b) => (
+          <li class="flex gap-2.5">
+            <span
+              aria-hidden="true"
+              class="mt-[0.55em] block size-1 shrink-0 rounded-full"
+              style={{ backgroundColor: accent }}
+            />
+            <span class="text-pretty">{b}</span>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  {
+    hasBody && (
+      <div class="type-body mt-3 text-muted-foreground">
+        <slot />
+      </div>
+    )
+  }
+
+  {
+    tech.length > 0 && (
+      <ul class="accent-text type-meta flex flex-wrap items-baseline gap-x-3 gap-y-1 pt-4 sm:gap-x-2">
+        {tech.map((t) => (
+          /* Pipe separators are CSS content so they stay out of the
+             accessibility tree, and appear only from `sm` up: on a narrow
+             screen every wrapped line would otherwise open with one. */
+          <li class="whitespace-nowrap sm:before:mr-2 sm:before:text-muted-foreground/50 sm:before:content-['|'] sm:first:before:content-none">
+            {t}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  {
+    links.length > 0 && (
+      <ul class="mt-auto flex flex-wrap items-baseline gap-x-4 gap-y-1 pt-4 text-sm">
+        {links.map(({ label, href }) => (
+          <li>
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-1 font-medium text-foreground underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            >
+              {label}
+              <ArrowUpRight size={13} weight="bold" aria-hidden="true" />
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</article>

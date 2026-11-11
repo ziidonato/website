@@ -11,6 +11,21 @@ const projects = defineCollection({
     summary: z.string(),
     start: yearMonth.optional(),
     end: yearMonth.or(z.literal("ongoing")),
+    // Optional by design: covers are still being shot, so a card must read as
+    // complete without one. Paths are relative to /public (e.g. "/covers/x.png").
+    cover: z.string().optional(),
+    coverAlt: z.string().optional(),
+    gallery: z
+      .array(
+        z.object({
+          src: z.string(),
+          alt: z.string(),
+        })
+      )
+      .default([]),
+    // One concrete outcome, shown on the card: "10,000+ downloads", "Live".
+    highlight: z.string().optional(),
+    status: z.enum(["live", "wip", "archived"]).optional(),
     tech: z.array(z.string()).default([]),
     links: z
       .array(
@@ -23,6 +38,9 @@ const projects = defineCollection({
     featured: z.boolean().default(false),
     order: z.number().int().default(0),
     draft: z.boolean().default(false),
+  }).refine((data) => !data.cover || Boolean(data.coverAlt?.trim()), {
+    message: "coverAlt is required when cover is set",
+    path: ["coverAlt"],
   }),
 })
 

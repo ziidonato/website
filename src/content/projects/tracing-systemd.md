@@ -16,5 +16,5 @@ draft: false
 ---
 
 Logs to journald directly via `tracing-journald`. Color themes and
-output writers are swappable, which keeps the formatter testable. 2,300+
+output writers are swappable, which keeps the formatter testable. 10,000+
 downloads on crates.io.

@@ -1,32 +1,39 @@
 ---
 interface Props {
-  eyebrow?: string
   accent: string
   class?: string
 }
 
-const { eyebrow, accent, class: className = "" } = Astro.props
+const { accent, class: className = "" } = Astro.props
 ---
 
-<div class:list={["mb-10", className]}>
-  {
-    eyebrow && (
-      <p
-        class="mb-2 font-mono text-xs font-medium tracking-[0.18em] uppercase"
-        style={`color: color-mix(in oklab, ${accent} 70%, var(--muted-foreground))`}
-      >
-        {eyebrow}
-      </p>
-    )
-  }
-  <div class="flex items-baseline gap-3">
-    <span
-      aria-hidden="true"
-      class="inline-block h-2.5 w-2.5 shrink-0 translate-y-[-0.2em] rounded-full"
-      style={`background-color: ${accent}; box-shadow: 0 0 0 4px color-mix(in oklab, ${accent} 25%, transparent)`}
-    ></span>
-    <h2 class="text-2xl font-semibold tracking-tight">
+{
+  /* The optional `aside` slot shares the heading's baseline and its rule, so a
+    count or filter reads as part of the heading rather than a label stranded
+    in the gap beneath it.
+
+    Weight is the hierarchy here, not size alone: the heading is the heaviest
+    thing on the page, tracking is pulled in tight so the word reads as one
+    mass, and the accent underline stops at the words so the colour belongs to
+    the heading rather than to the page. `--accent` is set here as well as on
+    the section root, so a heading keeps its hue even when used outside a
+    section that declares one. */
+}
+<div class:list={["mb-10", className]} style={`--accent: ${accent}`}>
+  <div
+    class="relative flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 pb-3 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-border/70"
+  >
+    <h2 class="type-heading relative pb-3 text-balance">
       <slot />
+      {
+        /* Sits under the words only, with a slight overhang past the last
+          glyph so it reads as drawn rather than clipped to the text box. */
+      }
+      <span
+        aria-hidden="true"
+        class="absolute inset-x-0 -bottom-px h-[3px] rounded-full bg-accent"
+      ></span>
     </h2>
+    <slot name="aside" />
   </div>
 </div>

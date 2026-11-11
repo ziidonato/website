@@ -1,26 +1,24 @@
 ---
 import SectionHeading from "@/components/SectionHeading.astro"
-import { Badge } from "@/components/ui/badge"
+import { RAINBOW, rainbowAt } from "@/lib/rainbow"
 
+/* No accent is stored per group: the list walks the rainbow by position, the
+ * same way every other section does, so the section opens on red. */
 const groups = [
   {
     label: "Frontend",
-    accent: "var(--accent-orange)",
     items: ["TypeScript", "React", "Next.js", "Angular", "Playwright"],
   },
   {
     label: "Backend",
-    accent: "var(--accent-green)",
     items: ["Node.js", "Java / Spring", "Go", "Rust", "C", "C++"],
   },
   {
     label: "Cloud & infra",
-    accent: "var(--accent-blue)",
     items: ["AWS", "GCP / Firebase", "Docker / Compose", "NixOS"],
   },
   {
     label: "AI",
-    accent: "var(--accent-purple)",
     items: [
       "LLM integration",
       "Observability (Braintrust)",
@@ -30,52 +28,60 @@ const groups = [
   },
   {
     label: "Embedded",
-    accent: "var(--accent-red)",
     items: ["Firmware (C/C++)", "PCB design", "ESP32", "STM32"],
   },
   {
     label: "General",
-    accent: "var(--accent-yellow)",
     items: ["TDD", "Performance optimization", "Linux", "Git"],
   },
 ]
 ---
 
-<section id="skills" class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16">
-  <SectionHeading eyebrow="02 / Skills" accent="var(--accent-orange)">
-    What I work with
-  </SectionHeading>
+<section
+  id="skills"
+  class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16"
+  style={{ "--accent": RAINBOW[1] }}
+>
+  <SectionHeading accent={RAINBOW[1]}> What I work with </SectionHeading>
 
-  <ul class="space-y-6">
+  {
+    /* A definition list, not a stack of badge rows: the label column carries the
+      grouping and the values read as prose. One rule (the section heading's)
+      instead of six, and no pill for every individual technology. */
+  }
+  <dl class="divide-y divide-border/60">
     {
-      groups.map((group) => (
-        <li>
-          <h3 class="mb-3 flex items-center gap-2 font-mono text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+      groups.map((group, index) => (
+        <div class="grid grid-cols-[7rem_1fr] items-baseline gap-x-5 gap-y-1 py-3.5 sm:grid-cols-[9rem_1fr] sm:gap-x-8">
+          <dt
+            class="type-label flex items-baseline gap-2"
+            style={{
+              color: `color-mix(in oklab, ${rainbowAt(index, 1)} 65%, var(--muted-foreground))`,
+            }}
+          >
             <span
               aria-hidden="true"
-              class="inline-block h-1.5 w-1.5 rounded-full"
-              style={{ backgroundColor: group.accent }}
+              class="inline-block h-3 w-[3px] shrink-0 translate-y-px"
+              style={{ backgroundColor: rainbowAt(index, 1) }}
             />
             {group.label}
-          </h3>
-          <ul class="flex flex-wrap gap-1.5">
-            {group.items.map((item) => (
-              <li>
-                <Badge
-                  variant="outline"
-                  className="font-normal"
-                  style={{
-                    backgroundColor: `color-mix(in oklab, ${group.accent} 15%, transparent)`,
-                    borderColor: `color-mix(in oklab, ${group.accent} 50%, transparent)`,
-                  }}
-                >
+          </dt>
+          {/* A real list: the items are discrete, and a pipe survives the
+              internal "/" groupings ("Java / Spring") that a comma reads as
+              a second separator. The pipe leads each item after the first, so
+              a wrapped line opens with a continuation mark instead of
+              trailing a dangling separator at the line end. */}
+          <dd class="text-sm leading-relaxed text-foreground/90">
+            <ul class="flex flex-wrap items-baseline gap-x-3 gap-y-1 sm:gap-x-2.5">
+              {group.items.map((item) => (
+                <li class="whitespace-nowrap sm:before:mr-2.5 sm:before:text-muted-foreground/50 sm:before:content-['|'] sm:first:before:content-none">
                   {item}
-                </Badge>
-              </li>
-            ))}
-          </ul>
-        </li>
+                </li>
+              ))}
+            </ul>
+          </dd>
+        </div>
       ))
     }
-  </ul>
+  </dl>
 </section>

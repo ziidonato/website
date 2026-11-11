@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content"
 import ExperienceCard from "@/components/ExperienceCard.astro"
 import SectionHeading from "@/components/SectionHeading.astro"
+import { RAINBOW, rainbowAt } from "@/lib/rainbow"
 
 const isProd = import.meta.env.PROD
 const all = await getCollection("experience", ({ data }) =>
@@ -19,19 +20,24 @@ const entries = all.sort(
 )
 ---
 
-<section id="experience" class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16">
-  <div class="mb-10 flex items-end justify-between gap-4">
-    <SectionHeading eyebrow="01 / Experience" accent="var(--accent-red)" class="mb-0">
-      Experience
-    </SectionHeading>
+<section
+  id="experience"
+  class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16"
+  style={{ "--accent": RAINBOW[0] }}
+>
+  <SectionHeading accent={RAINBOW[0]}>
+    Experience
     {
       entries.length > 0 && (
-        <span class="text-sm text-muted-foreground">
+        <span
+          slot="aside"
+          class="type-label text-muted-foreground/70 tabular-nums"
+        >
           {entries.length} {entries.length === 1 ? "role" : "roles"}
         </span>
       )
     }
-  </div>
+  </SectionHeading>
 
   {
     entries.length === 0 ? (
@@ -43,9 +49,9 @@ const entries = all.sort(
         .
       </p>
     ) : (
-      <div class="flex flex-col gap-6">
+      <div class="divide-y divide-border/60 [&>article]:py-6 [&>article:first-child]:pt-0 [&>article:last-child]:pb-0">
         {entries.map((entry, index) => (
-          <ExperienceCard entry={entry} index={index} />
+          <ExperienceCard entry={entry} accent={rainbowAt(index, 0)} />
         ))}
       </div>
     )
@@ -53,15 +59,15 @@ const entries = all.sort(
 
   <div class="mt-10 border-t border-border/60 pt-6">
     <h3
-      class="mb-3 flex items-center gap-2 font-mono text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase"
+      class="type-label mb-3 flex items-baseline gap-2.5 border-b pb-1.5 text-muted-foreground"
     >
       <span
         aria-hidden="true"
-        class="inline-block h-1.5 w-1.5 rounded-full bg-accent-blue"></span>
+        class="inline-block h-3 w-[3px] shrink-0 bg-accent"></span>
       Education
     </h3>
     <p class="text-sm text-foreground/90">
-      <span class="font-medium">University of Connecticut</span>
+      <span class="type-title text-base">University of Connecticut</span>
       <span class="text-muted-foreground">
         — B.S. Computer Science, Math minor</span
       >

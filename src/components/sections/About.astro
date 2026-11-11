@@ -1,5 +1,6 @@
 ---
 import SectionHeading from "@/components/SectionHeading.astro"
+import { RAINBOW, rainbowAt } from "@/lib/rainbow"
 
 const currently = [
   "Based in NYC, between roles.",
@@ -10,8 +11,12 @@ const currently = [
 const hobbies = ["Drag racing", "Sim racing", "Speedcubing", "Chess"]
 ---
 
-<section id="about" class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16">
-  <SectionHeading eyebrow="04 / About" accent="var(--accent-blue)">About</SectionHeading>
+<section
+  id="about"
+  class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16"
+  style={{ "--accent": RAINBOW[3] }}
+>
+  <SectionHeading accent={RAINBOW[3]}>About</SectionHeading>
   <div class="space-y-4 text-pretty text-foreground/90">
     <p>
       Software engineer based in New York. My dad handed me a programming book
@@ -23,23 +28,24 @@ const hobbies = ["Drag racing", "Sim racing", "Speedcubing", "Chess"]
     <p class="text-muted-foreground">
       Lately I've been spending most of my off-hours on electronics, which is
       where 3D printing and software meet for me. It started with a 3D-printed
-      speaker cabinet, which made me want a real amplifier behind it, so now
-      I'm building a receiver with room correction and EQ. A few other things
-      in flight: another receiver for car mods like active exhaust, lighting,
-      and blackout plates, an entertainment center cut open for homelab
-      airflow, and an Insta360 mounted on my Mustang to film drives to and
-      from meets.
+      speaker cabinet, which made me want a real amplifier behind it, so now I'm
+      building a receiver with room correction and EQ. A few other things in
+      flight: another receiver for car mods like active exhaust, lighting, and
+      blackout plates, an entertainment center cut open for homelab airflow, and
+      an Insta360 mounted on my Mustang to film drives to and from meets.
     </p>
   </div>
 
   <div class="mt-10 grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
     <div>
       <h3
-        class="mb-3 flex items-center gap-2 font-mono text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase"
+        class="type-label mb-3 flex items-baseline gap-2.5 border-b pb-1.5 text-muted-foreground"
       >
         <span
           aria-hidden="true"
-          class="inline-block h-1.5 w-1.5 rounded-full bg-accent-green"></span>
+          class="inline-block h-3 w-[3px] shrink-0"
+          class="inline-block h-3 w-[3px] shrink-0"
+          style={{ backgroundColor: rainbowAt(0, 3) }}></span>
         Currently
       </h3>
       <ul class="space-y-1.5 text-sm text-foreground/90">
@@ -58,11 +64,12 @@ const hobbies = ["Drag racing", "Sim racing", "Speedcubing", "Chess"]
 
     <div>
       <h3
-        class="mb-3 flex items-center gap-2 font-mono text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase"
+        class="type-label mb-3 flex items-baseline gap-2.5 border-b pb-1.5 text-muted-foreground"
       >
         <span
           aria-hidden="true"
-          class="inline-block h-1.5 w-1.5 rounded-full bg-accent-yellow"></span>
+          class="inline-block h-3 w-[3px] shrink-0"
+          style={{ backgroundColor: rainbowAt(1, 3) }}></span>
         Hobbies
       </h3>
       <ul class="space-y-1.5 text-sm text-foreground/90">

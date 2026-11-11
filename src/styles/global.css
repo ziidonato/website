@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
 @import "./pastels.css";
 
 @plugin "@tailwindcss/typography";
@@ -11,6 +12,9 @@
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: "Inter Variable", sans-serif;
+  /* Declared explicitly so `font-mono` resolves to a face we ship rather than
+     whatever the OS monospace happens to be. */
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -138,5 +142,120 @@
     html {
       scroll-behavior: auto;
     }
+  }
+}
+
+/* Accent tinting for records.
+ *
+ * Mixing an accent toward `--foreground` is right in light mode (it deepens a
+ * saturated hue) but wrong in dark mode, where `--foreground` is near-white:
+ * the pastels there wash out to the page colour. Dark mode therefore mixes
+ * toward `--background` instead, which deepens rather than lightens. Both
+ * values are set on the element via `--accent`, so a record only passes the
+ * hue and this decides how strongly to use it.
+ */
+@layer components {
+  /* Colour for TEXT is a different problem from colour for a rule or a chip:
+   * a pastel that works as a 3px bar is unreadable as 12px type. Mixing toward
+   * the foreground was the first attempt, but the result varies with the hue —
+   * yellow lands at ~1.3:1 while red lands near 6:1 — so the same class gave
+   * one section a highlight and another a ghost.
+   *
+   * Relative colour syntax keeps hue and chroma and sets lightness directly,
+   * which is the only channel that needs correcting: every accent then reads
+   * at the same contrast regardless of which one it is. Light mode clamps to
+   * 0.55 L, dark to 0.85, both comfortably above the AA floor against their
+   * respective backgrounds. */
+  .accent-text {
+    color: oklch(from var(--accent) 0.55 c h);
+  }
+  .accent-text-soft {
+    color: oklch(from var(--accent) 0.62 0.85 c h);
+  }
+  /* The record rule is the one place colour appears at full strength: it is
+   * the divider between records and the only mark that says which section you
+   * are in while scanning. A 45% mix was too close to plain `--border` to be
+   * seen at all, so it is a solid hue with a 2px width (set at the call site). */
+  .accent-rule {
+    border-color: var(--accent);
+  }
+  /* Dark mode needs different arithmetic, not a different ratio. The dark
+   * palette is pale pastels (#fdffb6 at oklch lightness 0.98) — on near-black
+   * they land so close to white that the hue is unreadable. Mixing toward the
+   * background dims them, but oklab mixing also drains chroma, so yellow
+   * becomes beige. Relative color syntax keeps c and h and moves only L,
+   * which is the one channel that was wrong. */
+  .dark .accent-text {
+    color: oklch(from var(--accent) 0.85 c h);
+  }
+  .dark .accent-text-soft {
+    color: oklch(from var(--accent) 0.74 0.85 c h);
+  }
+
+  /* The type ladder.
+   *
+   * Four steps, and every section uses the same four. Size alone is a weak
+   * signal — a list of same-coloured records at 16px/18px/14px still reads as
+   * one grey mass — so each step pairs a size with a weight and a tracking
+   * value, and they move together. Tracking tightens as weight rises (bold
+   * text at normal tracking looks loose) and widens as size falls (mono labels
+   * need air to stay legible). Section colour comes from `--accent`, which is
+   * inherited, so nothing here has to be told which section it is in.
+   *
+   *   heading  section title, heaviest, tightest
+   *   title    record title, second heaviest
+   *   label    mono eyebrow / count / date, widest tracking, most muted
+   *   body     prose and bullets
+   */
+  .type-heading {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .type-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+  }
+  .type-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+  .type-body {
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+
+  /* Meta text — dates, tech, link rows. Mono, full size, sentence case, and
+   * NOT uppercased: an eyebrow is uppercase to read as a label, but a date and
+   * a stack belong to the record, not above it. Uppercasing them was flattening
+   * the card into three rows of identical grey caps. */
+  .type-meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 450;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+  }
+
+  /* Muted copy that still admits the section colour. The hue carries meaning,
+   * so it should not vanish in the quietest text — but at full strength a
+   * pastel eyebrow competes with the record title. Mixing the accent into
+   * `--muted-foreground` keeps the chroma as a hint; dark mode lowers the
+   * lightness instead, for the same reason `.accent-text` does (oklab mixing
+   * toward near-black drains chroma and turns pale yellow into beige). */
+  .accent-hint {
+    color: oklch(from var(--accent) 0.62 0.7 c h);
+  }
+  .dark .accent-hint {
+    color: oklch(from var(--accent) 0.72 0.7 c h);
   }
 }

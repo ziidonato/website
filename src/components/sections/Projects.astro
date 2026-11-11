@@ -3,7 +3,7 @@ import { ArrowRight } from "@phosphor-icons/react"
 import { getCollection } from "astro:content"
 import ProjectCard from "@/components/ProjectCard.astro"
 import SectionHeading from "@/components/SectionHeading.astro"
-import { buttonVariants } from "@/components/ui/button"
+import { RAINBOW, rainbowAt } from "@/lib/rainbow"
 
 const isProd = import.meta.env.PROD
 const all = await getCollection("projects", ({ data }) =>
@@ -18,15 +18,17 @@ const totalPublished = all.length
 const hiddenCount = totalPublished - featured.length
 ---
 
-<section id="projects" class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16">
-  <div class="mb-10 flex items-end justify-between gap-4">
-    <SectionHeading eyebrow="03 / Projects" accent="var(--accent-green)" class="mb-0">
-      Selected projects
-    </SectionHeading>
-    <span class="text-sm text-muted-foreground">
+<section
+  id="projects"
+  class="mx-auto max-w-4xl scroll-mt-20 px-6 py-16"
+  style={{ "--accent": RAINBOW[2] }}
+>
+  <SectionHeading accent={RAINBOW[2]}>
+    Highlighted projects
+    <span slot="aside" class="type-label text-muted-foreground/70 tabular-nums">
       {featured.length} of {totalPublished}
     </span>
-  </div>
+  </SectionHeading>
 
   {
     featured.length === 0 ? (
@@ -38,9 +40,9 @@ const hiddenCount = totalPublished - featured.length
         on a project's frontmatter.
       </p>
     ) : (
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div class="divide-y divide-border/60 [&>article]:py-6 [&>article:first-child]:pt-0 [&>article:last-child]:pb-0">
         {featured.map((project, index) => (
-          <ProjectCard project={project} index={index} />
+          <ProjectCard project={project} accent={rainbowAt(index, 2)} />
         ))}
       </div>
     )
@@ -48,15 +50,15 @@ const hiddenCount = totalPublished - featured.length
 
   {
     hiddenCount > 0 && (
-      <div class="mt-8 flex justify-center">
+      <p class="mt-8 text-sm">
         <a
           href="/projects"
-          class={buttonVariants({ variant: "outline", size: "lg" }) + " gap-2"}
+          class="inline-flex items-center gap-1 font-medium text-foreground underline decoration-border underline-offset-4 hover:decoration-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
         >
           View all {totalPublished} projects
-          <ArrowRight size={16} weight="bold" aria-hidden="true" />
+          <ArrowRight size={14} weight="bold" aria-hidden="true" />
         </a>
-      </div>
+      </p>
     )
   }
 </section>

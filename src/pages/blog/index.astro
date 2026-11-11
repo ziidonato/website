@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from "@phosphor-icons/react"
 import { getCollection } from "astro:content"
 import Layout from "@/layouts/main.astro"
 import SectionHeading from "@/components/SectionHeading.astro"
+import { RAINBOW } from "@/lib/rainbow"
 
 const isProd = import.meta.env.PROD
 const all = await getCollection("blog", ({ data }) =>
@@ -38,9 +39,7 @@ const fmtDate = (d: Date) =>
   </section>
 
   <section class="mx-auto max-w-3xl px-6 pb-16">
-    <SectionHeading eyebrow="Blog" accent="var(--accent-blue)">
-      Thoughts &amp; essays
-    </SectionHeading>
+    <SectionHeading accent={RAINBOW[0]}> Thoughts &amp; essays </SectionHeading>
     <p class="-mt-6 mb-10 text-muted-foreground">
       Anything on my mind that I feel like writing about.
     </p>
@@ -53,8 +52,11 @@ const fmtDate = (d: Date) =>
           href={`/blog/${latest.slug}`}
           class="group mb-12 block rounded-lg border border-border/60 bg-card/40 p-6 transition-colors duration-150 hover:border-border hover:bg-card focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none sm:p-8"
         >
-          <p class="mb-3 font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase tabular-nums">
-            Latest · {fmtDate(latest.data.date)}
+          <p class="type-label mb-3 text-muted-foreground/80 tabular-nums">
+            Latest ·{" "}
+            <time datetime={latest.data.date.toISOString()}>
+              {fmtDate(latest.data.date)}
+            </time>
           </p>
           <h3 class="font-heading text-2xl leading-tight font-semibold tracking-tight text-balance underline-offset-4 group-hover:underline sm:text-3xl">
             {latest.data.title}
@@ -78,9 +80,9 @@ const fmtDate = (d: Date) =>
     {
       rest.length > 0 && (
         <div>
-          <h4 class="mb-4 font-mono text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+          <h3 class="type-label mb-4 border-b pb-2 text-muted-foreground">
             Older posts
-          </h4>
+          </h3>
           <ul class="divide-y divide-border/60">
             {rest.map((post) => (
               <li>
@@ -89,12 +91,15 @@ const fmtDate = (d: Date) =>
                   class="group block py-5 transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
                 >
                   <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-                    <span class="font-medium text-foreground underline-offset-4 group-hover:underline">
+                    <h4 class="font-medium text-foreground underline-offset-4 group-hover:underline">
                       {post.data.title}
-                    </span>
-                    <span class="font-mono text-xs tracking-wide text-muted-foreground uppercase tabular-nums">
+                    </h4>
+                    <time
+                      datetime={post.data.date.toISOString()}
+                      class="type-label text-muted-foreground/80 tabular-nums"
+                    >
                       {fmtDate(post.data.date)}
-                    </span>
+                    </time>
                   </div>
                   <p class="mt-1 text-sm text-muted-foreground">
                     {post.data.summary}

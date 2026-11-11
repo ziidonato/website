@@ -11,11 +11,15 @@
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format --write . && prettier --write \"**/*.astro\" \"**/*.{ts,tsx}\"",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "smoke": "node scripts/smoke.mjs",
+    "test": "playwright test",
+    "browsers:link": "./scripts/pw-browsers.sh"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
     "@phosphor-icons/react": "^2.1.10",
     "@tailwindcss/vite": "^4.2.1",
     "@types/react": "^19.2.14",
@@ -33,6 +37,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",
+    "playwright": "^1.65.0",
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2",

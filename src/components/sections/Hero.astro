@@ -1,22 +1,15 @@
 ---
 import { ArrowDown, EnvelopeSimple } from "@phosphor-icons/react"
 import { buttonVariants } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 ---
 
 <section id="top" class="mx-auto max-w-4xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-24">
-  <Badge
-    variant="outline"
-    className="mb-5 gap-1.5 border-accent-purple/60 bg-accent-purple/15 font-normal text-foreground"
-  >
-    <span
-      class="inline-block h-1.5 w-1.5 rounded-full bg-accent-blue ring-2 ring-accent-blue/30"
-    ></span>
-    Open to work · NYC
-  </Badge>
-
+  {
+    /* Availability set as a plain line under the headline, not a pill above it:
+      a badge floating over a headline is the standard generated-hero ornament. */
+  }
   <h1
-    class="font-heading max-w-3xl text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl"
+    class="max-w-3xl font-heading text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl"
   >
     Software engineer by education, builder at heart.
   </h1>
@@ -25,6 +18,9 @@ import { Badge } from "@/components/ui/badge"
   >
     Mostly that means taking the rigor and processes from other engineering
     fields and applying them to software.
+  </p>
+  <p class="mt-4 font-mono text-xs text-muted-foreground">
+    Software engineer · New York · open to work
   </p>
 
   <div class="mt-8 flex flex-wrap items-center gap-3">

@@ -1,5 +1,5 @@
 {
-  description = "electronics-ai dev environment";
+  description = "Personal website dev environment";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -15,41 +15,20 @@
     (flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        node = pkgs.nodejs_22;
-        chromePath = "${pkgs.google-chrome}/bin/google-chrome-stable";
+        pkgs = import nixpkgs { inherit system; };
       in
       {
         devShells.default = pkgs.mkShell {
-
           packages = with pkgs; [
-            node
+            nodejs_22
             pnpm
-
-            jq
-            uv
-
-            git
             biome
 
-            google-chrome
+            # Playwright drives this instead of its own downloaded build, which
+            # cannot resolve its shared libraries on NixOS. Reached via
+            # `channel: "chromium"` and the symlink farm in scripts/pw-browsers.sh.
+            chromium
           ];
-
-          shellHook = ''
-            CONFIG="$HOME/.claude.json"
-            PROJECT="$PWD"
-            CHROME="${chromePath}"
-            if [ -f "$CONFIG" ]; then
-              tmp="$(mktemp)"
-              jq --arg project "$PROJECT" --arg chrome "$CHROME" \
-                '.projects[$project].mcpServers.playwright.env.PLAYWRIGHT_MCP_EXECUTABLE_PATH = $chrome' \
-                "$CONFIG" > "$tmp" && mv "$tmp" "$CONFIG"
-              echo "set PLAYWRIGHT_MCP_EXECUTABLE_PATH for $PROJECT"
-            fi
-          '';
         };
       }
     ));

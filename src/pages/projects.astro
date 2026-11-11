@@ -4,6 +4,7 @@ import { getCollection } from "astro:content"
 import Layout from "@/layouts/main.astro"
 import ProjectCard from "@/components/ProjectCard.astro"
 import SectionHeading from "@/components/SectionHeading.astro"
+import { RAINBOW, rainbowAt } from "@/lib/rainbow"
 
 const isProd = import.meta.env.PROD
 const all = await getCollection("projects", ({ data }) =>
@@ -40,8 +41,11 @@ const projects = [...all].sort((a, b) => {
     </a>
   </section>
 
-  <section class="mx-auto max-w-6xl px-6 pb-16">
-    <SectionHeading eyebrow="All projects" accent="var(--accent-green)">
+  <section
+    class="mx-auto max-w-6xl px-6 pb-16"
+    style={{ "--accent": RAINBOW[0] }}
+  >
+    <SectionHeading accent={RAINBOW[0]}>
       Everything I've shipped
     </SectionHeading>
     <p class="mt-[-1.25rem] mb-10 max-w-xl text-muted-foreground">
@@ -49,10 +53,12 @@ const projects = [...all].sort((a, b) => {
       Featured projects from the homepage appear first.
     </p>
 
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div
+      class="divide-y divide-border/60 [&>article]:py-6 [&>article:first-child]:pt-0 [&>article:last-child]:pb-0"
+    >
       {
         projects.map((project, index) => (
-          <ProjectCard project={project} index={index} />
+          <ProjectCard project={project} accent={rainbowAt(index, 0)} />
         ))
       }
     </div>
