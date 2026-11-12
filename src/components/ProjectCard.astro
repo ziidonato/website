@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content"
-import { CaretDownIcon } from "@phosphor-icons/react"
+import { CaretDownIcon, CaretUpIcon } from "@phosphor-icons/react"
 import EntryCard from "@/components/EntryCard.astro"
 
 interface Props {
@@ -54,12 +54,18 @@ const storyId = `story-${slug}`
         class="group/details mt-3 flex scroll-mt-20 flex-col"
       >
         <summary class="type-meta order-first flex cursor-pointer list-none items-center gap-1.5 text-muted-foreground transition-colors duration-150 group-open/details:order-last group-open/details:mt-3 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none [&::-webkit-details-marker]:hidden">
-          <CaretDownIcon
-            size={11}
-            weight="bold"
-            aria-hidden="true"
-            class="transition-transform duration-150 group-open/details:rotate-180"
-          />
+          {
+            /* Two icons rather than one rotated: `class` is not forwarded by
+               the Phosphor React components (they take `className`), so the
+               rotate utility silently did nothing. Visibility toggling is the
+               same mechanism the label already uses. */
+          }
+          <span class="group-open/details:hidden">
+            <CaretDownIcon size={11} weight="bold" aria-hidden="true" />
+          </span>
+          <span class="hidden group-open/details:inline">
+            <CaretUpIcon size={11} weight="bold" aria-hidden="true" />
+          </span>
           <span class="group-open/details:hidden">Read more</span>
           <span class="hidden group-open/details:inline">Show less</span>
         </summary>
