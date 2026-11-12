@@ -55,11 +55,28 @@ const storyId = `story-${slug}`
             class="transition-transform duration-150 group-open/details:rotate-180"
           />
           <span class="group-open/details:hidden">Read more</span>
-          <span class="hidden group-open/details:inline">Show less</span>
         </summary>
         <div class="prose prose-sm mt-2 max-w-none text-foreground prose-neutral dark:prose-invert prose-p:my-3 prose-p:leading-[1.65]">
           <Content />
         </div>
+        {
+          /* A <summary> is pinned to the top of its <details>, so the closing
+             control lives outside it and closes the element from the sibling.
+             Only rendered once open, which is also when it is needed. */
+        }
+        <button
+          type="button"
+          class="type-meta mt-3 hidden cursor-pointer items-center gap-1.5 text-muted-foreground transition-colors duration-150 group-open/details:flex hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          onclick="this.closest('details').open = false"
+        >
+          <CaretDownIcon
+            size={11}
+            weight="bold"
+            aria-hidden="true"
+            class="rotate-180"
+          />
+          Show less
+        </button>
       </details>
     )
   }
