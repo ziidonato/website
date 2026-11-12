@@ -1,9 +1,10 @@
 ---
-import { ArrowLeft } from "@phosphor-icons/react"
+import { ArrowLeftIcon } from "@phosphor-icons/react"
 import { getCollection } from "astro:content"
 import Layout from "@/layouts/main.astro"
 import ProjectCard from "@/components/ProjectCard.astro"
 import SectionHeading from "@/components/SectionHeading.astro"
+import { splitProjects } from "@/lib/projects"
 import { RAINBOW, rainbowAt } from "@/lib/rainbow"
 
 const isProd = import.meta.env.PROD
@@ -11,20 +12,7 @@ const all = await getCollection("projects", ({ data }) =>
   isProd ? data.draft !== true : true
 )
 
-const monthIndex = (ym: string) => {
-  if (ym === "ongoing") return Number.POSITIVE_INFINITY
-  const [y, m] = ym.split("-").map(Number)
-  return y * 12 + (m - 1)
-}
-
-const projects = [...all].sort((a, b) => {
-  if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1
-  const aEnd = monthIndex(a.data.end)
-  const bEnd = monthIndex(b.data.end)
-  if (aEnd !== bEnd) return bEnd - aEnd
-  if (a.data.order !== b.data.order) return a.data.order - b.data.order
-  return 0
-})
+const { featured: selected, rest } = splitProjects(all)
 ---
 
 <Layout
@@ -36,7 +24,7 @@ const projects = [...all].sort((a, b) => {
       href="/#projects"
       class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
     >
-      <ArrowLeft size={14} weight="bold" aria-hidden="true" />
+      <ArrowLeftIcon size={14} weight="bold" aria-hidden="true" />
       Back to home
     </a>
   </section>
@@ -50,14 +38,18 @@ const projects = [...all].sort((a, b) => {
     </SectionHeading>
     <p class="mt-[-1.25rem] mb-10 max-w-xl text-foreground/80">
       The complete list — products, libraries, hardware, and side experiments.
-      Featured projects from the homepage appear first.
+      Ordered by nothing but my own judgement of how well each one turned out.
     </p>
 
+    {
+      /* No `divide-y`: each record already draws its own rule, and both
+        together produced two parallel lines a few pixels apart. */
+    }
     <div
-      class="divide-y divide-border/60 [&>article]:py-6 [&>article:first-child]:pt-0 [&>article:last-child]:pb-0"
+      class="[&>article]:py-6 [&>article:first-child]:pt-0 [&>article:last-child]:pb-0"
     >
       {
-        projects.map((project, index) => (
+        selected.map((project, index) => (
           <ProjectCard
             project={project}
             accent={rainbowAt(index, 0)}
@@ -66,5 +58,48 @@ const projects = [...all].sort((a, b) => {
         ))
       }
     </div>
+
+    {
+      rest.length > 0 && (
+        <div class="mt-12 border-t border-border/60 pt-6">
+          {/* An eyebrow, not a SectionHeading: the page has one `h1` and one
+              `h2` already, and these group labels sit below both. */}
+          <h3 class="type-label mb-2 flex items-baseline gap-2.5 pb-1.5 text-muted-foreground">
+            <span
+              aria-hidden="true"
+              class="inline-block h-3 w-[3px] shrink-0 bg-accent"
+            />
+            More work
+            <span class="text-muted-foreground/70 tabular-nums">
+              {rest.length}
+            </span>
+          </h3>
+          <div class="[&>article]:py-6 [&>article:first-child]:pt-0 [&>article:last-child]:pb-0">
+            {rest.map((project, index) => (
+              <ProjectCard
+                project={project}
+                accent={rainbowAt(index + selected.length, 0)}
+                detailed
+              />
+            ))}
+          </div>
+        </div>
+      )
+    }
   </section>
+
+  {
+    /* Inline: the disclosure is native `<details>`, and hydrating an island to
+      set one boolean would spend a framework for nothing. */
+  }
+  <script is:inline>
+    const openHashTarget = () => {
+      const id = location.hash.slice(1)
+      if (!id) return
+      const el = document.getElementById(id)
+      if (el instanceof HTMLDetailsElement) el.open = true
+    }
+    openHashTarget()
+    addEventListener("hashchange", openHashTarget)
+  </script>
 </Layout>

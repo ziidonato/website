@@ -3,6 +3,7 @@ import { getCollection } from "astro:content"
 import ExperienceCard from "@/components/ExperienceCard.astro"
 import SectionHeading from "@/components/SectionHeading.astro"
 import { RAINBOW, rainbowAt } from "@/lib/rainbow"
+import { monthsOfExperience, yearsLabel } from "@/lib/experience"
 
 const isProd = import.meta.env.PROD
 const all = await getCollection("experience", ({ data }) =>
@@ -18,6 +19,8 @@ const monthIndex = (ym: string) => {
 const entries = all.sort(
   (a, b) => monthIndex(b.data.end) - monthIndex(a.data.end)
 )
+
+const tenure = yearsLabel(monthsOfExperience(entries.map((e) => e.data)))
 ---
 
 <section
@@ -33,7 +36,7 @@ const entries = all.sort(
           slot="aside"
           class="type-label text-muted-foreground/70 tabular-nums"
         >
-          {entries.length} {entries.length === 1 ? "role" : "roles"}
+          {tenure} · {entries.length} {entries.length === 1 ? "role" : "roles"}
         </span>
       )
     }
@@ -49,7 +52,7 @@ const entries = all.sort(
         .
       </p>
     ) : (
-      <div class="divide-y divide-border/60 [&>article]:py-6 [&>article:first-child]:pt-0 [&>article:last-child]:pb-0">
+      <div class="[&>article]:py-6 [&>article:first-child]:pt-0 [&>article:last-child]:pb-0">
         {entries.map((entry, index) => (
           <ExperienceCard entry={entry} accent={rainbowAt(index, 0)} />
         ))}

@@ -1,9 +1,9 @@
 ---
 import {
-  ArrowUpRight,
-  EnvelopeSimple,
-  GithubLogo,
-  LinkedinLogo,
+  ArrowUpRightIcon,
+  EnvelopeSimpleIcon,
+  GithubLogoIcon,
+  LinkedinLogoIcon,
 } from "@phosphor-icons/react"
 import SectionHeading from "@/components/SectionHeading.astro"
 import { RAINBOW, rainbowAt } from "@/lib/rainbow"
@@ -15,19 +15,19 @@ const channels = [
     label: "Email",
     value: "zii.donato@outlook.com",
     href: "mailto:zii.donato@outlook.com",
-    Icon: EnvelopeSimple,
+    Icon: EnvelopeSimpleIcon,
   },
   {
     label: "GitHub",
     value: "@ziidonato",
     href: "https://github.com/ziidonato",
-    Icon: GithubLogo,
+    Icon: GithubLogoIcon,
   },
   {
     label: "LinkedIn",
     value: "in/zii-donato",
     href: "https://linkedin.com/in/zii-donato",
-    Icon: LinkedinLogo,
+    Icon: LinkedinLogoIcon,
   },
 ]
 ---
@@ -63,7 +63,7 @@ const channels = [
               >
                 <Icon size={18} weight="regular" />
               </span>
-              <ArrowUpRight
+              <ArrowUpRightIcon
                 size={16}
                 weight="bold"
                 aria-hidden="true"

@@ -6,42 +6,52 @@ const yearMonth = z
 
 const projects = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
-    summary: z.string(),
-    start: yearMonth.optional(),
-    end: yearMonth.or(z.literal("ongoing")),
-    // Optional by design: covers are still being shot, so a card must read as
-    // complete without one. Paths are relative to /public (e.g. "/covers/x.png").
-    cover: z.string().optional(),
-    coverAlt: z.string().optional(),
-    gallery: z
-      .array(
-        z.object({
-          src: z.string(),
-          alt: z.string(),
-        })
-      )
-      .default([]),
-    // One concrete outcome, shown on the card: "10,000+ downloads", "Live".
-    highlight: z.string().optional(),
-    status: z.enum(["live", "wip", "archived"]).optional(),
-    tech: z.array(z.string()).default([]),
-    links: z
-      .array(
-        z.object({
-          label: z.string(),
-          href: z.string().url(),
-        })
-      )
-      .default([]),
-    featured: z.boolean().default(false),
-    order: z.number().int().default(0),
-    draft: z.boolean().default(false),
-  }).refine((data) => !data.cover || Boolean(data.coverAlt?.trim()), {
-    message: "coverAlt is required when cover is set",
-    path: ["coverAlt"],
-  }),
+  schema: z
+    .object({
+      title: z.string(),
+      summary: z.string(),
+      // A year, not a range. The old `start`/`end` pair rendered two different
+      // kinds of claim from one slot — a span where both months were known, a
+      // point where only the end was — and `end: "ongoing"` doubled as a sort
+      // key, which is what reordered the page. One year answers the question a
+      // reader actually has (current or historical) and cannot disagree with
+      // itself. Ordering stays `order` alone.
+      year: z.number().int().min(1970).max(2100).optional(),
+      // Optional by design: covers are still being shot, so a card must read as
+      // complete without one. Paths are relative to /public (e.g. "/covers/x.png").
+      cover: z.string().optional(),
+      coverAlt: z.string().optional(),
+      gallery: z
+        .array(
+          z.object({
+            src: z.string(),
+            alt: z.string(),
+          })
+        )
+        .default([]),
+      // One concrete outcome, rendered as the opening emphasis of the summary:
+      // "10,000+ crates.io downloads". Whether a project is finished belongs
+      // here, as an outcome, not in a state badge.
+      highlight: z.string().optional(),
+      tech: z.array(z.string()).default([]),
+      links: z
+        .array(
+          z.object({
+            label: z.string(),
+            href: z.string().url(),
+          })
+        )
+        .default([]),
+      // Required and unique in practice: this is the site's only project ranking,
+      // and the homepage slice is the top of it. A default would silently put a
+      // new project at rank 0, so a missing rank fails the build instead.
+      order: z.number().int(),
+      draft: z.boolean().default(false),
+    })
+    .refine((data) => !data.cover || Boolean(data.coverAlt?.trim()), {
+      message: "coverAlt is required when cover is set",
+      path: ["coverAlt"],
+    }),
 })
 
 const experience = defineCollection({

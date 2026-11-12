@@ -3,7 +3,14 @@
  * Microsoft Clarity session replay + heatmaps.
  *
  * Renders nothing unless PUBLIC_CLARITY_ID is set at build time, so a local
- * build and a preview deploy carry no third-party script at all.
+ * build and a preview deploy carry no third-party script at all. That silence
+ * is invisible when it is working, which reads as "broken", so dev builds say
+ * which of the two states they are in.
+ *
+ * Lives in `<head>` because Microsoft's manual install specifies it, and the
+ * id rides on a `hidden` div rather than `define:vars`: a bundled module script
+ * cannot carry an interpolated id, and the div is a lookup the deferred script
+ * makes at run time.
  *
  * Create the project with cookies OFF (Settings -> Setup). Cookieless
  * recording is what keeps a consent banner unnecessary here.
@@ -12,10 +19,17 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID
 ---
 
 {
-  clarityId && (
+  clarityId ? (
     <>
       <div id="clarity-mount" data-id={clarityId} hidden />
       <script>import "@/scripts/clarity"</script>
     </>
+  ) : (
+    import.meta.env.DEV && (
+      <script is:inline>
+        console.info( "[clarity] PUBLIC_CLARITY_ID is unset — analytics
+        disabled. " + "Add it to .env to enable." )
+      </script>
+    )
   )
 }

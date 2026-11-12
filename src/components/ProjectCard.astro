@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content"
-import { CaretDown } from "@phosphor-icons/react"
+import { CaretDownIcon } from "@phosphor-icons/react"
 import EntryCard from "@/components/EntryCard.astro"
 
 interface Props {
@@ -19,76 +19,66 @@ interface Props {
 const { project, accent, detailed = false } = Astro.props
 const { Content } = await project.render()
 const hasStory = (project.body ?? "").trim().length > 0
-const {
-  title,
-  summary,
-  start,
-  end,
-  highlight,
-  status,
-  tech,
-  links,
-  cover,
-  coverAlt,
-} = project.data
+const { title, summary, year, highlight, tech, links, cover, coverAlt } =
+  project.data
 
-const fmt = (ym: string) => {
-  if (ym === "ongoing") return "Ongoing"
-  const [y, m] = ym.split("-").map(Number)
-  return new Date(y, m - 1, 1).toLocaleString("en-US", {
-    month: "short",
-    year: "numeric",
-  })
-}
-const meta = start ? `${fmt(start)} – ${fmt(end)}` : fmt(end)
-
-const statusLabel =
-  status === "wip" ? "In progress" : status === "live" ? "Live" : undefined
+const slug = project.id.replace(/\.mdx?$/, "")
+/* The header anchor and the disclosure need different targets: a deep link to
+ * `#project-x` must land on the title, while `open` must be set on the
+ * `<details>` element. */
+const storyId = `story-${slug}`
 ---
 
 <EntryCard
-  anchorId={`project-${project.id.replace(/\.mdx?$/, "")}`}
+  anchorId={`project-${slug}`}
   title={title}
-  meta={meta}
-  status={statusLabel}
+  meta={year ? String(year) : undefined}
   highlight={highlight}
   summary={summary}
   tech={detailed ? tech : []}
   links={links}
   accent={accent}
+  rail={detailed}
 >
   {
-    cover && (
-      /* Covers are still being shot, so this branch is unexercised; it is kept
-         so adding one to a markdown file is the only change needed. Dimensions
-         are declared to hold layout before the image loads. */
-      <img
-        src={cover}
-        alt={coverAlt ?? ""}
-        width={1280}
-        height={720}
-        loading="lazy"
-        decoding="async"
-        class="w-full rounded-md object-cover"
-      />
-    )
-  }
-  {
     detailed && hasStory && (
-      <details class="group/details mt-3">
+      <details
+        id={storyId}
+        name="project-story"
+        class="group/details mt-3 scroll-mt-20"
+      >
         <summary class="type-meta flex cursor-pointer list-none items-center gap-1.5 text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none [&::-webkit-details-marker]:hidden">
-          <CaretDown
+          <CaretDownIcon
             size={11}
             weight="bold"
             aria-hidden="true"
             class="transition-transform duration-150 group-open/details:rotate-180"
           />
-          Read more
+          <span class="group-open/details:hidden">Read more</span>
+          <span class="hidden group-open/details:inline">Show less</span>
         </summary>
-        <div class="type-body mt-2 text-foreground">
+        <div class="prose prose-sm mt-2 max-w-none text-foreground prose-neutral dark:prose-invert prose-p:my-3 prose-p:leading-[1.65]">
           <Content />
         </div>
       </details>
+    )
+  }
+  {
+    cover && (
+      /* Wrapped so an unshot cover leaves no empty slotted rail behind a
+         border; the rail's bounded width is what lets the image skip declared
+         dimensions. */
+      <Fragment slot="rail">
+        <img
+          src={cover}
+          alt={coverAlt ?? ""}
+          width={1280}
+          height={720}
+          loading="lazy"
+          decoding="async"
+          class="w-full rounded-md object-cover"
+        />
+      </Fragment>
     )
   }
 </EntryCard>

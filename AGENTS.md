@@ -32,8 +32,8 @@ Playwright is the browser runner. It is configured to use the **system Chromium*
 
 | Collection | Dir | Notes |
 | --- | --- | --- |
-| `projects` | `src/content/projects/*.md` | `start`/`end` are `YYYY-MM` (`end` may be `"ongoing"`); `tech`, `links`, `featured`, `order`, `draft` |
-| `experience` | `src/content/experience/*.md` | `end` may be `"present"`; `bullets`, `tech`, `link`, `draft` |
+| `projects` | `src/content/projects/*.md` | `year` (a single number, rendered alone — no date ranges); `tech`, `links`, `order` (the only ranking — `src/lib/projects.ts` derives the homepage slice from it), `draft` |
+| `experience` | `src/content/experience/*.md` | `start`/`end` are `YYYY-MM` (`end` may be `"present"`); `bullets`, `tech`, `link`, `draft` |
 | `blog` | `src/content/blog/*.md` | `date` is coerced to `Date`; `draft` |
 
 Drafts are filtered in production only (`import.meta.env.PROD` in `getStaticPaths`), so `pnpm dev` shows them.

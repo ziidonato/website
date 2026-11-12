@@ -1,8 +1,6 @@
 ---
 title: "Algorithmic Paper-Trading Bot"
 summary: "Algorithmic paper-trading bot running on Alpaca and Tradier, ported across several runtimes over the years."
-start: "2023-04"
-end: "ongoing"
 tech: ["Rust", "Go", "C++", "ESP32", "Alpaca", "Tradier"]
 links: []
 highlight: "Four runtimes, one strategy"

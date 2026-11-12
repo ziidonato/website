@@ -34,6 +34,7 @@ const {
       const isDark = stored ? stored === "dark" : prefersDark
       if (isDark) document.documentElement.classList.add("dark")
     </script>
+    <Analytics />
   </head>
   <body class="bg-background text-foreground antialiased">
     <a
@@ -47,6 +48,5 @@ const {
       <slot />
     </main>
     <Footer />
-    <Analytics />
   </body>
 </html>

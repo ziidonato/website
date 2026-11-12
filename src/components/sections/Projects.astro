@@ -1,8 +1,9 @@
 ---
-import { ArrowRight } from "@phosphor-icons/react"
+import { ArrowRightIcon } from "@phosphor-icons/react"
 import { getCollection } from "astro:content"
 import ProjectCard from "@/components/ProjectCard.astro"
 import SectionHeading from "@/components/SectionHeading.astro"
+import { splitProjects } from "@/lib/projects"
 import { RAINBOW, rainbowAt } from "@/lib/rainbow"
 
 const isProd = import.meta.env.PROD
@@ -10,9 +11,7 @@ const all = await getCollection("projects", ({ data }) =>
   isProd ? data.draft !== true : true
 )
 
-const featured = all
-  .filter((p) => p.data.featured)
-  .sort((a, b) => a.data.order - b.data.order)
+const { featured } = splitProjects(all)
 
 const totalPublished = all.length
 const hiddenCount = totalPublished - featured.length
@@ -33,14 +32,14 @@ const hiddenCount = totalPublished - featured.length
   {
     featured.length === 0 ? (
       <p class="text-foreground">
-        No featured projects yet. Set{" "}
+        No projects yet. Add a file to{" "}
         <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">
-          featured: true
-        </code>{" "}
-        on a project's frontmatter.
+          src/content/projects
+        </code>
+        .
       </p>
     ) : (
-      <div class="divide-y divide-border/60 [&>article]:py-6 [&>article:first-child]:pt-0 [&>article:last-child]:pb-0">
+      <div class="[&>article]:py-6 [&>article:first-child]:pt-0 [&>article:last-child]:pb-0">
         {featured.map((project, index) => (
           <ProjectCard project={project} accent={rainbowAt(index, 2)} />
         ))}
@@ -56,7 +55,7 @@ const hiddenCount = totalPublished - featured.length
           class="inline-flex items-center gap-1 font-medium text-foreground underline decoration-border underline-offset-4 hover:decoration-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
         >
           View all {totalPublished} projects
-          <ArrowRight size={14} weight="bold" aria-hidden="true" />
+          <ArrowRightIcon size={14} weight="bold" aria-hidden="true" />
         </a>
       </p>
     )

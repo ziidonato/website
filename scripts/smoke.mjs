@@ -19,11 +19,15 @@ for (const route of routes) {
   // Scope to <main> so Astro's dev toolbar (which renders its own headings into
   // the page) cannot supply the text we assert on.
   const main = page.locator("main")
-  const heading = ((await main.locator("h1, h2").first().textContent()) ?? "").trim()
+  const heading = (
+    (await main.locator("h1, h2").first().textContent()) ?? ""
+  ).trim()
   const ok = status === 200 && title.length > 0
   if (!ok) failed++
   const tag = ok ? "ok  " : "FAIL"
-  console.log(`${tag} ${route.padEnd(10)} ${status} title="${title}" heading="${heading.slice(0, 44)}"`)
+  console.log(
+    `${tag} ${route.padEnd(10)} ${status} title="${title}" heading="${heading.slice(0, 44)}"`
+  )
 }
 
 await page.goto(base, { waitUntil: "networkidle" })
