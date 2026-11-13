@@ -1,11 +1,11 @@
 ---
 title: "Algorithmic Paper-Trading Bot"
 summary:
-  "Algorithmic paper-trading bot running on Alpaca and Tradier, ported across
-  several runtimes over the years."
-tech: ["Rust", "Go", "C++", "Python", "Alpaca", "Tradier"]
+  "A trading bot that started on an ESP32 in C++ and was ported through Rust,
+  Go, and eventually Python, each rewrite an excuse to learn the runtime."
+tech: ["Rust", "Go", "C++", "Python", "Alpaca", "AlphaVantage"]
 links: []
-highlight: "Four runtimes, one strategy"
+highlight: "A durable 1.8 Sharpe ratio, in backtests"
 order: 6
 draft: false
 ---
@@ -36,7 +36,7 @@ internship with Capital One where we mainly used Go, and I wanted to keep that
 momentum going, since I kind of liked the language. Soon enough though, I had my
 grievances with Go, and decided that it was time for another rewrite.
 
-I started rewriting it in Rust again, with the knowledge I gained from the go
+I started rewriting it in Rust again, with the knowledge I gained from the Go
 implementation, but then I decided that if I wanted to really be serious about
 backtesting, simulation, risk calculation, etc., I should probably use something
 that's reasonably popular in the finance industry. So, I decided to use Python,
@@ -44,5 +44,5 @@ which already had sophisticated ecosystems for gathering data, running tests,
 simulations, visualization, logging, etc. Doing this, I was able to put more
 effort into developing strategies and creating a portfolio that actually
 achieved a durable 1.8 Sharpe ratio, albeit in backtests. I'm currently running
-achieved a 1.8 Sharpe ratio, albeit in backtests. I'm currently running that
-potentially overfit data.
+it on paper money, aware that a result tuned against one period is a hypothesis
+rather than a track record.

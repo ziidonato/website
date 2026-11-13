@@ -1,8 +1,8 @@
 ---
 title: "Electrocaddy"
 summary:
-  "Turns long component datasheets into structured metadata, then uses that
-  metadata to draft schematics and route PCB boards for electrical projects."
+  "Component datasheets are read into structured data, then a deterministic
+  engine checks a whole schematic or PCB against rules derived from them."
 year: 2026
 tech: ["TypeScript", "Firebase", "Braintrust", "AI"]
 links:
@@ -10,7 +10,7 @@ links:
     href: "https://electrocaddy.io"
   - label: "Source"
     href: "https://github.com/ziidonato/electronics-ai"
-highlight: "Structural representation of electrical components"
+highlight: "Datasheets turned into rules an engine can check"
 order: 1
 draft: false
 ---

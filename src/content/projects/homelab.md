@@ -1,12 +1,12 @@
 ---
 title: "Homelab"
 summary:
-  "Personal server cluster managed with NixOS flakes, running self-hosted
-  services behind a Caddy reverse proxy that's gated by Tailscale."
+  "Machines and VPS instances configured declaratively with NixOS flakes, so a
+  new box comes up from a build instead of an evening of setup steps."
 tech: ["NixOS", "Docker Compose", "Caddy", "Tailscale", "Linux"]
 links: []
 highlight:
-  "Configured developer tooling without needing install scripts or steps"
+  "Moved a team's laptops onto Nix so a new machine was one build away"
 order: 4
 draft: false
 ---
@@ -23,7 +23,7 @@ Because of this, I eventually landed myself at Nix (and NixOS), a declarative
 ecosystem that lets you define packages, symlinks, setup scripts, and virtually
 endless configuration and customization options that can get you going with just
 a build. With Nix flakes, I can specify exactly what I need to get a repo ready
-to go, and with just a build I can make I like NixOS especially because if I
+to go. I like NixOS especially because if I
 ever mess up royally, I can revert back to a previous generation (generations
 are stored by default) and go from there.
 

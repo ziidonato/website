@@ -1,12 +1,12 @@
 ---
 title: "UConn Formula SAE"
 summary:
-  "Multi-discipline work on UConn's electric Formula SAE car, competing at FSAE
-  Michigan."
+  "Built a relay board, a driver display, and a damper dyno for UConn's Formula
+  SAE team, on both the electric and combustion cars."
 year: 2025
 tech: ["STM32", "Firmware", "C", "PCB Design", "Mechanical"]
 links: []
-highlight: "Engineered the electronics for an electric Formula SAE car"
+highlight: "Engineered the electronics behind an FSAE car's shutdown and driver display"
 order: 3
 draft: false
 ---
@@ -30,7 +30,7 @@ So when I was in college, when I had the time to join a club, I immediately
 gravitated towards Formula SAE once I discovered it. We get to build our own car
 and race it against other institutions from around the world? ICE and EV? I had
 to join. I walked into a meeting, met some people there, and they placed me on
-the EV electrical/IC electrical teams. My first board was a shutdown relay relay
+the EV electrical/IC electrical teams. My first board was a shutdown relay
 board, which monitored the status of various systems in the car and shut off
 power to the motor if anything went awry. Next, I designed a PCB to help drivers
 monitor the car, featuring an LCD screen to show things like oil/tire

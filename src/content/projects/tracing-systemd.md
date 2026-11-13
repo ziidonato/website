@@ -17,8 +17,8 @@ order: 2
 draft: false
 ---
 
-While making my algorithmic trading bot, I came across a bit of a problem of
-logging: I using logs for debugging purposes, not data collection purposes, so I
+While making my algorithmic trading bot, I ran into a logging problem. I use
+logs for debugging, not data collection, so I
 didn't really want to set up a whole backend stack or even pay to have these
 logs collected. The easiest place I knew to get logs was the systemd journal
 using `journalctl`, and I wanted my app to use that. My implementation at the
@@ -40,9 +40,9 @@ it as `v0.1.0`.
 That crate helped me do my project, but it had a problem: a dependency on
 `libsystemd-dev` if you wanted to log to the journal. I eventually came back to
 this library and saw that as unacceptable, so I sought out to eliminate that
-external dependency and replace it with something made in pure-rust. I landed on
+external dependency and replace it with something made in pure Rust. I landed on
 `tracing-journald`, which is a crate maintained by the creators of `tracing`
-(and also the creators of`tokio`). That worked fine, but it sort of discarded
+(and also the creators of `tokio`). That worked fine, but it sort of discarded
 the formatting since it would pollute the systemd journal, but I accepted it for
 a while. This was the version that got the most usage, with 11,000 downloads so
 far.

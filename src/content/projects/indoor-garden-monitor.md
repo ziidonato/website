@@ -1,12 +1,12 @@
 ---
 title: "Indoor Garden Monitor"
 summary:
-  "Indoor-garden control system built around a custom ESP32 PCB, with sensors,
-  actuators, and a Home Assistant dashboard tying it together."
+  "An indoor grow system around a custom ESP32 PCB: sensors for temperature,
+  humidity, CO₂ and soil moisture, plus pumps and valves that act on them."
 year: 2024
-tech: ["ESP32", "C++", "PCB Design", "Home Assistant", "MQTT"]
+tech: ["ESP32", "C++", "PCB Design", "Sensors", "Relays"]
 links: []
-highlight: "Developed a PCB and firmware to monitor indoor conditions"
+highlight: "Sensors, pumps and valves on one custom board"
 order: 5
 draft: false
 ---

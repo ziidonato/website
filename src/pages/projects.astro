@@ -35,11 +35,13 @@ const { featured: selected, rest } = splitProjects(all)
   >
     <SectionHeading accent={RAINBOW[0]}>
       Everything I've shipped
+      <span
+        slot="aside"
+        class="type-label text-muted-foreground/70 tabular-nums"
+      >
+        {all.length}
+      </span>
     </SectionHeading>
-    <p class="mt-[-1.25rem] mb-10 max-w-xl text-foreground/80">
-      The complete list — products, libraries, hardware, and side experiments.
-      Ordered by nothing but my own judgement of how well each one turned out.
-    </p>
 
     {
       /* No `divide-y`: each record already draws its own rule, and both

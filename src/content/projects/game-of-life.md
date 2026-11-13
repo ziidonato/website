@@ -8,7 +8,7 @@ tech: ["C", "raylib", "CMake", "ubench"]
 links:
   - label: "Source"
     href: "https://github.com/ziidonato/game_of_life"
-highlight: "An exploration in optimization"
+highlight: "Turned a single-threaded sim into a double-buffered threaded engine"
 order: 7
 draft: false
 ---
