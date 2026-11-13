@@ -27,8 +27,7 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID
   ) : (
     import.meta.env.DEV && (
       <script is:inline>
-        console.info( "[clarity] PUBLIC_CLARITY_ID is unset — analytics
-        disabled. " + "Add it to .env to enable." )
+        console.info("[clarity] PUBLIC_CLARITY_ID is unset, analytics disabled")
       </script>
     )
   )

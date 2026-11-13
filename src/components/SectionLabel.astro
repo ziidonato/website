@@ -1,0 +1,27 @@
+---
+/**
+ * A sub-section eyebrow — the small `h3` above a list or a second block within
+ * a section. Distinct from `SectionHeading`, which is the section's own `h2`:
+ * this one is subordinate both in level and in weight.
+ *
+ * Extracted because the same nine-utility string was copied verbatim in three
+ * places (`About.astro` twice, `Experience.astro` once); changing the label
+ * style meant three edits and a drift risk.
+ */
+interface Props {
+  /** Rail colour. Omit for the section's inherited `--accent`. */
+  accent?: string
+}
+
+const { accent } = Astro.props
+---
+
+<h3
+  class="type-label mb-3 flex items-baseline gap-2.5 border-b pb-1.5 text-muted-foreground"
+>
+  <span
+    aria-hidden="true"
+    class="inline-block h-3 w-[3px] shrink-0 bg-accent"
+    style={accent ? `background-color: ${accent}` : undefined}></span>
+  <slot />
+</h3>

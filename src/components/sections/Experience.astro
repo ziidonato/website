@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content"
 import ExperienceCard from "@/components/ExperienceCard.astro"
 import SectionHeading from "@/components/SectionHeading.astro"
+import SectionLabel from "@/components/SectionLabel.astro"
 import { RAINBOW, rainbowAt } from "@/lib/rainbow"
 import { monthsOfExperience, yearsLabel } from "@/lib/experience"
 
@@ -61,14 +62,7 @@ const tenure = yearsLabel(monthsOfExperience(entries.map((e) => e.data)))
   }
 
   <div class="mt-10 border-t border-border/60 pt-6">
-    <h3
-      class="type-label mb-3 flex items-baseline gap-2.5 border-b pb-1.5 text-muted-foreground"
-    >
-      <span
-        aria-hidden="true"
-        class="inline-block h-3 w-[3px] shrink-0 bg-accent"></span>
-      Education
-    </h3>
+    <SectionLabel>Education</SectionLabel>
     <p class="text-sm">
       <span class="type-title text-base">University of Connecticut</span>
       <span class="text-muted-foreground">

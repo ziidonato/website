@@ -43,16 +43,18 @@ const storyId = `story-${slug}`
   {/* One affordance, not two: the summary is the only control, and it sits
        under the body when open. `<summary>` cannot move, so the markup puts
        the body first and the summary last, and `order` flips the pair while
-       collapsed — the summary stays a child of `<details>` (so the native
-       toggle and the `name` group still work) while reading as the line above
-       or below the text. */}
+       collapsed — the summary stays a child of `<details>`, which is what
+       keeps the native toggle working, while reading as the line above or
+       below the text.
+
+       No `name`: a shared name is a native exclusive accordion, so opening one
+       story closed every other one, and a reader comparing two projects lost
+       the first. Independent disclosures also match the anchor behaviour below
+       — a `#story-…` deep link opens its card regardless of what else is open.
+       Do not add `name` back to "make it tidier"; the exclusivity is the bug. */}
   {
     detailed && hasStory && (
-      <details
-        id={storyId}
-        name="project-story"
-        class="group/details mt-3 flex scroll-mt-20 flex-col"
-      >
+      <details id={storyId} class="group/details mt-3 flex scroll-mt-20 flex-col">
         <summary class="type-meta order-first flex cursor-pointer list-none items-center gap-1.5 text-muted-foreground transition-colors duration-150 group-open/details:order-last group-open/details:mt-3 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none [&::-webkit-details-marker]:hidden">
           {
             /* Two icons rather than one rotated: `class` is not forwarded by
