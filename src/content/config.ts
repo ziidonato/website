@@ -1,4 +1,6 @@
 import { defineCollection, z } from "astro:content"
+import { glob } from "astro/loaders"
+
 
 const yearMonth = z
   .string()
@@ -70,7 +72,14 @@ const experience = defineCollection({
 })
 
 const blog = defineCollection({
-  type: "content",
+  // A post is a lone `.md` or a folder with an `index.mdx`. Anything else is
+  // that section's own material (a post's company entries, its components) and
+  // must not be collected as a post — globbed as one it fails this schema and
+  // gets a bogus route.
+  loader: glob({
+    base: "./src/content/blog",
+    pattern: ["*.{md,mdx}", "*/index.{md,mdx}"],
+  }),
   schema: z.object({
     title: z.string(),
     summary: z.string(),

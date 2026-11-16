@@ -1,6 +1,6 @@
 ---
 import { ArrowLeftIcon } from "@phosphor-icons/react"
-import { getCollection, type CollectionEntry } from "astro:content"
+import { getCollection, render, type CollectionEntry } from "astro:content"
 import Layout from "@/layouts/main.astro"
 
 export async function getStaticPaths() {
@@ -8,8 +8,10 @@ export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) =>
     isProd ? data.draft !== true : true
   )
+  // A folder post is `40-ai-eda-companies`; its id is `40-ai-eda-companies/index`,
+  // and the `index` is the folder, not a page.
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id.replace(/\/index$/, "") },
     props: { post },
   }))
 }
@@ -19,7 +21,7 @@ interface Props {
 }
 
 const { post } = Astro.props
-const { Content } = await post.render()
+const { Content } = await render(post)
 
 const fmtDate = (d: Date) =>
   d.toLocaleString("en-US", {

@@ -1,0 +1,198 @@
+---
+import { render } from "astro:content"
+import Company from "./Company.astro"
+
+interface Props {
+  placeholder?: string
+}
+
+const { placeholder = "Search…" } = Astro.props
+
+/* Every `.mdx` in `./companies/` is an entry, so adding a company is dropping a
+ * file in — no registry, no import line, no build step that can disagree with
+ * the folder. The blog content glob skips `*.mdx` under a post folder, which is
+ * what keeps these out of the blog collection. Sorting by name is the first
+ * paint only; the script re-sorts and filters the DOM after. */
+type Entry = {
+  frontmatter: {
+    name: string
+    take?: string
+  }
+  Content: Awaited<ReturnType<typeof render>>["Content"]
+}
+
+const modules = import.meta.glob<Entry>("./companies/*.mdx", { eager: true })
+
+const companies = Object.entries(modules)
+  .map(([, mod]) => ({ meta: mod.frontmatter, Body: mod.Content }))
+  .sort((a, b) =>
+    a.meta.name.localeCompare(b.meta.name, "en", { sensitivity: "base" })
+  )
+---
+
+{
+  /* `not-prose` belongs on the chrome, never on this wrapper: the typography
+ * plugin excludes *descendants* of a `not-prose` element from every `.prose`
+ * rule, so marking the wrapper would strip bullets and spacing from the entry
+ * bodies nested inside it.
+
+ * The bar is hidden until the script runs: search does nothing without JS, and
+ * a dead input is worse than no input. With JS off the entries still open
+ * natively, which is the fallback worth having. */
+}
+<div class="my-8" data-company-list>
+  <div
+    class="not-prose mb-2 flex flex-col gap-3 border-b border-border/60 pb-4"
+    data-company-controls
+    hidden
+  >
+    <div class="flex flex-wrap items-center gap-2">
+      <input
+        type="search"
+        data-company-search
+        placeholder={placeholder}
+        aria-label="Search entries"
+        class="type-meta h-9 w-full max-w-xs rounded-md border border-border bg-background px-3 text-foreground placeholder:text-muted-foreground/60 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+      />
+      <button
+        type="button"
+        data-company-toggle-all
+        class="type-label rounded-md border border-border px-3 py-1.5 text-muted-foreground transition-colors duration-150 hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+      >
+        Expand all
+      </button>
+      {
+        /* Polite, not assertive: filtering runs on every keystroke, and an
+         * assertive region would interrupt the letters being typed. */
+      }
+      <span
+        class="type-meta ml-auto text-muted-foreground/70 tabular-nums"
+        data-company-count
+        role="status"
+        aria-live="polite"></span>
+    </div>
+  </div>
+
+  {
+    /* Rows are articles in a `list`: a screen reader then announces "list, 12
+     * items" and gives each row a position, which a bare div soup does not. */
+  }
+  <div data-company-rows role="list" aria-label="Company entries">
+    {companies.map(({ meta, Body }) => <Company {...meta} Body={Body} />)}
+  </div>
+
+  <p
+    class="not-prose type-meta mt-6 hidden text-muted-foreground"
+    data-company-empty
+    role="status"
+  >
+    Nothing matches that filter.
+  </p>
+</div>
+
+{
+  /* The palette walk without JS: six rules, cycling, starting at red. Rows live
+    in their own container so the filter bar above them is not counted by
+    `nth-child`. Once the script runs it stamps `--accent` inline, which beats
+    these rules — `nth-child` follows DOM order, and sorting rewrites that. */
+}
+<style is:global>
+  [data-company-rows] > [data-company]:nth-child(6n + 1) {
+    --accent: var(--accent-red);
+  }
+  [data-company-rows] > [data-company]:nth-child(6n + 2) {
+    --accent: var(--accent-orange);
+  }
+  [data-company-rows] > [data-company]:nth-child(6n + 3) {
+    --accent: var(--accent-yellow);
+  }
+  [data-company-rows] > [data-company]:nth-child(6n + 4) {
+    --accent: var(--accent-green);
+  }
+  [data-company-rows] > [data-company]:nth-child(6n + 5) {
+    --accent: var(--accent-blue);
+  }
+  [data-company-rows] > [data-company]:nth-child(6n) {
+    --accent: var(--accent-purple);
+  }
+</style>
+
+<script>
+  /* Scoped to one wrapper rather than using `document` selectors: the post
+   * holds several groups, and filtering one must not disturb another. */
+  const initList = (root: HTMLElement) => {
+    const bar = root.querySelector<HTMLElement>("[data-company-controls]")
+    const search = root.querySelector<HTMLInputElement>("[data-company-search]")
+    const count = root.querySelector<HTMLElement>("[data-company-count]")
+    const empty = root.querySelector<HTMLElement>("[data-company-empty]")
+    const rowsEl = root.querySelector<HTMLElement>("[data-company-rows]")
+    const toggleAll = root.querySelector<HTMLButtonElement>(
+      "[data-company-toggle-all]"
+    )
+    if (!bar || !search || !rowsEl) return
+
+    const entries = Array.from(
+      rowsEl.querySelectorAll<HTMLElement>("[data-company]")
+    )
+    if (entries.length === 0) return
+
+    const PALETTE = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+    const apply = () => {
+      const query = search.value.trim().toLowerCase()
+
+      let shown = 0
+      for (const el of entries) {
+        const visible =
+          query === "" || el.textContent!.toLowerCase().includes(query)
+        el.hidden = !visible
+        if (!visible) continue
+        /* The hue follows the entry's position among the *visible* rows, so a
+         * filtered list restarts at red instead of leaving gaps where the
+         * hidden entries were. */
+        el.style.setProperty(
+          "--accent",
+          `var(--accent-${PALETTE[shown % PALETTE.length]})`
+        )
+        shown++
+      }
+
+      if (count) count.textContent = `${shown} of ${entries.length}`
+      if (empty) empty.hidden = shown > 0
+    }
+
+    search.addEventListener("input", apply)
+    bar.hidden = false
+
+    toggleAll?.addEventListener("click", () => {
+      const visible = entries.filter((el) => !el.hidden)
+      const allOpen = visible.every((el) => el.querySelector("details")?.open)
+      for (const el of visible) {
+        const details = el.querySelector("details")
+        if (details) details.open = !allOpen
+      }
+      toggleAll.textContent = allOpen ? "Expand all" : "Collapse all"
+    })
+
+    // A deep link to a folded entry has to open it, or `#stripe` lands on a
+    // closed row and looks broken.
+    const openHash = () => {
+      const id = location.hash.slice(1)
+      if (!id) return
+      const details = document
+        .getElementById(decodeURIComponent(id))
+        ?.querySelector("details")
+      if (details) details.open = true
+    }
+    openHash()
+    addEventListener("hashchange", openHash)
+
+    apply()
+  }
+
+  for (const root of document.querySelectorAll<HTMLElement>(
+    "[data-company-list]"
+  )) {
+    initList(root)
+  }
+</script>

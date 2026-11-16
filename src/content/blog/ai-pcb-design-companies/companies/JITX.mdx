@@ -1,0 +1,45 @@
+---
+name: "JITX"
+take: "Infrastructure for AI to build schematics/PCBs"
+---
+
+JITX seems pretty interesting. Founded in Berkeley, CA in 2017, their aim is to
+build the infrastructure around which AI builds circuits (shocker). They've
+raised around \$12 million in 2 rounds, with the latest being in 2022.
+
+## Product
+
+At its core, JITX is a representation of schematics and PCBs, a python library
+to generate/interact with them, and an MCP. You connect the MCP to the AI tool
+of you choice, and it generates code that uses the library to represent the
+circuit. You can then feed it into Ansys for simulations.
+
+They have started making that a bit of a loop, where the AI generates code that
+goes into Ansys, then takes the output to iterate on the design. That's the bulk
+of what their [demo video](https://www.youtube.com/watch?v=SUVSwqZazik) talks
+about now.
+
+## What they do well
+
+They have a demo video, which is ground for credit on its own. It's insightful
+and goes through features of the app, and isn't too fast-paced, so you can
+actually see what's going on.
+
+The product itself seems pretty cool too. They don't have their own AI, they let
+you use your own, opening paths for local AI or other providers or harnesses.
+They also don't try to replicate things that established tools do already. They
+have plugins for KiCad and Altium, and their "simulation" is really
+communicating with Ansys, a known simulation platform. I actually really like
+this.
+
+## What they suck at
+
+No test results, no accuracy reports, anything like that. It's cool that they're
+not false-advertising, but they're not true-advertising either. Their demo video
+has 5.8k views. I have made Five Nights at Freddy's videos with more views than
+that. Seriously, come on.
+
+Their library is also FOSS, but the circuits you make must also be FOSS and
+shared with them, which is pretty stupid in my opinion. The only other option is
+enterprise, which I don't like, because that's unfriendly to sole founders &
+individuals.

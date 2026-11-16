@@ -1,0 +1,98 @@
+---
+title: "Why hasn't AI-assisted PCB Design taken off?"
+summary:
+  "Doing the one thing nobody else does when thinking of ideas: market research"
+date: 2026-11-14
+draft: true
+---
+
+import CompanyList from "./CompanyList.astro"
+
+When I was building Electrocaddy, while I didn't know what direction I wanted to
+take it, I thought I was breaking new ground, creating something nobody else had
+done before, or at least done right. I got to building thinking I was one of the
+pioneers in the field, that I would have some widespread adoption because
+nobody's seen this before and my implementation is gonna be "right", a whole
+bunch of starry-eyed visions that ignored the underlying question, which was "is
+anyone else doing this? What is the niche I can actually target?"
+
+I had failed to do the most important thing before starting any project that you
+plan to commercialize: market research. I just got started and actually spent
+$1,000 on windsurf credits building out my solution, which, in hindsight, was
+very rudimentary. I had barely scratched the surface of modeling datasheets and
+component specs, what I did model was processed and extracted poorly, and the
+small amount of verification/circuit knowledge I had relied on the AI getting a
+massive JSON file and reasoning about that, which threw any reliability and
+consistency out the window.
+
+So, when starting my second implementation, I decided to do some research and
+see what was out there, especially since I had come across a few companies doing
+this & sponsoring videos on youtube. And yeah, there are... a lot. So it begs
+the question: how come none of these have taken off? Let's look into each
+company, the product(s) they offer, what they do well & what they suck at, along
+with any sentiment from online reviews or comments.
+
+<CompanyList />
+
+So there we have it, 13 companies who have tried/are trying to solve the same
+problem, in different ways. We can see how some companies try to move the whole
+ecosystem onto their platform, like Protoflow and JITX, some try to integrate
+with existing platforms, like BQR, Cadstrom, Circuit Mind, and others, and some
+are going in-between (like quilter, where you design in ECAD, then upload to
+their platform). Some of them do simulations, some do schematic generation, some
+do PCB layout, some do all of it, but all of them have one thing in common: they
+haven't really taken off. (BQR might have some solid adoption) Why is that?
+
+Well, another thing all of these have in common is a severely lacking marketing
+campaign or department or anything like that. Nobody's talking about these guys!
+I had to search pretty deep to find some of these players, and there are
+probably some more out there that I'm missing. Why do these companies suck at
+marketing? Is it a deliberate purpose, putting as much money into the quality of
+the product as possible? Could be, although companies that have raised a solid
+bit of money can't really use this as an excuse.
+
+Online sentiment is that all of these suck. They're inaccurate, you always have
+to fix things, they're seen more as jokes or entertainment, time-killing
+curiosity sinks rather than real tools. That would indicate that the quality of
+the product is, in fact, bad, and that the companies are right to be spending as
+much resources as possible trying to improve quality. One could also say that
+online forums are a harsh crowd, especially with AI fatigue settling in.
+
+I thought I would do this research and come out with a niche like "nobody has
+done THIS." No, multiple companies have done that. Maybe not in the way I was
+thinking, but definitely in a way. So why hasn't a solution been adopted? Or,
+why hasn't enough demand been created where a business that could have a chance
+at getting it right, hasn't done it yet? Compare this to software, where any
+idea you come up with is probably being developed right now by some guy willing
+to shovel tokens into the AI furnace.
+
+My immediate answer is that electrical engineering has higher stakes, therefore
+there are more processes involved, therefore more inertia when making decisions
+like this. This does track, especially if you look at other disciplines where
+mistakes are costly, like mechanical engineering. I don't see AI disheveling
+that community any time soon, and Autodesk is trying. There is also the idea
+that software can be patched & updated while electronics usually can't, and
+circuit boards definitely can't. So a mistake in a board that goes into
+production costs a whole lot more than a mistake in software. Engineers know
+that and show it in their processes and decisions. Even firmware developers
+aren't really playing around here.
+
+So where does that leave an aspirational founder? What does that tell someone
+who wants to start a business, build a product, and revolutionize the game? For
+me, it tells me that the demand probably isn't there. Think about who the target
+buyer is. People who doesn't know enough about electrical engineering/designing
+PCBs probably aren't gonna come up with a business idea that requires a custom
+PCB, because they don't have the first clue on how to do that. Anyone who does
+know enough to design a board isn't gonna wanna use it, because they would have
+to check everything over anwyays Anyone who does know enough to design a board
+isn't gonna wanna use it, because they would have to check everything over
+anyways.
+
+All in all, this was a very interesting exercise in market research. Finding out
+how other teams are solving the same problem I'm looking to solve, and where
+they fell short in ways I could possibly improve on, was incredibly
+informational, and pretty fun. Just sucks that I couldn't get any definitive
+answers though.
+
+Maybe the market research isn't supposed to teach the lesson, maybe the market
+research is the lesson.

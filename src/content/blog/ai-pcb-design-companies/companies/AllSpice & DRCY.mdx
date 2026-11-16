@@ -1,0 +1,57 @@
+---
+name: "Allspice/DRCY"
+take: "Github for Electronics"
+---
+
+Founded in 2018, AllSpice positions themselves as a "Github for ECAD," allowing
+clients to store their boards in the cloud where they get Github-like issues,
+reviews, branches, etc. DRCY, their AI assistant, can help design and review
+boards, referencing the datasheet in its findings.
+
+## Products
+
+### AllSpice Hub
+
+[AllSpice Hub](https://hub.allspice.io/explore/repos) is their main product, a
+"Github for ECAD."
+[It's based on a fork of Gitea](https://allspice.io/post/which-git-clients-work-for-hardware-engineers-and-why#:~:text=Allspice%20Hub%20is%20based%20on%20a%20fork%20of%20Gitea),
+and comes with a host of Github-like features. You can
+[update boards using commits](https://hub.allspice.io/MUREX/electrical/commit/7fcfe4ee71e1514080ec1bc95f309e7db78b61ad#diff-eed014d32bb0f702e9dcb329d72e79db7781db0b),
+open and close issues, view schematics and boards in different formats (like
+[KiCAD](https://hub.allspice.io/MUREX/electrical) and
+[Altium](https://hub.allspice.io/Actions-Demos/Action-digikey-search-html-report-Demo)),
+use releases, etc. I didn't want to make an account, but
+[DRCY](https://hub.allspice.io/Actions-Demos/Action-digikey-search-html-report-Demo/drcy),
+their second product, is here as well.
+
+If you look at their pricing, it's a good clip. There are 4 plans, and the first
+one starts a \$34,800 per year. This is clearly marketed as an enterprise
+product.
+
+## What they do well
+
+They seem to have a pretty good strategy for acquiring/processing the
+datasheets. In their
+[paper documenting how the agent works](https://arxiv.org/html/2603.15672v1),
+they have a system that can query Digikey's API, files uploaded by clients, and
+other sources to retrieve the datasheets, given an MPN.
+
+I think the ability to see diffs on the board is pretty cool. I don't know how
+much I'd pay for that, but I think it's pretty cool.
+
+## What they suck at
+
+It doesn't tell you where in the datasheet it got its source from. No highlight,
+page number, section, anything. They also don't tell you the accuracy of their
+reviews or their data extraction pipelines. Since there is no real sense of
+determinism, I can't imagine the accuracy is very high.
+
+## Online sentiment
+
+[People don't seem to see the benefit to it versus using git.](https://www.reddit.com/r/ECE/comments/1d9rn4a/allspice/)
+Git already works with ECAD software (I can attest, I have a KiCAD board in a
+github repo right now), so that functionality wouldn't be worth the
+enterprise-grade pricing for them.
+[According to one user who was tasked with testing these sorts of applications](https://www.reddit.com/r/PCB/s/kDVf8C3dzq),
+DRCY was "far from accurate", but reviewing the schatic on every commit is
+pretty cool.

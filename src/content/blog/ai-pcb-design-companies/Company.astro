@@ -1,0 +1,111 @@
+---
+import { render } from "astro:content"
+import {
+  ArrowUpRightIcon,
+  CaretDownIcon,
+  CaretUpIcon,
+} from "@phosphor-icons/react"
+
+interface Props {
+  /** The entry's file. It owns its own prose, so an entry is one file rather
+   * than forty attributes and a hundred lines of Markdown indented inside
+   * `<Company>`. That is also what keeps the headings legal: every entry
+   * repeats "Products" / "What they do well" / "What they suck at", and one
+   * file holding forty of them is forty MD024 collisions. Alone, each has none. */
+  Body?: Awaited<ReturnType<typeof render>>["Content"]
+  /** The compile-time parse of that same file's frontmatter, so the header and
+   * the prose cannot drift apart the way a `name="Accuris"` prop beside a body
+   * about someone else could. */
+  name: string
+  take?: string
+  /** Their homepage. Rendered as the outbound link on the take line, so every
+   * entry answers "where do I look at this" without hunting the body prose. */
+  website?: string
+}
+
+const { Body, name, take = "", website } = Astro.props
+
+// Also the anchor id: a deep link should be the company, not a number.
+const id = name
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/^-+|-+$/g, "")
+
+/* Read out instead of "site": a screen reader running the list hears a dozen
+ * identical links otherwise, and the destination is the only thing that tells
+ * them apart. The visible word stays short because the row is a scanning
+ * surface, not a link list. */
+const websiteHost = (() => {
+  if (!website) return ""
+  try {
+    return new URL(website).hostname.replace(/^www\./, "")
+  } catch {
+    return website
+  }
+})()
+---
+
+{
+  /* No link on the name: anything clickable inside `<summary>` races the
+ * native toggle, so a row either navigates or opens, never both. Outbound links
+ * belong in the body Markdown, where they behave normally.
+
+ * `--accent` is stamped by `CompanyList`, which owns the palette walk because
+ * only it knows which entries are currently visible. */
+}
+<article
+  id={id}
+  role="listitem"
+  data-company
+  data-name={name}
+  class="accent-rule scroll-mt-24 border-t"
+>
+  {
+    /* No `hidden` on the closed body: `<details>` already removes it from the
+     * accessibility tree and from find-in-page, and hiding it again is what
+     * breaks the native toggle for anyone without a pointing device. */
+  }
+  <details class="group/company">
+    <summary
+      aria-label={`${name}${take ? ` — ${take}` : ""}`}
+      class="not-prose flex cursor-pointer list-none flex-col gap-1 py-4 opacity-95 transition-opacity duration-150 hover:opacity-100 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none [&::-webkit-details-marker]:hidden"
+    >
+      <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <h3 id={`${id}-name`} class="type-title">{name}</h3>
+        <span class="accent-text-soft ml-auto">
+          <span class="group-open/company:hidden">
+            <CaretDownIcon size={12} weight="bold" aria-hidden="true" />
+          </span>
+          <span class="hidden group-open/company:inline">
+            <CaretUpIcon size={12} weight="bold" aria-hidden="true" />
+          </span>
+        </span>
+      </div>
+      <p class="type-body max-w-2xl text-pretty text-muted-foreground">
+        {take}
+        {
+          website && (
+            <>
+              {" "}
+              <a
+                href={website}
+                target="_blank"
+                rel="noopener"
+                aria-label={`${name} website (opens in a new tab)`}
+                class="inline-flex items-baseline gap-0.5 underline-offset-4 transition-colors duration-150 hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+              >
+                site<span class="sr-only"> ({websiteHost})</span>
+                <ArrowUpRightIcon size={10} weight="bold" aria-hidden="true" />
+              </a>
+            </>
+          )
+        }
+      </p>
+    </summary>
+    <div
+      class="prose prose-sm mb-6 max-w-none text-foreground prose-neutral dark:prose-invert prose-h4:mt-6 prose-h4:mb-2 prose-h4:font-mono prose-h4:text-xs prose-h4:tracking-[0.1em] prose-h4:text-muted-foreground/80 prose-h4:uppercase prose-p:my-3 prose-p:leading-[1.65]"
+    >
+      {Body && <Body />}
+    </div>
+  </details>
+</article>
